@@ -1,0 +1,3 @@
+[submodule "wp-content/plugins/xophz-compass-xp"]
+	path = wp-content/plugins/xophz-compass-xp
+	url = git@bitbucket.org:mycompass/xophz-compass-xp.git

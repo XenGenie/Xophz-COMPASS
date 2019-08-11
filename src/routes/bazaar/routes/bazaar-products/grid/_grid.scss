@@ -1,0 +1,21 @@
+.products-grid{
+  .v-card {
+    width: calc(20% - 8px);
+    margin: 4px;
+    display: inline-block;
+    vertical-align: top;
+    img {
+      max-width: 100%; 
+    }
+  }
+  .product-img{
+    position: relative;
+    transition: all .15s ease 0s;
+    top: 0;
+  }
+  .product-img:hover{
+    top: -15px;
+  }
+  padding: 0 15px ;
+}
+

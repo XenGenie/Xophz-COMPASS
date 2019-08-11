@@ -1,4 +1,4 @@
-# xophz-compass-vue
+# xophz-compass
 
 ## Project setup
 ```

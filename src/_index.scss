@@ -1,0 +1,289 @@
+// @import "~vue-material/dist/theme/engine"; // Import the theme engine
+
+// @include md-register-theme("default", (
+//   primary: md-get-palette-color(lightblue, 500), // The accent or secondary color
+//   accent: md-get-palette-color(green, 600), // The accent or secondary color
+//   theme: dark // This can be dark or light
+// ));
+
+// @import "~vue-material/dist/theme/all"; // Apply the theme
+@import './styles/_mixins.scss';
+
+
+.theme--dark.v-application{
+  background-color: transparent !important;
+}
+
+$breadcrumb-footer-height: 45px;
+
+.breadcrumbs{
+  position: -webkit-sticky;
+  position: sticky !important;
+  top: 0px !important;
+  height: $breadcrumb-footer-height;
+  max-height: $breadcrumb-footer-height;
+  z-index: 5 !important;
+  .breadcrumb {
+    margin: 5px 0 0 10px !important;
+    margin-top: 5px;
+  }
+  .breadcrumb-item span{
+    color: white;
+  }
+
+    background: none ;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+49&0.65+0,0+49 */
+  background: -moz-linear-gradient(-45deg,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 49%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 49%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 49%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ) !important; /* IE6-9 fallback on horizontal gradient */
+}
+
+.v-application{
+  .v-app-bar{
+    top: 0;
+    z-index: 5 ;
+    @include desktop{
+      z-index: 3 !important ;
+      top: $breadcrumb-footer-height !important;
+
+    }
+
+    @include tablet{
+    }
+
+    button, input, select, textarea {
+      background-color: transparent ;
+      border-style: none ;
+      color: inherit;
+    }
+
+    padding-left: 8px;
+    .v-image{
+      max-width: 48px
+    }
+  
+  }
+  .v-content{
+    padding-top: 0px !important;
+  }
+}
+
+.v-content-billboard{
+  padding-top: 64px !important;
+  .container{
+    padding-top: 12px !important;
+  }
+}
+
+.wp-responsive-open{
+  .v-dialog__content {
+    // margin-right: 15px;
+    // left: inherit !important;
+    // width: auto !important; 
+  }
+  .main-nav{
+    left: unset !important;
+  }
+  .v-app-bar{
+    left: unset !important;
+    right: unset !important;
+    /* position: static; */
+    width: calc(100% - 160px );
+  }
+}
+
+.v-toolbar-title{
+  .v-chip{
+    span{
+      display: none;
+
+    }
+  }
+  .v-chip:hover{
+    span {
+      display: block;
+    }
+  }
+}
+
+.wp-menu-btn{
+  width: 150px;
+}
+
+.copyright{
+  display: none;
+  // position: fixed !important;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.sticky{
+  top: 0 !important;
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  height: auto;
+  z-index: 2;
+}
+
+// *{
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   // -webkit-text-stroke: 0.45px;
+//   // // or
+//   // -webkit-text-stroke: 0.45px rgba(255, 255,255,0.1);
+//   // // or
+//   // text-shadow: #000 0px 1px 1px;
+// }
+.v-flex.sm5{
+  flex-basis: 20%;
+  flex-grow: 0;
+  max-width: 20%;
+  @include phone{
+    flex-basis: 20%;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+  @include tablet{
+    flex-basis: 33.3%;
+    flex-grow: 1;
+    max-width: 33.3%;
+  }
+  img{
+    max-width: 80%;
+  }
+}
+
+#adminmenu,  #adminmenuback, #adminmenuwrap{
+  background-color : transparent;
+}
+
+#adminmenu li.menu-top:hover, #adminmenu li.opensub>a.menu-top, #adminmenu li>a.menu-top:focus {
+  background-color : transparent;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+
+html, html.wp-toolbar{
+  padding: 0;
+  margin: 0;
+}
+
+.update-nag{
+  display: none;
+}
+
+.md-stepper {
+    width: 100%;
+    padding: 25px 5px !important;
+}
+.md-card {
+    width: calc(33.3% - 15px);
+    margin: 5px ;
+    display: inline-block;
+    vertical-align: top;
+    background: rgba(35, 40, 45, 0.84)
+}
+
+.md-card img{
+    max-width: 150px;
+}
+
+.md-steppers.md-theme-default {
+    background-color: transparent; 
+    color: rgba(255,255,255,0.87);
+}
+
+.md-button.md-theme-default {
+    color: rgba(255,255,255,0.87) !important;
+}
+
+.md-card .md-subhead {
+    opacity: .77;
+}
+
+html{
+    height: auto !important;
+}
+
+// html, body {height: 100%; }
+
+.md-steppers-wrapper{
+    height: auto !important;
+}
+html.md-theme-default {
+    background-color: transparent;
+    background-color: var(--md-theme-default-background-variant, transparent);
+    color: #fff;
+    color: var(--md-theme-default-text-primary-on-background-variant, #fff);
+}
+
+.trinity-rings-spinner{
+  margin: auto;
+  position: absolute;
+  height: 400px !important;
+  width: 400px !important;
+}
+
+.trinity-rings-spinner .circle:nth-child(1) {
+      height: 400px !important;
+      width: 400px !important;
+    border: 3px solid #25a1c5 !important;
+}
+.trinity-rings-spinner .circle:nth-child(2) {
+    border: 3px solid #3ecd74 !important;
+      height: calc(377px *1) !important;
+      width: calc(377px * 1) !important;
+}
+.trinity-rings-spinner .circle:nth-child(3) {
+    display: none !important;
+    border: 1px solid rgba(102,221,225,1) !important;
+    height: 100px !important;
+    width: 100px !important;
+    background: rgba(102,221,225,1)!important;
+    background: radial-gradient(ellipse at top center, rgba(102,221,255,.95) 0%,rgba(37,161,197,.75) 100%) !important;
+}
+.trinity-rings-spinner, .trinity-rings-spinner * {
+    box-sizing: border-box;
+}
+
+.trinity-rings-spinner .circle {
+  position:absolute;
+  display:block;
+  border-radius:50%;
+  // border: 3px solid #ff1d5e;
+  opacity: 1;
+}
+
+@keyframes trinity-rings-spinner-circle1-animation{
+  0% {
+    transform: rotateZ(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateZ(0deg) rotateY(360deg);
+  }
+}
+@keyframes trinity-rings-spinner-circle2-animation{
+  0% {
+    transform: rotateZ(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateZ(0deg) rotateX(360deg);
+  }
+}
+@keyframes trinity-rings-spinner-circle3-animation{
+  0% {
+    transform: rotateZ(100deg) rotateX(-360deg);
+  }
+  100% {
+    transform: rotateZ(-360deg) rotateX(360deg);
+  }
+}

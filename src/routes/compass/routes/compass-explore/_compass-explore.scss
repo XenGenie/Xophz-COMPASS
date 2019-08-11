@@ -1,0 +1,59 @@
+.compass-explore{
+  .v-card{
+    overflow: hidden;
+    height: 250px;
+  }
+
+  .pluginImage {
+    filter: grayscale(0%); 
+    opacity : 1;
+    position: absolute;
+    top: 0;
+    left: -10vh;
+    height: 35vh;
+    transition: filter, opacity 1s;
+  }
+
+  .deactivated{
+    filter: grayscale(100%); 
+    opacity : 0.3;
+  }
+
+  .plugin{
+    width: 100%;
+      // width: calc(10% - 15px);
+      // margin: 15px;
+    .v-image__image{
+      // width: 120%;
+      // background-position: center center !important;
+      background-size: 125%;
+    }
+  }
+
+  .activate-btn{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .learn-more{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .v-footer{
+    position: absolute;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#212121+0,212121+100&0+31,1+58 */
+background: -moz-linear-gradient(-45deg,  rgba(33,33,33,0) 0%, rgba(33,33,33,0) 31%, rgba(33,33,33,1) 58%, rgba(33,33,33,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  rgba(33,33,33,0) 0%,rgba(33,33,33,0) 31%,rgba(33,33,33,1) 58%,rgba(33,33,33,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  rgba(33,33,33,0) 0%,rgba(33,33,33,0) 31%,rgba(33,33,33,1) 58%,rgba(33,33,33,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00212121', endColorstr='#212121',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  }
+
+}

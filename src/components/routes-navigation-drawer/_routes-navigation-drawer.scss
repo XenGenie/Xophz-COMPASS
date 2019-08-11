@@ -1,0 +1,48 @@
+@import '../../styles/_mixins.scss';
+
+  $sm-toolbar-height: 56px;
+  $toolbar-height: 64px;
+  $breadcrumb-height: 45px;
+
+.wp-responsive-open {
+  .v-navigation-drawer--close{
+    opacity: 0;
+    z-index: 0;
+  }
+}
+.routes-navigation-drawer{
+
+  z-index: 1;
+  transition-property: transform,width,-webkit-transform, opacity !important ;
+  // top: $toolbar-height;
+    opacity: 1;
+  .v-list{
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+  }
+  // .v-footer{
+  //   position: -webkit-sticky;
+  //   position: sticky;
+  //   z-index: 999;
+  //   top: 96vh;
+  // }
+  .mini-avatar{
+      justify-content: center !important;
+  }
+  .v-subheader{
+    font-size: 1rem;
+    height: auto;
+    color: #333;
+  }
+}
+.v-navigation-drawer {
+    overflow-y: visible !important;
+    overflow-x: visible !important;
+}
+.main-nav{
+  top: $sm-toolbar-height !important;
+    @include desktop{
+      z-index: 3 !important;
+      top: $toolbar-height + $breadcrumb-height !important;
+    }
+}

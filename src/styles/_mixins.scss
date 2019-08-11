@@ -1,0 +1,99 @@
+/**
+ * Custom application mixins available through out the app
+ */
+
+$cell-width: 640px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$fk-width: 2560px;
+
+@mixin phone {
+  @media screen and (max-device-width: #{$cell-width}){
+    @content;
+  }
+  // @media only screen and (max-width: #{$tablet-width}){
+  //   @content;
+  // }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin fk{
+  @media (min-width: #{$fk-width}) {
+    @content;
+  }
+}
+
+// define sass mixin
+// Generates single property classes
+// -------------------------
+@mixin property-variants($base, $property, $variants: ()) {
+  @each $size, $value in $variants {
+    @if $size == 'md' {
+      #{$base} {
+        #{$property}: $value;
+      }
+
+      #{$base}-n {
+        #{$property}: $value;
+      }
+    }
+
+    #{$base}-#{$size} {
+      #{$property}: $value;
+    }
+
+    #{$base}-n-#{$size} {
+      #{$property}: -$value;
+    }
+  }
+}
+
+// Common thumbnail properties
+// -------------------------
+@mixin thumb($parent, $size) {
+  #{$parent} {
+    width: $size;
+
+    > .glyphicon,
+    > .fa {
+      line-height: $size;
+    }
+  }
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+@mixin scroll-bar($color) {
+  &::-webkit-scrollbar {
+    height: 8px;
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: none;
+    background-color: $color;
+  }
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}

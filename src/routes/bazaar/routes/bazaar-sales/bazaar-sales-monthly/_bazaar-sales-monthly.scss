@@ -1,0 +1,29 @@
+.bazaar-sales-monthly{
+  input {
+    background-color: transparent;
+    border: none;
+  }
+  
+  button, input, select, textarea {
+    background-color: transparent ;
+    border-style: none ;
+    color: inherit;
+  }
+
+  .v-card{
+    height: 220px;
+  }
+
+  .splash-img-container{
+    position: relative;
+      overflow: visible;
+  }
+    .splash-img{
+      position: absolute;
+      overflow: visible;
+      // left: -50%;
+      height: 50vh;
+      left: -23vh;
+      top: -20vh;
+    }
+}

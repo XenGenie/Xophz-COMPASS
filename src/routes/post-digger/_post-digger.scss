@@ -1,0 +1,18 @@
+.post-digger{
+  .md-dialog{
+    width: 70%;
+  }
+  .md-card{
+    width: calc(33.3% - 10px);
+    margin: 5px;
+  
+  }
+  .md-field {
+    max-width: 300px;
+  }
+
+  .md-app.content {
+    color: #000;
+    color: var(--md-theme-default-text-primary-on-background, #000);
+  }
+}
