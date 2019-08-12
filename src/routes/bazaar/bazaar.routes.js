@@ -3,8 +3,13 @@
 //   './routes/bazaar-sales/bazaar-sales'
 // );
 
+import { TrinityRingsSpinner } from 'epic-spinners'
 import Sales from './routes/bazaar-sales/bazaar-sales.vue'
 import MonthlySales from './routes/bazaar-sales/bazaar-sales-monthly/bazaar-sales-monthly.vue'
+// const MonthlySales = () => import(
+//   #<{(| webpackChunkName : "bazaar-sales-monthly" |)}>#
+//   './routes/bazaar-sales/bazaar-sales-monthly/bazaar-sales-monthly'
+// );
 
 const Bazaar = () => import(
   /* webpackChunkName: "bazaar" */
@@ -41,15 +46,12 @@ const OrdersIndex = () => import(
   /* webpackChunkName : "bazaar-orders-index" */
   './routes/bazaar-orders/index/index'
 )
-// const MonthlySales = () => import(
-//   #<{(| webpackChunkName : "bazaar-sales-monthly" |)}>#
-//   './routes/bazaar-sales/bazaar-sales-monthly/bazaar-sales-monthly'
-// );
 
 export default {
   path: '/bazaar',
   name: 'xophz-compass-bazaar',
   component: Bazaar,
+  loading: TrinityRingsSpinner,
   children: [
     {
       name: 'Bazaar Dashboard',

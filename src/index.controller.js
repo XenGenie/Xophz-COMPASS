@@ -2,7 +2,7 @@ import navDrawer from '@/components/routes-navigation-drawer/routes-navigation-d
 import userAvatarBtn from '@/components/user-avatar-btn/user-avatar-btn.vue'
 
 export default {
-  name: 'RouteView',
+  name: 'COMPASS',
   watch: getWatched(),
   data,
   created: onCreated,
@@ -11,10 +11,7 @@ export default {
   computed: getComputed(),
   methods: getMethods(),
   mixins: [navDrawer],
-  beforeRouteUpdate (to, from, next) {
-    alert('hel')
-    // react to route changes...
-    next()
+  beforeRouteEnter () {
   },
   components: { navDrawer, userAvatarBtn }
 }
@@ -103,7 +100,7 @@ function getWatched () {
   return {
     $route: {
       handler () {
-        this.spinner = true
+        // this.spinner = true
         // const vm = this;
         // vm.updateActivePlugin(to);
       },
@@ -123,7 +120,7 @@ function onCreated () {
 }
 
 function mounted () {
-  // this.updateActivePlugin()
+  this.$nprogress.start()
 }
 
 function getMethods () {

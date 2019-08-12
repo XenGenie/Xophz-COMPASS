@@ -1,5 +1,6 @@
 import Vue from 'vue'
 
+// import NProgress from 'vue-nprogress'
 import 'core-js'
 import { TrinityRingsSpinner } from 'epic-spinners'
 import Billboard from './components/billboard/billboard.vue'
@@ -63,6 +64,9 @@ function capitalize () {
 Vue.use(require('vue-moment'))
 
 Vue.use(vuetify)
+// Vue.use(NProgress)
+
+// const nprogress = new NProgress({ parent: '.nprogress-container' })
 
 document.addEventListener('DOMContentLoaded', () => {
   new Vue({
