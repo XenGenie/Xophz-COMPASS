@@ -1,4 +1,5 @@
 import axios from 'axios'
+import NProgress from 'nprogress'
 
 const ajaxurl = '/wp-admin/admin-ajax.php'
 
@@ -14,6 +15,17 @@ xhr.interceptors.request.use(
   modifyAllRequestConfigs,
   error => error
 )
+// before a request is made start the nprogress
+xhr.interceptors.request.use((config) => {
+  NProgress.start()
+  return config
+})
+
+// before a response is returned stop nprogress
+xhr.interceptors.response.use((response) => {
+  NProgress.done()
+  return response
+})
 
 export default {
   get (action, payload) {

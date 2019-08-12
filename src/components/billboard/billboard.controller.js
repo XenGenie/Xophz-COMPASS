@@ -1,3 +1,4 @@
+import NprogressContainer from 'vue-nprogress/src/NprogressContainer.vue'
 import navDrawer from '../routes-navigation-drawer/routes-navigation-drawer.vue'
 
 export default {
@@ -10,7 +11,7 @@ export default {
   methods: getMethods(),
   computed: getComputed(),
   // mixins : [navDrawer],
-  components: { navDrawer }
+  components: { navDrawer, NprogressContainer }
 }
 
 function data () {

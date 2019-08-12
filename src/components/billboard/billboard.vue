@@ -3,6 +3,7 @@
     id="billboard"
     class="billboard"
   >
+    <nprogress-container />
     <v-scroll-y-transition>
       <v-card
         dark
