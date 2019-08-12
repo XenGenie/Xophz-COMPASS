@@ -1,7 +1,10 @@
 import axios from 'axios'
 import NProgress from 'nprogress'
 
-const ajaxurl = '/wp-admin/admin-ajax.php'
+const { pathname } = window.location
+
+const ajaxurl = pathname
+  .replace('admin.php', 'admin-ajax.php')
 
 const xhr = axios.create({
   baseURL: ajaxurl
@@ -29,7 +32,7 @@ xhr.interceptors.response.use((response) => {
 
 export default {
   get (action, payload) {
-    return xhr.get('/', {
+    return xhr.get('', {
       params: {
         action,
         ...payload
@@ -37,13 +40,13 @@ export default {
     })
   },
   post (action, payload) {
-    return xhr.post(`${ajaxurl}?action=${action}`, payload)
+    return xhr.post(`?action=${action}`, payload)
   },
   put (action, payload) {
-    return xhr.put(`${ajaxurl}?action=${action}`, payload)
+    return xhr.put(`?action=${action}`, payload)
   },
   delete (action, payload) {
-    return xhr.delete(`${ajaxurl}?action=${action}`, payload)
+    return xhr.delete(`$?action=${action}`, payload)
   },
   download (action, payload) {
     return xhr({
