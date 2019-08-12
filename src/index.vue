@@ -2,46 +2,16 @@
   <div id="app">
     <v-footer
       dark
-      class="breadcrumbs p-0 pr-3"
+      class="breadcrumbs p-1"
     >
       <v-layout
         justify-center
         align-center
+        fill-height
       >
         <v-flex shrink>
           <v-btn
-            small
-            icon
-          >
-            <v-icon
-              @click="wpmenu"
-              small
-              v-if="isWpMenuOpen"
-            >
-              fad fa-toggle-on
-            </v-icon>
-            <v-icon
-              @click="wpmenu"
-              small
-              v-else
-            >
-              fad fa-toggle-off
-            </v-icon>
-          </v-btn>
-          <v-btn
-            icon
-            small
-            @click="goHome"
-          >
-            <v-icon
-              small
-            >
-              fad fa-home
-            </v-icon>
-            <!-- &nbsp;COMPASS -->
-          </v-btn>
-
-          <v-btn
+            class="ml-1 mr-2"
             small
             @click="showBottomSheet"
           >
@@ -50,34 +20,51 @@
             </v-icon>
             &nbsp;COMPASS
           </v-btn>
-        </v-flex>
-        <v-flex grow>
-          <ul
-            class="breadcrumb"
+          <v-btn
+            small
+            @click="goHome"
           >
-            <!-- <li class="breadcrumb-item"> -->
-            <!--   <a @click="showBottomSheet"> -->
-            <!--     COMPASS -->
-            <!--   </a>  -->
-            <!-- </li> -->
-            <li
-              v-for="(breadcrumb, i) in breadcrumbs"
-              :key="i"
-              class="breadcrumb-item"
+            <v-icon
+              small
             >
-              <router-link
-                :to="breadcrumb.path"
-                v-if="1+i != breadcrumbs.length"
-              >
-                {{ i == 0 ? activePlugin.Name : breadcrumb.name }}
-              </router-link>
-              <span v-else-if="breadcrumb">
-                {{ breadcrumb.name }}
-              </span>
-            </li>
-          </ul>
+              fad fa-home
+            </v-icon>
+            &nbsp;
+            {{ blogInfo.name }}
+          </v-btn>
+        </v-flex>
+        <v-flex>
+          <v-breadcrumbs
+            :items="breadtrail"
+            divider="/"
+            class="p-0 pl-3 pt-1"
+          />
         </v-flex>
         <v-spacer />
+        <v-flex shrink>
+          <v-btn
+            @click="wpmenu"
+            class="mx-2"
+            small
+          >
+            WP Menu
+            <!-- {{ wpSwitchLabel }} -->
+            <v-icon
+              v-if="isWpMenuOpen"
+              right
+              small
+            >
+              fad fa-toggle-on
+            </v-icon>
+            <v-icon
+              v-else
+              small
+              right
+            >
+              fad fa-toggle-off
+            </v-icon>
+          </v-btn>
+        </v-flex>
         <v-flex shrink>
           <user-avatar-btn />
         </v-flex>
@@ -122,7 +109,6 @@
             <v-icon small>
               fa fa-heart
             </v-icon>
-
             <!-- Premiere Sponsor -->
           </v-btn>
           <!-- <v-chip color="#E151AA"> -->
@@ -134,19 +120,22 @@
     <v-bottom-sheet
       attach="#app"
       v-model="bottomSheet"
-      :hide-overlay="fadse"
+      :hide-overlay="false"
     >
       <v-toolbar
+        color="#212121"
         dark
         dense
-        flat
-        color="black"
       >
+        <v-icon>
+          fad fa-compass
+        </v-icon>
+        <v-spacer />
         <v-toolbar-title>
-          <b>C</b>entral
-          <b>O</b>perating
-          <b>M</b>aster
-          <b>P</b>anel
+          <b>C</b>ompany
+          <b>O</b>verview
+          <b>M</b>anagment
+          <b>P</b>lanning
           <b>A</b>nd
           <b>S</b>trategic
           <b>S</b>ystem
@@ -166,10 +155,11 @@
         <v-spacer />
         <v-toolbar-items>
           <v-btn
+            @click="bottomSheet = false"
             icon
             text
           >
-            <v-icon @click="bottomSheet = fadse">
+            <v-icon>
               fa fa-times
             </v-icon>
           </v-btn>
@@ -191,7 +181,7 @@
               });"
             >
               <v-list-item-icon>
-                <v-avatar>
+                <v-avatar small>
                   <v-img
                     :src="plugin.icon"
                     :alt="plugin.title"
@@ -199,7 +189,10 @@
                 </v-avatar>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title>{{ plugin.Name }}</v-list-item-title>
+                <v-list-item-title>
+                  &nbsp;
+                  {{ plugin.Name }}
+                </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-flex>

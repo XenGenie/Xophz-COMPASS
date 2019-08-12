@@ -8,7 +8,7 @@
       <v-btn
         small
         id="user-avatar-btn"
-        class="user-avatar-btn mt-1"
+        class="user-avatar-btn"
         v-on="on"
       >
         {{ user.data.user_login }}

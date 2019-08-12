@@ -10,10 +10,21 @@
       type="info"
       class="step-2"
     >
-      Below are the different cardinal areas that extend COMPASS.
-      Each come with their own set of unique tools aimed at maximizing productivity,
-      while also minimizing time spent managing content.
-      Here, you can easily activate or deactivate them.
+      Explore the different cardinal areas that extend COMPASS below.
+      Navigate to them at any time by pressing the
+      <v-btn
+        @click="bottomSheet = !bottomSheet"
+        small
+      >
+        <v-icon
+          small
+          left
+        >
+          fad fa-compass
+        </v-icon>
+        COMPASS
+      </v-btn>
+      button at the top of every page.
     </v-alert>
     <v-layout
       d-flex

@@ -14,7 +14,7 @@
   background-color: transparent !important;
 }
 
-$breadcrumb-footer-height: 45px;
+$breadcrumb-footer-height: 35px;
 
 .breadcrumbs{
   position: -webkit-sticky;
@@ -23,10 +23,6 @@ $breadcrumb-footer-height: 45px;
   height: $breadcrumb-footer-height;
   max-height: $breadcrumb-footer-height;
   z-index: 5 !important;
-  .breadcrumb {
-    margin: 5px 0 0 10px !important;
-    margin-top: 5px;
-  }
   .breadcrumb-item span{
     color: white;
   }
@@ -155,10 +151,10 @@ $breadcrumb-footer-height: 45px;
     max-width: 80%;
   }
 }
-
-#adminmenu,  #adminmenuback, #adminmenuwrap{
-  background-color : transparent;
-}
+//
+// #adminmenu,  #adminmenuback, #adminmenuwrap{
+//   background-color : transparent;
+// }
 
 #adminmenu li.menu-top:hover, #adminmenu li.opensub>a.menu-top, #adminmenu li>a.menu-top:focus {
   background-color : transparent;

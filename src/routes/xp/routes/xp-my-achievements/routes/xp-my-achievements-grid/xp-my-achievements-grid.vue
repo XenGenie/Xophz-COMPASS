@@ -8,7 +8,7 @@
       v-for="(achievement,a) in achievements"
       :key="a"
       sm6
-      md3
+      md4
     >
       <v-hover>
         <v-card
@@ -16,24 +16,21 @@
           :class="`elevation-${hover ? 15: 5}`"
           text-center
         >
-          <v-card-title
-            primary-title
-            class="m-1 mx-1 pb-0"
-          >
-            <v-layout
-              justify-center
-              align-center
+          <v-footer>
+            <v-card-title
+              primary-title
+              class="m-1 mx-1 pb-0"
             >
-              <v-flex text-center>
-                <h3
-                  text-center
-                  class="mb-0"
-                >
+              <v-layout
+                justify-center
+                align-center
+              >
+                <v-flex text-center>
                   {{ achievement.title }}
-                </h3>
-              </v-flex>
-            </v-layout>
-          </v-card-title>
+                </v-flex>
+              </v-layout>
+            </v-card-title>
+          </v-footer>
           <v-layout
             justify-center
             align-center

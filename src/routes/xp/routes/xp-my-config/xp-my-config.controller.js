@@ -1,4 +1,4 @@
-import navDrawer from '../../mixins/navigation-drawer/navigation-drawer.vue'
+import navDrawer from '@/components/routes-navigation-drawer/routes-navigation-drawer.vue'
 import soundFx from '../../components/sound-fx/sound-fx'
 import search from '../../components/search/search.vue'
 

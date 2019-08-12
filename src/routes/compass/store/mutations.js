@@ -73,6 +73,7 @@ function paintBillboardChips (state, payload) {
 
 function currentUserLoaded (state, payload) {
   state.currentUser = payload.current_user
+  state.blogInfo = payload.blog_info
 }
 
 function pluginsLoaded (state, payload) {

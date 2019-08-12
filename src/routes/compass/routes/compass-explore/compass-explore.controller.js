@@ -40,6 +40,14 @@ function data () {
 
 function getComputed () {
   return {
+    bottomSheet: {
+      get () {
+        return this.$store.state.compass.bottomSheet
+      },
+      set (isActive) {
+        this.$store.dispatch('compass/SET_BOTTOM_SHEET', isActive)
+      }
+    },
     plugins: {
       get () {
         return this.$store.state.compass.pluginList

@@ -11,6 +11,11 @@ export default {
   computed: getComputed(),
   methods: getMethods(),
   mixins: [navDrawer],
+  beforeRouteUpdate (to, from, next) {
+    alert('hel')
+    // react to route changes...
+    next()
+  },
   components: { navDrawer, userAvatarBtn }
 }
 
@@ -25,6 +30,11 @@ function data () {
 
 function getComputed () {
   return {
+    blogInfo: {
+      get () {
+        return this.$store.state.compass.blogInfo
+      }
+    },
     isBillboardOff: {
       get () {
         return this.$store.state.compass.isBillboardOff
@@ -110,7 +120,6 @@ function onCreated () {
   const vm = this
   vm.loadWpMenu()
   vm.loadCompass()
-  vm.$store.dispatch('compass/GET_CURRENT_USER')
 }
 
 function mounted () {
@@ -122,7 +131,7 @@ function getMethods () {
     goHome () {
       window.location.href = '/'
     },
-    showBottomSheet () { this.bottomSheet = true },
+    showBottomSheet () { this.bottomSheet = !this.bottomSheet },
     wpmenu () { this.isWpMenuOpen = !this.isWpMenuOpen },
     getTextDomainPath (textDomain) {
       const path = `/${textDomain.replace('xophz-compass-', '')}`
@@ -141,19 +150,6 @@ function getMethods () {
       vm.$store.dispatch('compass/GET_CURRENT_USER')
       vm.$store.dispatch('compass/LOAD_PLUGINS').then(vm.updateActivePlugin)
     }
-    // updateActivePlugin () {
-    //   const vm = this
-    //   to = vm.$route
-    //   let where = to.path.split('/')[1]
-    //   where = where ? `-${where}` : ''
-    //   where = `xophz-compass${where}`
-    //
-    //   Object.keys(vm.plugins).forEach((key) => {
-    //     if (vm.plugins[key].TextDomain == where) {
-    //       vm.activePlugin = vm.plugins[key]
-    //     }
-    //   })
-    // }
   }
 }
 

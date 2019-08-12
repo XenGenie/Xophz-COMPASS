@@ -32,6 +32,19 @@ function data () {
 
 function getComputed () {
   return {
+    wpSwitchLabel: {
+      get () {
+        return this.wpSwitchLabels[this.isWpMenuOpen ? 1 : 0]
+      }
+    },
+    isWpMenuOpen: {
+      get () {
+        return this.$store.state.compass.isWpMenuOpen
+      },
+      set (isOpen) {
+        this.$store.dispatch('compass/SET_WP_MENU', isOpen)
+      }
+    },
     currentUser: {
       get () {
         return this.$store.state.compass.currentUser
@@ -55,6 +68,7 @@ function getComputed () {
 
 function getMethods () {
   return {
+    wpmenu () { this.isWpMenuOpen = !this.isWpMenuOpen },
     toggleMask () {
       this.userMask = !this.userMask
     }

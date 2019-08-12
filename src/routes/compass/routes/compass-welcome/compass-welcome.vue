@@ -36,10 +36,13 @@
                     width="64px"
                     src="./../../../../../wp-content/plugins/xophz-compass/assets/xophz-compass.png"
                   >
+                  <br>
+                  <br>
+                  Welcome to
                   <h1 class="m-0">
                     COMPASS
                   </h1>
-                  <h6 class="xsmall--text">
+                  <h6 class="small--text">
                     <small>
                       <!-- Cardinal Operations Master Panel And Strategic System -->
                       Company Overview Managment Planning & Strategic System

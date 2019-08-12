@@ -69,20 +69,7 @@ function setActivePlugin ({ commit }, plugin) {
 }
 
 function setBillboardChips ({ commit }, payload) {
-  // Vue.compassApi()
-  //   .compass()
-  //   .getCurrentUser()
-  //   .then(commitResponse)
-  //   .catch(handleErrors);
   commit('PAINT_BILLBOARD_CHIPS', payload)
-
-  // function commitResponse( response ) {
-  //   commit("CURRENT_USER_LOADED", response.data);
-  // }
-
-  // function handleErrors(response) {
-  //   commit("SET_PLUGIN_ERRORS", response);
-  // }
 }
 
 function getCurrentUser ({ commit }) {
@@ -101,11 +88,11 @@ function getCurrentUser ({ commit }) {
 }
 
 function loadPlugins ({ commit }) {
-  // eslint-disable-next-line
-  return Api() 
+  return Api()
     .getPlugins()
     .then(populatePlugins)
     .catch(handleErrors)
+
   function populatePlugins (response) {
     commit('PLUGINS_LOADED', response.data)
   }
@@ -125,12 +112,6 @@ function activatePlugin ({ commit }, plugin) {
 
   function populateLink (response) {
     addLink('xophz-compass')
-    // Messenger().post({
-    //     message: "<img src='"+plugin.icon+"' class='pull-right'/> Activated "+plugin.Name,
-    //     hideAfter: 3,
-    //     type: 'success',
-    //     showCloseButton: false
-    // });
     commit('PLUGIN_ACTIVATED', plugin, response.data)
     function addLink (slug) {
       // let menu = $('#toplevel_page_' + slug);

@@ -6,7 +6,12 @@ export default {
   mutations,
   namespaced: true,
   state: {
-
+    blogInfo: {
+      name: '',
+      description: '',
+      url: '',
+      version: ''
+    },
     pluginList: [],
     currentPlugin: {},
     isWpMenuOpen: localStorage.isWpMenuOpen === true,

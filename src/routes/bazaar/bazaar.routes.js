@@ -52,7 +52,7 @@ export default {
   component: Bazaar,
   children: [
     {
-      name: 'Bazaar Dash',
+      name: 'Bazaar Dashboard',
       path: '/bazaar',
       component: Dash,
       meta: { icon: 'store', color: 'blue' }

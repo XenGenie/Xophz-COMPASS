@@ -40,8 +40,8 @@
           wrap
         >
           <v-flex
-            v-for="(user, key) in users"
-            :key="key"
+            v-for="(user, u) in users"
+            :key="u"
             xs12
             sm6
             md4
@@ -180,36 +180,6 @@
                   </v-chip>
                 </v-flex>
               </v-layout>
-              <!-- <v-layout justify-center align-center> -->
-              <!--   <v-flex shrink> -->
-              <!--     <v-btn  dark color="primary"> -->
-              <!--       <v-icon> -->
-              <!--         fa fa-hand-holding-magic -->
-              <!--       </v-icon> -->
-              <!--     </v-btn> -->
-              <!--   </v-flex> -->
-              <!--   <v-flex shrink> -->
-              <!--     <v-btn  dark color="red"> -->
-              <!--       <v-icon> -->
-              <!--         fa fa-hand-holding-heart -->
-              <!--       </v-icon> -->
-              <!--     </v-btn> -->
-              <!--   </v-flex> -->
-              <!--   <v-flex shrink> -->
-              <!--     <v-btn  dark color="orange"> -->
-              <!--       <v-icon> -->
-              <!--         fa fa-hand-holding-usd -->
-              <!--       </v-icon> -->
-              <!--     </v-btn> -->
-              <!--   </v-flex> -->
-              <!--   <v-flex shrink> -->
-              <!--     <v-btn  dark color="success"> -->
-              <!--       <v-icon> -->
-              <!--         fa fa-hand-holding-seedling -->
-              <!--       </v-icon> -->
-              <!--     </v-btn> -->
-              <!--   </v-flex> -->
-              <!-- </v-layout> -->
               <v-card-actions>
                 <v-chip
                   class="ma-2"
@@ -274,8 +244,6 @@
         </v-layout>
       </v-container>
     </v-content>
-    <!-- <v-footer> -->
-    <!-- </v-footer> -->
   </v-app>
 </template>
 <script src="./xp-leaderboard.controller.js"></script>

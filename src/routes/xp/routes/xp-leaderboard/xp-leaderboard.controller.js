@@ -1,3 +1,5 @@
+import navDrawer from '../../mixins/navigation-drawer/navigation-drawer.vue'
+
 export default {
   name: 'xp-dashboard',
   // DATA
@@ -6,6 +8,7 @@ export default {
   computed: getComputed(),
   methods: getMethods(),
   watch: getWatched(),
+
   // LIFECYCLE
   beforeCreate: onBeforeCreate,
   created: onCreated,
@@ -17,8 +20,10 @@ export default {
   deactivated: onDeactivated,
   beforeDestroy: onBeforeDestory,
   destroyed: onDestroyed,
+
   // ASSETS
-  components: {},
+  components: { navDrawer },
+  mixins: [navDrawer],
   transitions: {},
   partials: {}
 }

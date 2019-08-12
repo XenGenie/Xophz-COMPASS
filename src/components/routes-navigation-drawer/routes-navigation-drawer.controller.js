@@ -77,6 +77,25 @@ function data () {
 
 function getComputed () {
   return {
+    breadtrail: {
+      get () {
+        const vm = this
+        const breadtrail = vm.breadcrumbs.map(walkTrail)
+        return breadtrail
+        function walkTrail (breadcrumb, index) {
+          const text = index === 0
+            ? vm.plugin.Name
+            : breadcrumb.name
+          const disabled = index === vm.breadcrumbs.length - 1
+          const href = `#${breadcrumb.path}`
+          return {
+            text,
+            disabled,
+            href
+          }
+        }
+      }
+    },
     plugin: {
       get () {
         return this.$store.state.compass.activePlugin
