@@ -34,7 +34,7 @@
                 <v-flex text-center>
                   <img
                     width="64px"
-                    src="./../../../../../wp-content/plugins/xophz-compass/assets/xophz-compass.png"
+                    src="/wp-content/plugins/xophz-compass/assets/xophz-compass.png"
                   >
                   <br>
                   <br>
@@ -58,7 +58,7 @@
           <div class="back text-center">
             <div class="back-inner">
               <img
-                src="./../../../../../wp-content/plugins/xophz-compass/assets/xophz-compass-ii.png"
+                src="/wp-content/plugins/xophz-compass/assets/xophz-compass-ii.png"
                 width="100%"
               >
             </div>
