@@ -276,8 +276,8 @@ function getWatched () {
     $route: {
       handler (to) {
         const vm = this
-        vm.walkChildren(vm.getCurrentRoute())
         vm.setPlugin()
+        vm.walkChildren(vm.getCurrentRoute())
       },
       deep: true,
       immediate: true
@@ -305,10 +305,10 @@ function onCreated () {
 }
 
 function onBeforeMount () {
-  this.walkChildren(this.getCurrentRoute())
 }
 
 function onMounted () {
+  this.walkChildren(this.getCurrentRoute())
 }
 
 function onBeforeUpdate () {

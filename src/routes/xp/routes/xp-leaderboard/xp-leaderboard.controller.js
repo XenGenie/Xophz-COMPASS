@@ -1,7 +1,7 @@
-import navDrawer from '../../../../components/routes-navigation-drawer/routes-navigation-drawer.vue'
+import navDrawer from '@/components/routes-navigation-drawer/routes-navigation-drawer.vue'
 
 export default {
-  name: 'xp-leaderboard',
+  name: 'xp-dashboard',
   // DATA
   data,
   props: [],
@@ -50,9 +50,9 @@ function getComputed () {
         this.$store.dispatch('compass/SET_BILLBOARD_CHIPS', chips)
       }
     },
-    users: {
+    players: {
       get () {
-        return this.$store.state.xp.users
+        return this.$store.state.xp.players
       }
     }
   }
@@ -60,41 +60,46 @@ function getComputed () {
 
 function getMethods () {
   return {
+    loadPlayers,
     xpToNextLevel
   }
 
+  function loadPlayers () {
+    this.$store.dispatch('xp/LOAD_PLAYERS')
+  }
+
   function xpToNextLevel (user) {
-    const vm = this
-
-    const levels = []
-
-    // const handicap = user.age / 10
-
-    const lvl1 = (vm.xp_lvl1 * user.handicap)
-
-    const level = Math.floor(user.xp / lvl1)
-    let nextLevel = 0
-
-    let i
-    for (i = 0; i < (user.level + 2); i = +1) {
-      levels[i] = lvl1 * i
-      if (user.xp >= user.levels[i]) {
-        nextLevel = i + 1
-      }
-    }
-
-    const lvlUp = 100 * (
-      levels[user.level] /
-      levels[user.nextLevel]
-    )
-
-    return {
-      ...user,
-      levels,
-      level,
-      lvlUp,
-      nextLevel
-    }
+    // const vm = this
+    //
+    // const levels = []
+    //
+    // const handicap = 8 / 10
+    //
+    // const lvl1 = (vm.xp_lvl1 * handicap)
+    //
+    // const level = Math.floor(user.xp / lvl1)
+    // let nextLevel = 0
+    //
+    // let i
+    // for (i = 0; i < (user.level + 2); i = +1) {
+    //   levels[i] = lvl1 * i
+    //   if (user.xp >= user.levels[i]) {
+    //     nextLevel = i + 1
+    //   }
+    // }
+    //
+    // const lvlUp = 100 * (
+    //   levels[user.level] /
+    //   levels[user.nextLevel]
+    // )
+    //
+    // return {
+    //   ...user,
+    //   levels,
+    //   level,
+    //   lvlUp,
+    //   nextLevel
+    // }
   }
 }
 
@@ -110,20 +115,20 @@ function onBeforeCreate () {
 
 function onCreated () {
   const vm = this
-  let i
-  const xp = 60
-  // vm.users.forEach(vm.xpToNextLevel)
-  for (i = 0; i < 100; i += 1) {
-    // if(i){
-    //   // vm.levels[i] = vm.levels[i-2] + vm.levels[i-1];
-    // // } else if(i) {
-    //   // vm.levels[i] = (i * xp) * 1.6018 - vm.levels[i-1];
-    //   ;
-    // }else{
-    // }
-
-    vm.levels[i] = (xp * i) * 1.7
-  }
+  vm.loadPlayers()
+  // let i
+  // const xp = 60
+  // vm.players.forEach(vm.xpToNextLevel)
+  //
+  // for (i = 0; i < 100; i += 1) {
+  //   if (i) {
+  //     vm.levels[i] = vm.levels[i - 2] + vm.levels[i - 1]
+  //   } else if (i) {
+  //     vm.levels[i] = (i * xp) * 1.6018 - vm.levels[i - 1]
+  //   }
+  //
+  //   vm.levels[i] = (xp * i) * 1.7
+  // }
 }
 
 function onBeforeMount () {

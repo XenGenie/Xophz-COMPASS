@@ -11,8 +11,6 @@ export default {
   computed: getComputed(),
   methods: getMethods(),
   mixins: [navDrawer],
-  beforeRouteEnter () {
-  },
   components: { navDrawer, userAvatarBtn }
 }
 
@@ -98,15 +96,15 @@ function getComputed () {
 
 function getWatched () {
   return {
-    $route: {
-      handler () {
-        // this.spinner = true
-        // const vm = this;
-        // vm.updateActivePlugin(to);
-      },
-      deep: true,
-      immediate: true
-    },
+    // $route: {
+    //   handler () {
+    //     // this.spinner = true
+    //     // const vm = this;
+    //     // vm.updateActivePlugin(to);
+    //   },
+    //   deep: true,
+    //   immediate: true
+    // },
     isWpMenuOpen () {
       this.wpwrap.classList.toggle(this.wpOpenClass)
     }
@@ -120,7 +118,7 @@ function onCreated () {
 }
 
 function mounted () {
-  this.$nprogress.start()
+  // this.$nprogress.start()
 }
 
 function getMethods () {

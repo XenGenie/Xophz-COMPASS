@@ -17,7 +17,23 @@ export default {
   SET_DIALOG: setDialog,
   LOAD_LOG: loadLog,
   SEARCH_ACHIEVEMENTS: searchAchievements,
-  TALLY_ABILITY_POINTS: tallyAbilityPoints
+  TALLY_ABILITY_POINTS: tallyAbilityPoints,
+  LOAD_PLAYERS: loadPlayers
+}
+
+function loadPlayers ({ commit }) {
+  Api()
+    .listPlayers()
+    .then(commitResponse)
+    .catch(handleErrors)
+
+  function commitResponse (response) {
+    commit('PLAYERS_LOADED', response.data)
+  }
+
+  function handleErrors (response) {
+    commit('SET_ERRORS', response)
+  }
 }
 
 function tallyAbilityPoints ({ commit }) {

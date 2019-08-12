@@ -1,6 +1,7 @@
 import api from '@/plugins/api'
 
 export default () => ({
+
   loadLog (args) {
     return api.put('xp_load_log', args)
   },
@@ -36,6 +37,9 @@ export default () => ({
   },
   listAchievement (filters) {
     return api.get('list_achievement', filters)
+  },
+  listPlayers (filters) {
+    return api.get('xp_list_players', filters)
   },
   addNewCategory (category) {
     return api.put('xp_add_new_category', category)

@@ -83,7 +83,7 @@ export default {
   date: new Date(),
   dialog: false,
   log: {},
-  users: [
+  players: [
     {
       name: 'Nightlynn',
       age: 12,

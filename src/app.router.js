@@ -29,6 +29,8 @@ import trove from './routes/treasure-trove/treasure-trove.routes'
 import wand from './routes/magic-wand/magic-wand.routes'
 import xp from './routes/xp/xp.routes'
 
+Vue.use(Router)
+
 const router = new Router({
   // mode: 'history',
   base: '/wp-admin/admin.php?page=xophz-compass#/',
@@ -69,5 +71,4 @@ const router = new Router({
   }
 })
 
-Vue.use(Router)
 export default router

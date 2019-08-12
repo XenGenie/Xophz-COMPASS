@@ -40,8 +40,8 @@
           wrap
         >
           <v-flex
-            v-for="(user, u) in users"
-            :key="u"
+            v-for="(player, p) in players"
+            :key="p"
             xs12
             sm6
             md4
@@ -51,9 +51,6 @@
               ma-5
               dark
             >
-              <v-progress-linear
-                :value="Math.ceil(user.lvlUp)"
-              />
               <v-layout
                 pa-3
                 justify-center
@@ -66,12 +63,12 @@
                         left
                       >
                         <v-img
-                          src="http://10.0.0.184/wp-content/plugins/xophz-compass-midnight-nerd/icon.svg"
+                          :src="player.avatar"
                         />
                       </v-avatar>
                       <v-card-title primary-title>
                         <h1 class="headline m-0">
-                          {{ user.name }}
+                          {{ player.user_login }}
                         </h1>
                       </v-card-title>
                     </v-flex>
@@ -88,7 +85,7 @@
                           right
                           class="green darken-4"
                         >
-                          {{ user.level }}
+                          {{ player.level }}
                         </v-avatar>
                       </v-chip>
                     </v-flex>
@@ -112,7 +109,7 @@
                     >
                       <small class="small--text">AP</small>
                     </v-avatar>
-                    {{ user.ap }}
+                    {{ player.ap }}
                   </v-chip>
                   <v-chip
                     class="ma-1"
@@ -120,13 +117,13 @@
                     color="red"
                     text-color="white"
                   >
-                    Day
+                    D
                     <v-avatar
                       right
                       class="red darken-4"
                     >
                       <small class="small--text">
-                        {{ user.ap }}
+                        {{ player.ap }}
                       </small>
                     </v-avatar>
                   </v-chip>
@@ -136,13 +133,13 @@
                     color="red"
                     text-color="white"
                   >
-                    Week
+                    W
                     <v-avatar
                       right
                       class="red darken-4"
                     >
                       <small class="small--text">
-                        {{ user.ap }}
+                        {{ player.ap }}
                       </small>
                     </v-avatar>
                   </v-chip>
@@ -152,13 +149,13 @@
                     color="red"
                     text-color="white"
                   >
-                    Month
+                    M
                     <v-avatar
                       right
                       class="red darken-4"
                     >
                       <small class="small--text">
-                        {{ user.ap }}
+                        {{ player.ap }}
                       </small>
                     </v-avatar>
                   </v-chip>
@@ -168,13 +165,13 @@
                     color="red"
                     text-color="white"
                   >
-                    Year
+                    Y
                     <v-avatar
                       right
                       class="red darken-4"
                     >
                       <small class="small--text">
-                        {{ user.ap }}
+                        {{ player.ap }}
                       </small>
                     </v-avatar>
                   </v-chip>
@@ -192,22 +189,9 @@
                   >
                     <small class="small--text">XP</small>
                   </v-avatar>
-                  {{ user.xp }}
+                  {{ player.xp }}
                 </v-chip>
                 <v-spacer />
-                <!-- <v-chip -->
-                <!--   class="ma-2" -->
-                <!--   color="red" -->
-                <!--   text-color="white" -->
-                <!-- > -->
-                <!--   <v-avatar -->
-                <!--     left -->
-                <!--     class="red darken-4" -->
-                <!--   > -->
-                <!--     <small class="small--text">AP</small> -->
-                <!--   </v-avatar> -->
-                <!--   {{user.ap}} -->
-                <!-- </v-chip> -->
                 <v-chip
                   class="ma-2"
                   color="orange"
@@ -219,7 +203,7 @@
                   >
                     <small class="small--text">GP</small>
                   </v-avatar>
-                  {{ user.gp }}
+                  {{ player.gp }}
                 </v-chip>
                 <v-spacer />
                 <v-chip
@@ -231,14 +215,10 @@
                     left
                     class="green darken-4"
                   >
-                    {{ user.level + 1 }}
+                    {{ player.level + 1 }}
                   </v-avatar>
-                  {{ user.levels[user.level+1] - user.xp }}
                 </v-chip>
               </v-card-actions>
-              <v-progress-linear
-                :value="Math.ceil(user.lvlUp)"
-              />
             </v-card>
           </v-flex>
         </v-layout>
