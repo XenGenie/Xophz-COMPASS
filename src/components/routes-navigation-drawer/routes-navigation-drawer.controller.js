@@ -276,8 +276,8 @@ function getWatched () {
     $route: {
       handler (to) {
         const vm = this
-        vm.setPlugin()
         vm.walkChildren(vm.getCurrentRoute())
+        vm.setPlugin()
       },
       deep: true,
       immediate: true

@@ -1,7 +1,7 @@
-import navDrawer from '../../mixins/navigation-drawer/navigation-drawer.vue'
+import navDrawer from '../../../../components/routes-navigation-drawer/routes-navigation-drawer.vue'
 
 export default {
-  name: 'xp-dashboard',
+  name: 'xp-leaderboard',
   // DATA
   data,
   props: [],
@@ -112,7 +112,7 @@ function onCreated () {
   const vm = this
   let i
   const xp = 60
-  vm.users.forEach(vm.xpToNextLevel)
+  // vm.users.forEach(vm.xpToNextLevel)
   for (i = 0; i < 100; i += 1) {
     // if(i){
     //   // vm.levels[i] = vm.levels[i-2] + vm.levels[i-1];
