@@ -7,7 +7,7 @@ const ajaxurl = pathname
   .replace('admin.php', 'admin-ajax.php')
 
 const xhr = axios.create({
-  baseURL: ajaxurl
+  // baseURL: ajaxurl
 })
 
 xhr.interceptors.response.use(
@@ -33,8 +33,8 @@ xhr.interceptors.response.use((response) => {
 export default {
   get (action, payload) {
     return xhr({
-      url: ajaxurl,
       method: 'get',
+      url: ajaxurl,
       params: {
         action,
         ...payload
@@ -42,38 +42,25 @@ export default {
     })
   },
   post (action, payload) {
-    return xhr({
-      url: ajaxurl,
-      method: 'post',
-      params: {
-        action,
-        ...payload
-      }
-    })
+    return xhr.post(
+      `${ajaxurl}?action=${action}`,
+      payload
+    )
   },
   put (action, payload) {
-    return xhr({
-      url: ajaxurl,
-      method: 'put',
-      params: {
-        action,
-        ...payload
-      }
-    })
+    return xhr.put(
+      `${ajaxurl}?action=${action}`,
+      payload
+    )
   },
   delete (action, payload) {
-    return xhr({
-      url: ajaxurl,
-      method: 'delete',
-      params: {
-        action,
-        ...payload
-      }
-    })
+    return xhr.delete(
+      `${ajaxurl}?action=${action}`,
+      payload
+    )
   },
   download (action, payload) {
     return xhr({
-      url: ajaxurl,
       params: {
         action,
         ...payload
