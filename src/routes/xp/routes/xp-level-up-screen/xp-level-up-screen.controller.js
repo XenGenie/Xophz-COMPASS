@@ -29,8 +29,7 @@ export default {
 
 function data () {
   return {
-    audio: new Audio(),
-    level: 9
+    audio: new Audio()
   }
 }
 
@@ -41,7 +40,6 @@ function getComputed () {
         return this.$store.state.xp.achievement
       }
     },
-
     currentUser: {
       get () {
         return this.$store.state.compass.currentUser
@@ -50,6 +48,11 @@ function getComputed () {
     user: {
       get () {
         return this.$store.state.xp.user
+      }
+    },
+    level: {
+      get () {
+        return this.user.level
       }
     }
   }

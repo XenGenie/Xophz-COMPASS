@@ -57,7 +57,7 @@ function logLoaded (state, payload) {
 }
 
 function levelSet (state, level) {
-  state.user.lvl = level
+  state.user.level = level
 }
 
 function achievementCompleted (state, user) {

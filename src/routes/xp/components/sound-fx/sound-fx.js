@@ -46,14 +46,21 @@ function getComputed () {
 
 function getMethods () {
   return {
-    playFx
+    playFx,
+    fade
   }
   function playFx (fx, sub) {
     let file = this.soundFx[fx] ? this.soundFx[fx] : fx
-    file = file[sub] ? file[sub] : fx
+    file = file[sub] ? file[sub] : file
     this.audio = new Audio(file)
-    this.audio.play()
-    return this.audio
+
+    return this.audio.play()
+  }
+  function fade () {
+    if (this.audio.volume > 0.1) {
+      this.audio.volume -= 0.1
+      setTimeout(this.fade, 2)
+    } else if (this.audio.pause) this.audio.pause()
   }
 }
 
@@ -95,7 +102,7 @@ function onDeactivated () {
 }
 
 function onBeforeDestory () {
-  if (this.audio.pause) this.audio.pause()
+  this.fade()
 }
 
 function onDestroyed () {

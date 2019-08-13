@@ -68,7 +68,7 @@ function loadLog ({ commit }) {
 
 function levelUp ({ commit }, level) {
   Api().levelUp({
-    lvl: level
+    level
   })
     .then(commitResponse).catch(handleErrors)
 

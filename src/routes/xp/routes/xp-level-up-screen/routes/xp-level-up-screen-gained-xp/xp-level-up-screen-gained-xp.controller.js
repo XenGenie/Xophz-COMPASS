@@ -32,7 +32,7 @@ export default {
 
 function data () {
   return {
-    xp_lvl1: 600,
+    xp_level1: 600,
     nextLevel: 0,
     currentLevel: 0,
     userProgress: 0,
@@ -44,8 +44,10 @@ function data () {
 
 function getComputed () {
   return {
-    hasLeveled () {
-      return this.tempLevel !== this.user.lvl
+    hasLeveled: {
+      get () {
+        return this.tempLevel !== this.user.level
+      }
     },
     achievement: {
       get () {
@@ -97,10 +99,10 @@ function getMethods () {
     layLevels () {
       const vm = this
       const handicap = 12 / 10
-      const lvl1 = (vm.xp_lvl1 * handicap)
+      const level1 = (vm.xp_level1 * handicap)
       let i
-      for (i = 0; i < (Math.floor(vm.user.xp / lvl1) + 2); i += 1) {
-        vm.levels[i] = Math.ceil(lvl1 * (i * handicap))
+      for (i = 0; i < (Math.floor(vm.user.xp / level1) + 2); i += 1) {
+        vm.levels[i] = Math.ceil(level1 * (i * handicap))
         if (vm.user.xp >= vm.levels[i]) {
           vm.currentLevel = i
           vm.nextLevel = i + 1
@@ -115,14 +117,12 @@ function getWatched () {
   return {
     hasLeveled (hasLeveled) {
       if (hasLeveled) {
-        if (this.tempLevel > this.user.lvl) this.playFx('levelDown')
+        if (this.tempLevel > this.user.level) this.playFx('levelDown')
         else this.playFx('levelUp')
       }
     },
-    user () {
-    },
     currentLevel (level) {
-      if (level && level !== this.user.lvl) this.$store.dispatch('xp/LEVEL_UP', level)
+      if (level && level !== this.user.level) this.$store.dispatch('xp/LEVEL_UP', level)
     }
   }
 }
@@ -132,7 +132,7 @@ function onBeforeCreate () {
 }
 
 function onCreated () {
-  this.tempLevel = this.user.lvl
+  this.tempLevel = this.user.level
 }
 
 function onBeforeMount () {

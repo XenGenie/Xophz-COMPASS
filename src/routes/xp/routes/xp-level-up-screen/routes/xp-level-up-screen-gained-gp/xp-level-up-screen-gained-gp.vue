@@ -199,13 +199,7 @@
           xs12
         >
           <v-btn
-            @click="
-              playFx('click');
-              $router.push({
-                name: 'My Achievements',
-                hash : '.xp-my-achievements'
-              });
-            "
+            @click="backToAchievements"
           >
             Back to Achievements
           </v-btn>

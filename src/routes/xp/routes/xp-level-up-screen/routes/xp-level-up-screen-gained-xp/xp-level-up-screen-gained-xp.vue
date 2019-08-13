@@ -115,7 +115,7 @@
                     >
                       {{ currentUser.data.user_login }}
                       <!-- <v-chip v-if="hasLeveled" color="success" text-color="white"> -->
-                      <!--   {{user.lvl}} -->
+                      <!--   {{user.level}} -->
                       <!--   <v-icon right>fal fa-hand-holding-seedling</v-icon> -->
                       <!-- </v-chip> -->
                       <v-spacer />
@@ -169,7 +169,7 @@
                       text-right
                     >
                       <span
-                        v-if="tempLevel < user.lvl "
+                        v-if="tempLevel < user.level "
                         class="green--text"
                       >
                         LEVEL UP!
@@ -201,7 +201,7 @@
                       text-right
                     >
                       <!-- <v-chip large color="green" text-color="white"> -->
-                      <!--   LEVEL {{user.lvl}}  -->
+                      <!--   LEVEL {{user.level}}  -->
                       <!--   <v-icon right>fa fa-hand-holding-seedling</v-icon> -->
                       <!-- </v-chip> -->
                       Level:
@@ -260,9 +260,12 @@
           <v-btn
             color="orange"
             large
-            @click="playFx('click'); $router.push({
-              path : '/xp/achievement/complete/gp',
-            })"
+            @click="
+              playFx('click');
+              $router.push({
+                path : '/xp/achievement/complete/gp',
+              })
+            "
           >
             Collect GP
             <v-icon

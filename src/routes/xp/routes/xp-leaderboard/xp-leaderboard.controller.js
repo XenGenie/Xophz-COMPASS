@@ -31,7 +31,7 @@ export default {
 function data () {
   return {
     levels: [],
-    xp_lvl1: 600
+    xp_level1: 600
   }
 }
 
@@ -75,20 +75,20 @@ function getMethods () {
     //
     // const handicap = 8 / 10
     //
-    // const lvl1 = (vm.xp_lvl1 * handicap)
+    // const level1 = (vm.xp_level1 * handicap)
     //
-    // const level = Math.floor(user.xp / lvl1)
+    // const level = Math.floor(user.xp / level1)
     // let nextLevel = 0
     //
     // let i
     // for (i = 0; i < (user.level + 2); i = +1) {
-    //   levels[i] = lvl1 * i
+    //   levels[i] = level1 * i
     //   if (user.xp >= user.levels[i]) {
     //     nextLevel = i + 1
     //   }
     // }
     //
-    // const lvlUp = 100 * (
+    // const levelUp = 100 * (
     //   levels[user.level] /
     //   levels[user.nextLevel]
     // )
@@ -97,7 +97,7 @@ function getMethods () {
     //   ...user,
     //   levels,
     //   level,
-    //   lvlUp,
+    //   levelUp,
     //   nextLevel
     // }
   }

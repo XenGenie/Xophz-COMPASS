@@ -33,18 +33,18 @@ export default {
 function data () {
   return {
     itemsOffered: [
-      {
-        key: 'New Shoes',
-        value: 1
-      },
-      {
-        key: 'Piece of candy',
-        value: 1
-      },
-      {
-        key: 'Snack',
-        value: 1
-      }
+      // {
+      //   key: 'New Shoes',
+      //   value: 1
+      // },
+      // {
+      //   key: 'Piece of candy',
+      //   value: 1
+      // },
+      // {
+      //   key: 'Snack',
+      //   value: 1
+      // }
     ],
     itemsGained: []
   }
@@ -68,6 +68,21 @@ function getComputed () {
 
 function getMethods () {
   return {
+    backToAchievements () {
+      const playPromise = this.playFx('click')
+      const vm = this
+
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          vm.$router.push({
+            path: '/xp/achievements/grid#xp-my-achievements'
+          })
+        })
+          .catch(() => {
+
+          })
+      }
+    },
     shellOutPoints () {
       const vm = this
       const gp = Number(vm.user.gp) + Number(vm.achievement.gp)
@@ -148,5 +163,4 @@ function onBeforeDestory () {
 }
 
 function onDestroyed () {
-
 }
