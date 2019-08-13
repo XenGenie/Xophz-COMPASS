@@ -32,7 +32,9 @@ xhr.interceptors.response.use((response) => {
 
 export default {
   get (action, payload) {
-    return xhr.get('', {
+    return xhr({
+      url: ajaxurl,
+      method: 'get',
       params: {
         action,
         ...payload
@@ -40,13 +42,34 @@ export default {
     })
   },
   post (action, payload) {
-    return xhr.post(`?action=${action}`, payload)
+    return xhr({
+      url: ajaxurl,
+      method: 'post',
+      params: {
+        action,
+        ...payload
+      }
+    })
   },
   put (action, payload) {
-    return xhr.put(`?action=${action}`, payload)
+    return xhr({
+      url: ajaxurl,
+      method: 'put',
+      params: {
+        action,
+        ...payload
+      }
+    })
   },
   delete (action, payload) {
-    return xhr.delete(`$?action=${action}`, payload)
+    return xhr({
+      url: ajaxurl,
+      method: 'delete',
+      params: {
+        action,
+        ...payload
+      }
+    })
   },
   download (action, payload) {
     return xhr({
