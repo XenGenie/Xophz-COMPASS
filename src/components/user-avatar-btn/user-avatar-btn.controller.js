@@ -26,7 +26,7 @@ export default {
 
 function data () {
   return {
-
+    logoutDialog: false
   }
 }
 
@@ -50,6 +50,11 @@ function getComputed () {
         return this.$store.state.compass.currentUser
       }
     },
+    blogInfo: {
+      get () {
+        return this.$store.state.compass.blogInfo
+      }
+    },
     user: {
       get () {
         return this.$store.state.compass.currentUser
@@ -71,6 +76,12 @@ function getMethods () {
     wpmenu () { this.isWpMenuOpen = !this.isWpMenuOpen },
     toggleMask () {
       this.userMask = !this.userMask
+    },
+    confirmLogout () {
+      this.logoutDialog = true
+    },
+    logout () {
+      window.location.href = this.blogInfo.logouturl
     }
   }
 }

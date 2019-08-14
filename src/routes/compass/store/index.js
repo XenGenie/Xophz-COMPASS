@@ -10,7 +10,8 @@ export default {
       name: '',
       description: '',
       url: '',
-      version: ''
+      version: '',
+      logouturl: ''
     },
     pluginList: [],
     currentPlugin: {},
