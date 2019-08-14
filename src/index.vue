@@ -10,28 +10,40 @@
         fill-height
       >
         <v-flex shrink>
-          <v-btn
-            class="ml-1 mr-2"
-            small
-            @click="showBottomSheet"
-          >
-            <v-icon small>
-              fad fa-compass
-            </v-icon>
-            &nbsp;COMPASS
-          </v-btn>
-          <v-btn
-            small
-            @click="goHome"
-          >
-            <v-icon
-              small
-            >
-              fad fa-home
-            </v-icon>
-            &nbsp;
-            {{ blogInfo.name }}
-          </v-btn>
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on }">
+              <v-btn
+                v-on="on"
+                class="ml-1 mr-2"
+                small
+                @click="showBottomSheet"
+              >
+                <v-icon small>
+                  fad fa-compass
+                </v-icon>
+                &nbsp;COMPASS
+              </v-btn>
+            </template>
+            <span>Navigate COMPASS</span>
+          </v-tooltip>
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on }">
+              <v-btn
+                small
+                v-on="on"
+                @click="goHome"
+              >
+                <v-icon
+                  small
+                >
+                  fad fa-home
+                </v-icon>
+                &nbsp;
+                {{ blogInfo.name }}
+              </v-btn>
+            </template>
+            <span>Go to Home Page</span>
+          </v-tooltip>
         </v-flex>
         <v-flex>
           <v-breadcrumbs
@@ -42,28 +54,34 @@
         </v-flex>
         <v-spacer />
         <v-flex shrink>
-          <v-btn
-            @click="wpmenu"
-            class="mx-2"
-            small
-          >
-            WP Menu
-            <!-- {{ wpSwitchLabel }} -->
-            <v-icon
-              v-if="isWpMenuOpen"
-              right
-              small
-            >
-              fad fa-toggle-on
-            </v-icon>
-            <v-icon
-              v-else
-              small
-              right
-            >
-              fad fa-toggle-off
-            </v-icon>
-          </v-btn>
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on }">
+              <v-btn
+                v-on="on"
+                @click="wpmenu"
+                class="mx-2"
+                small
+              >
+                WP Menu
+                <!-- {{ wpSwitchLabel }} -->
+                <v-icon
+                  v-if="isWpMenuOpen"
+                  right
+                  small
+                >
+                  fad fa-toggle-on
+                </v-icon>
+                <v-icon
+                  v-else
+                  small
+                  right
+                >
+                  fad fa-toggle-off
+                </v-icon>
+              </v-btn>
+            </template>
+            <span>Toggle Wordpress Menu</span>
+          </v-tooltip>
         </v-flex>
         <v-flex shrink>
           <user-avatar-btn />
@@ -188,7 +206,7 @@
                   />
                 </v-avatar>
               </v-list-item-icon>
-              <v-list-item-content>
+              <v-list-item-content text-right>
                 <v-list-item-title v-text="plugin.Name" />
               </v-list-item-content>
             </v-list-item>
