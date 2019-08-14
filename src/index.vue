@@ -86,7 +86,7 @@
         />
       </v-container>
     </v-content>
-    <router-view :plugin="activePlugin" />
+    <router-view />
     <v-footer
       dark
       class="p-2 small--text copyright"
@@ -189,10 +189,7 @@
                 </v-avatar>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title>
-                  &nbsp;
-                  {{ plugin.Name }}
-                </v-list-item-title>
+                <v-list-item-title v-text="plugin.Name" />
               </v-list-item-content>
             </v-list-item>
           </v-flex>

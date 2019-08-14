@@ -44,7 +44,8 @@ function getComputed () {
     plugins: {
       get () {
         const vm = this
-        return vm.$store.state.compass.pluginList
+        const plugins = vm.$store.state.compass.pluginList
+        return vm._.filter(plugins, plugin => plugin.isActivated)
       },
       set (value) {
         const vm = this

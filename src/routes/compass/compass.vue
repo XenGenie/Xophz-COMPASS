@@ -26,10 +26,12 @@
               step="2"
               @click="stepper = 2 "
             >
-              Explore
+              Navigate
             </v-stepper-step>
             <v-divider />
-            <v-stepper-step step="3" />
+            <v-stepper-step step="3">
+              Explore
+            </v-stepper-step>
           </v-stepper-header>
           <v-stepper-items>
             <v-stepper-content

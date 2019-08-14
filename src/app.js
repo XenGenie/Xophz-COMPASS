@@ -1,15 +1,15 @@
 import Vue from 'vue'
 
+import VueLodash from 'vue-lodash'
+
 // import NProgress from 'vue-nprogress'
 import 'core-js'
 import { TrinityRingsSpinner } from 'epic-spinners'
 import Billboard from './components/billboard/billboard.vue'
 import NavDrawer from './components/routes-navigation-drawer/routes-navigation-drawer.vue'
 import AnimatedNumber from './components/animated-number/animated-number.vue'
-// import Widget from './components/Widget/Widget.vue';
 import vuetify from './plugins/vuetify' // path to vuetify export
 
-// import API from './plugins/api.plugin.js'
 import menuFix from './utils/admin_menu_fix'
 import '@fortawesome/fontawesome-pro/css/all.min.css'
 import '@fortawesome/fontawesome-pro/css/duotone.min.css'
@@ -18,10 +18,10 @@ import App from './index.vue'
 import router from './app.router'
 import store from './app.store'
 
+Vue.use(VueLodash)
 window.Vue = require('vue')
 
 Vue.config.productionTip = false
-Vue.prototype.sounds = []
 
 // Declare Components
 Vue.component('animated-number', AnimatedNumber)
@@ -60,12 +60,12 @@ function capitalize () {
 }
 
 // USE Plugins
-// Vue.use(API);
+
 Vue.use(require('vue-moment'))
 
 Vue.use(vuetify)
-// Vue.use(NProgress)
 
+// Vue.use(NProgress)
 // const nprogress = new NProgress({ parent: '.nprogress-container' })
 
 document.addEventListener('DOMContentLoaded', () => {
