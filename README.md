@@ -1,4 +1,5 @@
 # xophz-compass
+[![Build Status](https://travis-ci.com/XenGenie/Xophz-COMPASS.svg?branch=master)](https://travis-ci.com/XenGenie/Xophz-COMPASS)
 
 ## Project setup
 ```
