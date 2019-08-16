@@ -29,7 +29,7 @@
             </v-layout>
           </v-flex>
           <v-flex
-            offset-xs1
+            offset-x2
             grow
           >
             <div :class="!mini ? 'mini-billboard': 'open-billboard'">
@@ -71,7 +71,6 @@
             </div>
           </v-flex>
           <v-flex
-            xs3
             shrink
           >
             <nav-drawer

@@ -11,7 +11,7 @@
     floating
     :permanent="isBillboardNav"
     :temporary="temporary"
-    :dark="dark"
+    dark
     :mini-variant.sync="mini"
     clipped
     fill-height
@@ -94,7 +94,7 @@
     />
     <v-list
       dark
-      :dense="dense"
+      dense
       nav
     >
       <v-list-item-group>
@@ -109,7 +109,7 @@
           "
         >
           <v-list-item-icon
-            v-if="!isBillboardNav"
+            v-if="mini"
             :class="{
               'mini-avatar' : mini,
             }"
@@ -131,7 +131,7 @@
             }"
           >
             <v-icon
-              v-if="isBillboardNav"
+              v-if="isBillboardNav || !mini"
               class="route-icon"
               :color="child.color"
             >

@@ -55,6 +55,7 @@ body {
     top: $breadcrumb-footer-height !important;
     z-index: 7 ;
     @include desktop{
+
     }
 
     @include tablet{
@@ -71,7 +72,6 @@ body {
     .v-image{
       max-width: 48px
     }
-  
   }
   .v-content{
     padding-top: 0px !important;
@@ -79,13 +79,21 @@ body {
 }
 
 .v-content-billboard{
-  padding-top: 64px !important;
+  // padding-top: 64px !important;
   .container{
     @include desktop{
       padding-top: 12px !important;
     }
   }
 }
+
+
+  .container{
+    @include desktop{
+      max-width: 100%;
+      padding: 2vw !important;
+    }
+  }
 
 .wp-responsive-open{
   .v-dialog__content {

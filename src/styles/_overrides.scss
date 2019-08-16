@@ -5,8 +5,8 @@ button, input, select, textarea {
 }
 
 .container--fluid {
-  padding-left: 30px;
-  padding-right: 30px;
+  // padding-left: 30px;
+  // padding-right: 30px;
   @include phone{
     padding: 5px;
   }

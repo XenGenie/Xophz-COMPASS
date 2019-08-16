@@ -1,154 +1,159 @@
 <template>
-  <v-app
+  <v-content
     :id="$options.name"
     :class="$options.name"
-    dark
   >
-    <v-alert
-      :value="true"
-      color="blue"
-      type="info"
-      class="step-2"
-    >
-      Explore the different cardinal areas that extend COMPASS below.
-      Navigate to them at any time by pressing the
-      <v-btn
-        @click="bottomSheet = !bottomSheet"
-        small
+    <v-container fluid>
+      <v-layout
+        wrap
+        fill-height
       >
-        <v-icon
-          small
-          left
+        <v-flex
+          xs12
+          pa-2
+          d-flex
         >
-          fad fa-compass
-        </v-icon>
-        COMPASS
-      </v-btn>
-      button at the top of every page.
-    </v-alert>
-    <v-layout
-      d-flex
-      row
-      wrap
-      fill-height
-    >
-      <v-flex
-        v-for="(plugin, php) in plugins"
-        :key="php"
-        d-flex
-        xs12
-        sm6
-      >
-        <v-card class="plugin ma-2">
-          <v-btn
-            small
-            v-if="plugin.Name != 'COMPASS'"
-            @click="togglePlugin(this,plugin)"
-            :color="plugin.isActivated ? 'green' : ''"
-            class="activate-btn"
+          <v-alert
+            :value="true"
+            color="blue"
+            type="info"
+            class="step-2"
           >
-            <span v-if="plugin.isActivated">
-              Disable
-
-              <v-icon
-                right
-                small
-              >
-                fa-toggle-on
-              </v-icon>
-            </span>
-            <span v-else>
-              Enable
-              <v-icon
-                small
-                right
-              >
-                fa-toggle-off
-              </v-icon>
-            </span>
-          </v-btn>
-          <v-layout
-            justify-center
-            align-center
-            fill-height
-          >
-            <v-flex xs4>
-              <img
-                :src="plugin.icon"
-                :class="{
-                  'm-3': true,
-                  pluginImage: true,
-                  deactivated: !plugin.isActivated
-                }"
-              >
-            </v-flex>
-            <v-flex
-              xs8
-              class="pl-3"
+            Below are the different cardinal areas that extend COMPASS.
+            Navigate to them at any time by pressing the
+            <v-btn
+              @click="bottomSheet = !bottomSheet"
+              small
             >
-              <v-btn
-                :disabled="!plugin.isActivated"
-                class=" learn-more"
-                @click="$router.push({
-                  path : plugin.TextDomain.replace('xophz-compass-', '/'),
-                  hash : 'billboard',
-                  offset : { y : 15 }
-                })"
+              <v-icon
+                left
+                small
               >
-                Go
+                fad fa-compass
+              </v-icon>
+              COMPASS
+            </v-btn>
+            button at the top of every page. Take a minute to explore and click GO to proceed.
+          </v-alert>
+        </v-flex>
+        <v-flex
+          v-for="(plugin, php) in plugins"
+          :key="php"
+          d-flex
+          xs12
+          sm6
+        >
+          <v-card class="plugin ma-2">
+            <v-btn
+              small
+              v-if="plugin.Name != 'COMPASS'"
+              @click="togglePlugin(this,plugin)"
+              :color="plugin.isActivated ? 'green' : ''"
+              class="activate-btn"
+            >
+              <span v-if="plugin.isActivated">
+                Disable
                 <v-icon
                   right
-                  color="success"
+                  small
                 >
-                  fad fa-traffic-light-go
+                  fa-toggle-on
                 </v-icon>
-              </v-btn>
-              <h3 class="headline mb-0">
-                <router-link
-                  :to="{
-                    path : plugin.TextDomain.replace('xophz-compass-', ''),
+              </span>
+              <span v-else>
+                Enable
+                <v-icon
+                  small
+                  right
+                >
+                  fa-toggle-off
+                </v-icon>
+              </span>
+            </v-btn>
+            <v-layout
+              justify-center
+              align-center
+              fill-height
+            >
+              <v-flex
+                shrink
+              >
+                <img
+                  :src="plugin.icon"
+                  :class="{
+                    'm-3': true,
+                    pluginImage: true,
+                    deactivated: !plugin.isActivated
+                  }"
+                >
+              </v-flex>
+              <v-flex
+                offset-xs5
+              >
+                <v-btn
+                  :disabled="!plugin.isActivated"
+                  class=" learn-more"
+                  @click="$router.push({
+                    path : plugin.TextDomain.replace('xophz-compass-', '/'),
                     hash : 'billboard',
                     offset : { y : 15 }
-                  }"
-                />
-                <div class="headline v-title">
-                  {{ plugin.Name }}
+                  })"
+                >
+                  Go
+                  <v-icon
+                    right
+                    color="success"
+                  >
+                    fad fa-traffic-light-go
+                  </v-icon>
+                </v-btn>
+                <h3 class="headline mb-0">
+                  <router-link
+                    :to="{
+                      path : plugin.TextDomain.replace('xophz-compass-', ''),
+                      hash : 'billboard',
+                      offset : { y : 15 }
+                    }"
+                  />
+                  <div class="headline v-title">
+                    {{ plugin.Name }}
+                  </div>
+                </h3>
+                <v-subheader text-right>
+                  {{ plugin.Version }}
+                  by
+                  {{ plugin.Author }}
+                </v-subheader>
+                <div class="v-subhead mr-3">
+                  {{ plugin.Description }}
                 </div>
-              </h3>
-              <v-subheader text-right>
-                {{ plugin.Version }}
-                by
-                {{ plugin.Author }}
-              </v-subheader>
-              <div class="v-subhead mr-3">
-                {{ plugin.Description }}
-              </div>
-            </v-flex>
-          </v-layout>
-        </v-card>
-      </v-flex>
-    </v-layout>
-    <v-snackbar
-      v-model="snackbar"
-      class="grey--text"
-    >
-      <v-avatar>
-        <v-img
-          :src="snack.img"
-          :class="{ deactivated : snack.gray }"
-        />
-      </v-avatar>
-      &nbsp;
-      {{ snack.text }}
-      <v-btn
-        color="pink"
-        text
-        @click="snackbar = false"
+              </v-flex>
+            </v-layout>
+          </v-card>
+        </v-flex>
+      </v-layout>
+      <v-snackbar
+        v-model="snackbar"
+        class="grey--text"
       >
-        Close
-      </v-btn>
-    </v-snackbar>
-  </v-app>
+        <v-avatar>
+          <v-img
+            :src="snack.img"
+            :class="{ deactivated : snack.gray }"
+          />
+        </v-avatar>
+        &nbsp;
+        {{ snack.text }}
+        <v-btn
+          color="pink"
+          text
+          @click="snackbar = false"
+        >
+          Close
+        </v-btn>
+      </v-snackbar>
+    </v-container>
+  </v-content>
 </template>
 <script src="./compass-explore.controller.js"></script>
 <style lang="scss" src="./_compass-explore.scss"></style>

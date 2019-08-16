@@ -8,7 +8,8 @@
   }
 }
 .routes-navigation-drawer{
-  width: auto;
+  width: auto !important;
+  max-width: 256px !important;
   .route-icon {
     width: 35px;
     margin: auto;

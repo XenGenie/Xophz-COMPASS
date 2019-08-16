@@ -71,6 +71,7 @@ export default {
 function data () {
   return {
     children: [],
+
     breadcrumbs: []
   }
 }
@@ -285,6 +286,10 @@ function getWatched () {
     },
     userMask () {
       this.walkChildren(this.getCurrentRoute())
+    },
+    children () {
+      const vm = this
+      if (!vm.children.length) vm.isOpen = false
     },
     plugin (plugin) {
       this.billboard = {
