@@ -1,6 +1,9 @@
 # xophz-compass
-[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-[![Build Status](https://travis-ci.com/XenGenie/Xophz-COMPASS.svg?branch=master)](https://travis-ci.com/XenGenie/Xophz-COMPASS)
+[![Build Status](https://img.shields.io/github/forks/XenGenie/Xophz-COMPASS.svg)](https://github.com/XenGenie/Xophz-COMPASS)
+[![Build Status](https://img.shields.io/github/stars/XenGenie/Xophz-COMPASS.svg)](https://github.com/XenGenie/Xophz-COMPASS)
+[![License](https://img.shields.io/github/license/XenGenie/Xophz-COMPASS.svg)](https://github.com/XenGenie/Xophz-COMPASS)
+[![Build Status](https://img.shields.io/travis/XenGenie/Xophz-COMPASS/master.svg)](https://travis-ci.org/XenGenie/Xophz-COMPASS)
+[![Test Coverage](https://img.shields.io/codecov/c/github/XenGenie/Xophz-COMPASS/master.svg)](https://codecov.io/github/XenGenie/Xophz-COMPASS?branch=master)
 
 ## Project setup
 ```
