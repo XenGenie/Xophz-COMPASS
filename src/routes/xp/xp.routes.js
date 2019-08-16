@@ -102,7 +102,10 @@ export default {
     {
       path: '/xp',
       name: 'XP Leaderboard',
-      meta: { icon: 'fal fa-users' },
+      meta: {
+        icon: 'fal fa-users',
+        roles: ['achiever']
+      },
       component: Leaderboard
     },
     {

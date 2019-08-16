@@ -28,7 +28,10 @@
               >
             </v-layout>
           </v-flex>
-          <v-flex>
+          <v-flex
+            offset-xs1
+            grow
+          >
             <div :class="!mini ? 'mini-billboard': 'open-billboard'">
               <h1 v-if="billboard.h1">
                 {{ billboard.h1 }}
@@ -67,7 +70,10 @@
               </blockquote>
             </div>
           </v-flex>
-          <v-flex shrink>
+          <v-flex
+            xs3
+            shrink
+          >
             <nav-drawer
               @miniChanged="setMini"
               is-billboard-nav
@@ -103,7 +109,7 @@
               >
             </v-layout>
           </v-flex>
-          <v-flex>
+          <v-flex xs8>
             <div :class="!mini ? 'mini-billboard': 'open-billboard'">
               <h1>
                 {{ currentUser.data.display_name }}
@@ -133,7 +139,9 @@
               </blockquote>
             </div>
           </v-flex>
-          <v-flex shrink>
+          <v-flex
+            xs2
+          >
             <nav-drawer
               @miniChanged="setMini"
               is-billboard-nav

@@ -48,7 +48,7 @@ export default {
       TextDomain: ''
     },
     userMask: false,
-    isAppNavDrawerOpen: true,
+    isAppNavDrawerOpen: false,
     isAppNavDrawerMini: true,
     isBillboardNavDrawerMini: false,
     bottomSheet: false,

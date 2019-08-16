@@ -9,7 +9,6 @@
       :key="key"
       xs6
       sm3
-      md2
     >
       <v-hover>
         <v-card class="pt-3 m-1">

@@ -70,6 +70,15 @@ function getWatched () {
         2: '/compass/explore',
         3: '/compass/dashboard'
       }[step]
+
+      const isBillboardOff = {
+        1: true,
+        2: true,
+        3: false
+      }[step]
+
+      vm.$store.dispatch('compass/TURN_OFF_BILLBOARD', isBillboardOff)
+
       vm.loading = true
       vm.$router.push({ path, hash }, () => {
         vm.loading = false
@@ -85,8 +94,6 @@ function mounted () {
 }
 
 function onCreated () {
-  const vm = this
-  vm.billboard = false
 }
 
 function getMethods () {

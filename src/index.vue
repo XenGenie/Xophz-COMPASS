@@ -1,5 +1,7 @@
 <template>
-  <div id="app">
+  <v-app
+    id="app"
+  >
     <v-footer
       dark
       class="breadcrumbs p-1"
@@ -36,10 +38,12 @@
                 <v-icon
                   small
                 >
-                  fad fa-home
+                  fa fa-globe
                 </v-icon>
-                &nbsp;
-                {{ blogInfo.name }}
+                <span class="d-none d-sm-flex">
+                  &nbsp;
+                  {{ blogInfo.name }}
+                </span>
               </v-btn>
             </template>
             <span>Go to Home Page</span>
@@ -49,7 +53,7 @@
           <v-breadcrumbs
             :items="breadtrail"
             divider="/"
-            class="p-0 pl-3 pt-1"
+            class="p-0 pl-3 pt-1 d-none d-sm-flex"
           />
         </v-flex>
         <v-spacer />
@@ -59,7 +63,7 @@
               <v-btn
                 v-on="on"
                 @click="wpmenu"
-                class="mx-2"
+                class="mx-2 d-none d-sm-flex"
                 small
               >
                 WP Menu
@@ -88,10 +92,11 @@
         </v-flex>
       </v-layout>
     </v-footer>
+    <nav-drawer v-model="isAppNavDrawerOpen" />
     <trinity-rings-spinner v-if="spinner" />
     <v-content
       id="v-content-billboard"
-      class="v-content-billboard"
+      class="no-flex v-content-billboard"
       v-if="!isBillboardOff"
     >
       <v-container
@@ -149,7 +154,23 @@
           fad fa-compass
         </v-icon>
         <v-spacer />
-        <v-toolbar-title>
+        <v-toolbar-title
+          class="headline d-flex d-sm-none"
+        >
+          COMPASS
+          <v-avatar
+            size="32px"
+            tile
+          />
+          <v-chip color="green">
+            <v-icon>
+              fa fa-star
+            </v-icon>
+          </v-chip>
+        </v-toolbar-title>
+        <v-toolbar-title
+          class="d-none d-sm-flex mt-2"
+        >
           <b>C</b>ompany
           <b>O</b>verview
           <b>M</b>anagment
@@ -161,15 +182,15 @@
             size="32px"
             tile
           />
-          <v-chip color="green">
-            <span>
-              Premium
-            </span>
-            <v-icon right>
-              fa fa-star
-            </v-icon>
-          </v-chip>
         </v-toolbar-title>
+        <v-chip color="green">
+          <span>
+            Premium
+          </span>
+          <v-icon right>
+            fa fa-star
+          </v-icon>
+        </v-chip>
         <v-spacer />
         <v-toolbar-items>
           <v-btn
@@ -186,8 +207,7 @@
       <v-list>
         <v-layout wrap>
           <v-flex
-            sm6
-            md6
+            xs3
             lg2
             v-for="plugin in plugins"
             :key="plugin.TextDomain"
@@ -199,7 +219,19 @@
               });"
             >
               <v-list-item-icon>
-                <v-avatar small>
+                <v-avatar
+                  size="64"
+                  class="d-none d-xl-flex"
+                >
+                  <v-img
+                    :src="plugin.icon"
+                    :alt="plugin.title"
+                  />
+                </v-avatar>
+                <v-avatar
+                  size="48"
+                  class="d-flex d-xl-none"
+                >
                   <v-img
                     :src="plugin.icon"
                     :alt="plugin.title"
@@ -214,7 +246,7 @@
         </v-layout>
       </v-list>
     </v-bottom-sheet>
-  </div>
+  </v-app>
 </template>
 <script src="./index.controller.js"></script>
 <style src="./styles/theme.scss" lang="scss" />

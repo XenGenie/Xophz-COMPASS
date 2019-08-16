@@ -7,6 +7,9 @@ button, input, select, textarea {
 .container--fluid {
   padding-left: 30px;
   padding-right: 30px;
+  @include phone{
+    padding: 5px;
+  }
 }
 
 .navbar {
@@ -504,7 +507,7 @@ h6,
   small,
   .small {
     font-weight: $font-weight-thin;
-    font-size: 75%;
+    // font-size: 75%;
     color: $text-muted;
   }
 }

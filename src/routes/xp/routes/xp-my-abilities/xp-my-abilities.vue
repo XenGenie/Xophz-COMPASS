@@ -1,10 +1,8 @@
 <template>
-  <v-app
+  <v-content
     :id="$options.name"
     :class="$options.name"
-    dark
   >
-    <nav-drawer v-model="isAppNavDrawerOpen" />
     <v-app-bar
       color="red darken-4"
       clipped-left
@@ -68,16 +66,14 @@
         </v-menu>
       </v-toolbar-items>
     </v-app-bar>
-    <v-content>
-      <v-container
-        fluid
-        grid-list-md
-        pt-3
-      >
-        <router-view />
-      </v-container>
-    </v-content>
-  </v-app>
+    <v-container
+      fluid
+      grid-list-md
+      pt-3
+    >
+      <router-view />
+    </v-container>
+  </v-content>
 </template>
 <script src="./xp-my-abilities.controller.js"></script>
 <style lang="scss" src="./_xp-my-abilities.scss"></style>

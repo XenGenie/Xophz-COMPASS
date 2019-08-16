@@ -1,9 +1,8 @@
 <template>
-  <v-app
+  <v-content
     :id="$options.name"
     :class="$options.name"
   >
-    <nav-drawer v-model="isAppNavDrawerOpen" />
     <v-app-bar
       clipped-left
       app
@@ -58,16 +57,14 @@
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
-    <v-content>
-      <v-container
-        fluid
-        grid-list-md
-        pt-3
-      >
-        <router-view />
-      </v-container>
-    </v-content>
-  </v-app>
+    <v-container
+      fluid
+      grid-list-md
+      pt-3
+    >
+      <router-view />
+    </v-container>
+  </v-content>
 </template>
 <script src="./xp-my-accessories.controller.js"></script>
 <style lang="scss" src="./_xp-my-accessories.scss"></style>

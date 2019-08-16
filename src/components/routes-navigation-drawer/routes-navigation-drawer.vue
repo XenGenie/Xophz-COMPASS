@@ -3,10 +3,12 @@
     v-model="value"
     :class="{
       'routes-navigation-drawer' : true,
-      'main-nav' : !isBillboardNav
+      'main-nav' : !isBillboardNav,
+      'mr-0' : true
     }"
     :app="!isBillboardNav"
     :right="right"
+    floating
     :permanent="isBillboardNav"
     :temporary="temporary"
     :dark="dark"
@@ -80,8 +82,8 @@
           small
           @click.stop="miniMode"
         >
-          <v-icon left>
-            fa chevron_left
+          <v-icon small>
+            fal fa-chevron-left
           </v-icon>
         </v-btn>
       </v-list-item-action>
@@ -113,7 +115,6 @@
             }"
           >
             <v-icon
-              center
               :color="child.color"
             >
               fa fa-{{ child.icon }}
@@ -131,9 +132,10 @@
           >
             <v-icon
               v-if="isBillboardNav"
+              class="route-icon"
               :color="child.color"
             >
-              fa fa-{{ child.icon }}
+              fa-{{ child.icon }}
             </v-icon>
           </v-list-item-icon>
         </v-list-item>

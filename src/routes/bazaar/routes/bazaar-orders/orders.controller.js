@@ -1,7 +1,7 @@
 import navDrawer from '@/components/routes-navigation-drawer/routes-navigation-drawer.vue'
 
 export default {
-  name: 'Orders',
+  name: 'bazaar-orders',
   props: [],
   data,
 

@@ -1,8 +1,5 @@
 @import '../../styles/_mixins.scss';
-
-  $sm-toolbar-height: 56px;
-  $toolbar-height: 64px;
-  $breadcrumb-height: 35px;
+@import '../../styles/_variables.scss';
 
 .wp-responsive-open {
   .v-navigation-drawer--close{
@@ -11,7 +8,11 @@
   }
 }
 .routes-navigation-drawer{
-
+  width: auto;
+  .route-icon {
+    width: 35px;
+    margin: auto;
+  }
   z-index: 1;
   transition-property: transform,width,-webkit-transform, opacity !important ;
   // top: $toolbar-height;
@@ -40,9 +41,9 @@
     overflow-x: visible !important;
 }
 .main-nav{
-  top: $sm-toolbar-height !important;
+    top: $sm-toolbar-height + $breadcrumb-height !important;
+    z-index: 6 !important;
     @include desktop{
-      z-index: 3 !important;
       top: $toolbar-height + $breadcrumb-height !important;
     }
 }

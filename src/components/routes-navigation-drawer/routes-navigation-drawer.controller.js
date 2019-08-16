@@ -233,9 +233,10 @@ function getMethods () {
     const goToRoute = { ...route, ...route.meta }
     const isAdmin = (vm.currentUser.caps.administrator)
     const isMaskOn = (vm.currentUser.caps.administrator && vm.userMask)
-    const userHasRole = (vm.currentUserHasRole(goToRoute.roles))
+    const userHasRole = vm.currentUserHasRole(goToRoute.roles)
 
     if (isAdmin && !goToRoute.roles && isMaskOn) return false
+    if (!isAdmin && !goToRoute.roles && !isMaskOn) return false
     if (goToRoute.roles && !userHasRole && !isMaskOn) return false
 
     vm.children.push(goToRoute)

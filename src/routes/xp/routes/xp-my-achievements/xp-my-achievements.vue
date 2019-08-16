@@ -1,9 +1,8 @@
 <template>
-  <v-app
+  <v-content
     :id="$options.name"
     :class="$options.name"
   >
-    <nav-drawer v-model="isAppNavDrawerOpen" />
     <v-app-bar
       clipped-left
       app
@@ -71,15 +70,13 @@
         </v-menu>
       </v-toolbar-items>
     </v-app-bar>
-    <v-content>
-      <v-container
-        fluid
-        grid-list-md
-        pt-3
-      >
-        <router-view :weekday="weekday" />
-      </v-container>
-    </v-content>
+    <v-container
+      fluid
+      grid-list-md
+      pt-3
+    >
+      <router-view :weekday="weekday" />
+    </v-container>
     <v-dialog
       v-model="dialog"
       persistent
@@ -263,7 +260,7 @@
         </v-footer>
       </v-card>
     </v-dialog>
-  </v-app>
+  </v-content>
 </template>
 <script src="./xp-my-achievements.controller.js"></script>
 <style lang="scss" src="./_xp-my-achievements.scss"></style>

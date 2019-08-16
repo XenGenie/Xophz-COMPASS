@@ -1,10 +1,8 @@
 <template>
-  <v-app
+  <v-content
     :id="$options.name"
     :class="$options.name"
-    dark
   >
-    <nav-drawer v-model="isAppNavDrawerOpen" />
     <v-app-bar
       clipped-left
       app
@@ -87,27 +85,25 @@
         </v-toolbar-items>
       </div>
     </v-app-bar>
-    <v-content>
-      <v-container
-        fluid
-        fill-height
-      >
-        <v-layout justify-center>
-          <v-flex>
-            <v-pagination
-              dark
-              v-model="page"
-              :length="Math.ceil(total/limit)"
-            />
-            <router-view />
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </v-content>
+    <v-container
+      fluid
+      fill-height
+    >
+      <v-layout justify-center>
+        <v-flex>
+          <v-pagination
+            dark
+            v-model="page"
+            :length="Math.ceil(total/limit)"
+          />
+          <router-view />
+        </v-flex>
+      </v-layout>
+    </v-container>
     <!-- <v-footer> -->
     <!-- </v-footer> -->
     <filter-dialog />
-  </v-app>
+  </v-content>
 </template>
 <script src="./bazaar-products.controller.js"></script>
 <style lang="scss" src="./_bazaar-products.scss"></style>

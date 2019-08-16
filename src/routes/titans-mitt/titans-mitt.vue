@@ -1,5 +1,5 @@
 <template>
-  <v-app
+  <div
     :id="$options.name"
     :class="$options.name"
     dark
@@ -32,7 +32,7 @@
     </v-content>
     <!-- <v-footer> -->
     <!-- </v-footer> -->
-  </v-app>
+  </div>
 </template>
 <script src="./titans-mitt.controller.js"></script>
 <style lang="scss" src="./_titans-mitt.scss" scoped></style>

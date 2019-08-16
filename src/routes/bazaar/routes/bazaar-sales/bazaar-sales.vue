@@ -1,10 +1,9 @@
 <template>
-  <v-app
+  <v-content
     :id="$options.name"
     :class="$options.name"
     dark
   >
-    <nav-drawer v-model="isAppNavDrawerOpen" />
     <v-app-bar
       app
       clipped-left
@@ -63,14 +62,12 @@
       <!--   </v-tabs> -->
       <!-- </template> -->
     </v-app-bar>
-    <v-content>
-      <v-container
-        fluid
-        grid-list-md
-      >
-        <router-view />
-      </v-container>
-    </v-content>
+    <v-container
+      fluid
+      grid-list-md
+    >
+      <router-view />
+    </v-container>
     <v-dialog
       ref="dialog"
       v-model="modal"
@@ -102,7 +99,7 @@
     </v-dialog>
 
     <filter-dialog />
-  </v-app>
+  </v-content>
 </template>
 <script src="./bazaar-sales.controller.js"></script>
 <style lang="scss" src="./_bazaar-sales.scss" scoped></style>
