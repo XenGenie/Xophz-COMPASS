@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --mode production",
+    "watch-build": "vue-cli-service build --mode production --watch",
     "lint": "vue-cli-service lint --watch",
     "serve-localhost": "vue-cli-service serve --host localhost",
     "serve:bs": "vue-cli-service serve:bs"
