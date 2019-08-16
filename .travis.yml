@@ -12,3 +12,7 @@ deploy:
  local_dir: dist
  on:
    branch: master
+addons:
+  ssh_known_hosts:
+  - bitbucket.org
+  - 18.205.93.1 
