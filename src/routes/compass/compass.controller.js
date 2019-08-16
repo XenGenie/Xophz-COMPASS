@@ -74,7 +74,7 @@ function getWatched () {
       const isBillboardOff = {
         1: true,
         2: true,
-        3: false
+        3: true
       }[step]
 
       vm.$store.dispatch('compass/TURN_OFF_BILLBOARD', isBillboardOff)

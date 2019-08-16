@@ -60,15 +60,19 @@ function getMethods () {
   return {
     togglePlugin (e, plugin) {
       const vm = this
-      vm.snack.img = plugin.icon
+      const action = plugin.isActivated ? 'deactivate' : 'activate'
+      const toggle = `${action}Plugin`
+
+      vm.snack.text = `${plugin.Name} has been ${action}d.`
       vm.snack.gray = plugin.isActivated
-      if (!plugin.isActivated) {
-        vm.snack.text = `${plugin.Name} has been activated.`
-        vm.activatePlugin(plugin).then(vm.showSnackbar)
-      } else {
-        vm.snack.text = `${plugin.Name} has been deactivated.`
-        vm.deactivatePlugin(plugin).then(vm.showSnackbar)
-      }
+      vm.snack.img = plugin.icon
+
+      vm[toggle](plugin)
+        .then(vm.loadPlugins)
+        .then(vm.showSnackbar)
+    },
+    loadPlugins () {
+      return this.$store.dispatch('compass/LOAD_PLUGINS')
     },
     activatePlugin (plugin) {
       return this.$store.dispatch('compass/ACTIVATE_PLUGIN', plugin)

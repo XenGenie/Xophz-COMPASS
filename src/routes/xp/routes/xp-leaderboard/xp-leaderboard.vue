@@ -10,13 +10,10 @@
       color="#5D3369"
     >
       <v-app-bar-nav-icon @click="toggleAppNavDrawer" />
-      &nbsp;
-      <v-img :src="plugin.icon" />
-      &nbsp;
-      &nbsp;
       <v-toolbar-title>
         {{ $route.name }}
       </v-toolbar-title>
+      <v-img :src="plugin.icon" />
       <v-spacer />
       <!-- <v-toolbar-items class="hidden-sm-and-down"> -->
       <!-- </v-toolbar-items> -->
@@ -69,12 +66,13 @@
                     <v-chip
                       class="ma-2"
                       color="green"
-                      text-color="white"
+                      text-color="black"
                     >
                       Level
                       <v-avatar
                         right
-                        class="green darken-4"
+                        class="green darken-4 white--text"
+                        text-color="white"
                       >
                         {{ player.level }}
                       </v-avatar>
@@ -89,7 +87,6 @@
             >
               <v-flex shrink>
                 <v-chip
-                  small
                   class="ma-1"
                   color="red"
                   text-color="white"
