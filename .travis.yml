@@ -12,6 +12,8 @@ script: npm run build
 #  local_dir: dist
 #  on:
 #    branch: master
+env:
+  - CODECOV_TOKEN="967dc703-4cd1-4172-8c59-4b978d6dd23d"
 git:
   submodules: false
 before_install:
