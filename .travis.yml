@@ -20,5 +20,5 @@ git:
 before_install:
 - printf "@fortawesome:registry=https://npm.fontawesome.com/\n//npm.fontawesome.com/:_authToken=${FA_AUTH_TOKEN}" >> ~/.npmrc
 install:
+  - npm install
   - npm install -g codecov
-  - npm install -g @vue/cli-service
