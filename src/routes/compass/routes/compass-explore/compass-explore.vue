@@ -5,21 +5,26 @@
   >
     <v-container fluid>
       <v-layout
+        justify-center
+        align-center
         wrap
         fill-height
       >
         <v-flex
-          xs12
+          shrink
           pa-2
           d-flex
+          text-center
         >
           <v-alert
             :value="true"
             color="blue"
             type="info"
+            large
+            icon="fad fa-compass"
             class="step-2"
           >
-            Below are the different cardinal areas that extend COMPASS.
+            Below are different cardinal areas of COMPASS.
             Navigate to them at any time by pressing the
             <v-btn
               @click="bottomSheet = !bottomSheet"
@@ -33,7 +38,8 @@
               </v-icon>
               COMPASS
             </v-btn>
-            button at the top of every page. Take a minute to explore and click GO to proceed.
+            button at the top of the page.
+            <!-- Take a minute to look around. Click GO to start exploring. -->
           </v-alert>
         </v-flex>
         <v-flex
@@ -153,6 +159,24 @@
         </v-btn>
       </v-snackbar>
     </v-container>
+    <!-- <v-dialog -->
+    <!--   v-model="welcomeDialog" -->
+    <!--   width="33vw" -->
+    <!-- > -->
+    <!--   <v-card> -->
+    <!--     <v-toolbar -->
+    <!--       class="headline grey darken-4" -->
+    <!--     > -->
+    <!--       <v-card-title -->
+    <!--         primary-title -->
+    <!--       > -->
+    <!--         It's Dangerous to Go Alone! -->
+    <!--       </v-card-title> -->
+    <!--     </v-toolbar> -->
+    <!--     <v-card-title> -->
+    <!--     </v-card-title> -->
+    <!--   </v-card> -->
+    <!-- </v-dialog> -->
   </v-content>
 </template>
 <script src="./compass-explore.controller.js"></script>

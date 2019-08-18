@@ -153,6 +153,17 @@
         <v-icon>
           fad fa-compass
         </v-icon>
+        <v-chip
+          class="ml-4 "
+          color="green"
+        >
+          <span>
+            Premium
+          </span>
+          <v-icon right>
+            fa fa-star
+          </v-icon>
+        </v-chip>
         <v-spacer />
         <v-toolbar-title
           class="headline d-flex d-sm-none"
@@ -169,28 +180,28 @@
           </v-chip>
         </v-toolbar-title>
         <v-toolbar-title
-          class="d-none d-sm-flex mt-2"
+          class="d-none d-sm-flex"
         >
-          <b>C</b>ompany
-          <b>O</b>verview
-          <b>M</b>anagment
+          <b>C</b>ardinal
+          &nbsp;
+          <b>O</b>perators
+          &nbsp;
+          <b>M</b>aster
+          <!-- <b>C</b>ompany -->
+          <!-- &nbsp; -->
+          <!-- <b>O</b>verview -->
+          <!-- &nbsp; -->
+          <!-- <b>M</b>anagment -->
+          &nbsp;
           <b>P</b>lanning
+          &nbsp;
           <b>A</b>nd
+          &nbsp;
           <b>S</b>trategic
+          &nbsp;
           <b>S</b>ystem
-          <v-avatar
-            size="32px"
-            tile
-          />
         </v-toolbar-title>
-        <v-chip color="green">
-          <span>
-            Premium
-          </span>
-          <v-icon right>
-            fa fa-star
-          </v-icon>
-        </v-chip>
+          &nbsp;
         <v-spacer />
         <v-toolbar-items>
           <v-btn

@@ -85,7 +85,7 @@
           <v-card-title
             primary-title
           >
-            Locking Up? Click Log Off.
+            Locking Up?
           </v-card-title>
         </v-toolbar>
         <v-layout

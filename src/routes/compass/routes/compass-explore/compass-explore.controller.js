@@ -29,6 +29,7 @@ export default {
 function data () {
   return {
     dialog: true,
+    welcomeDialog: true,
     snackbar: false,
     snack: {
       gray: false,
@@ -105,7 +106,6 @@ function onBeforeMount () {
 
 function onMounted () {
   this.loading = false
-  this.$store.dispatch('compass/TURN_OFF_BILLBOARD', false)
 }
 
 function onBeforeUpdate () {

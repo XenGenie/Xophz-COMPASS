@@ -1,7 +1,7 @@
 <template>
   <div
-    :id="$options.name"
     :class="$options.name"
+    :id="$options.name"
     ma-5
   >
     <link
@@ -36,16 +36,27 @@
                     width="64px"
                     src="/wp-content/plugins/xophz-compass/assets/xophz-compass.png"
                   >
-                  <br>
-                  <br>
-                  Welcome to
+                  <h6 class="mt-3 m-0 white--text small--text">
+                    <small class="white--text ">
+                      Welcome to
+                    </small>
+                  </h6>
                   <h1 class="m-0">
                     COMPASS
                   </h1>
                   <h6 class="small--text">
                     <small>
-                      <!-- Cardinal Operations Master Panel And Strategic System -->
-                      Company Overview Managment Planning & Strategic System
+                      Cardinal Operators Master Panel
+                      <br>
+                      And
+                      <!-- &  -->
+                      <!-- <br/> -->
+                      Strategic System
+                      <!-- Company Overview Management Planning   -->
+                      <!-- <br/> -->
+                      <!-- &  -->
+                      <!-- <br/> -->
+                      <!-- Strategic System -->
                     </small>
                   </h6>
                   <v-icon>
