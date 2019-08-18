@@ -32,6 +32,7 @@ module.exports = {
       allowedHosts: ['localhost'],
       headers: {
         'Access-Control-Allow-Origin': '*'
+
       }
     },
     externals: {

@@ -183,7 +183,8 @@ function getMethods () {
     const vm = this
     const to = vm.$route
     let where = to.path.split('/')[1]
-    where = where ? `-${where}` : ''
+
+    where = where && where != 'compass' ? `-${where}` : ''
     where = `xophz-compass${where}`
 
     if (vm.plugins) {
@@ -197,7 +198,6 @@ function getMethods () {
 
   function toggleAppNavDrawer () {
     this.isOpen = !this.isOpen
-    // document.getElementById('navMenuBtn').blur()
   }
 
   function logout () {
@@ -307,14 +307,13 @@ function onBeforeCreate () {
 }
 
 function onCreated () {
-  // this.mini = this.parseBool(localStorage.mini);
 }
 
 function onBeforeMount () {
+
 }
 
 function onMounted () {
-  this.walkChildren(this.getCurrentRoute())
 }
 
 function onBeforeUpdate () {

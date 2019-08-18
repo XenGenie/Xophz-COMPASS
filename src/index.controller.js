@@ -91,7 +91,6 @@ function getComputed () {
         this.$store.dispatch('compass/SET_WP_MENU', isOpen)
       }
     }
-
   }
 }
 
@@ -144,7 +143,8 @@ function getMethods () {
     loadCompass () {
       const vm = this
       vm.$store.dispatch('compass/GET_CURRENT_USER')
-      vm.$store.dispatch('compass/LOAD_PLUGINS').then(vm.updateActivePlugin)
+      vm.$store.dispatch('compass/LOAD_PLUGINS')
+        .then(vm.setPlugin)
     }
   }
 }
