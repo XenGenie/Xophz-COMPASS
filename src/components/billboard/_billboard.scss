@@ -1,8 +1,9 @@
 @import '../../styles/_mixins.scss';
 
 .billboard{
-  .widget{
-    min-height: 22vh;
+  .v-card{
+    min-height: 230px;
+    max-height: 230px;
     overflow:hidden;
 
     position: relative;
@@ -116,7 +117,6 @@
       }
     }
     // max-height: 215px;
-
   }
   .routes{
     z-index: 1;

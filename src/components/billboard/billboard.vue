@@ -4,13 +4,17 @@
     class="billboard"
   >
     <nprogress-container />
-    <v-scroll-y-transition>
-      <v-card
-        dark
-        v-if="currentUser.caps.administrator && false === userMask"
-        class="widget p-0"
+    <v-card
+      dark
+      class="widget p-0"
+    >
+      <v-scroll-x-transition
+        :duration="{ enter: 800, leave: 0 }"
+        mode="out-in"
       >
         <v-layout
+          v-if="currentUser.caps.administrator && false === userMask"
+          key="adminBillboard"
           justify-center
           align-center
           fill-height
@@ -82,15 +86,9 @@
             />
           </v-flex>
         </v-layout>
-      </v-card>
-    </v-scroll-y-transition>
-    <v-scroll-y-transition>
-      <v-card
-        dark
-        v-if="!currentUser.caps.administrator || userMask"
-        class="widget p-0"
-      >
         <v-layout
+          v-else-if="!currentUser.caps.administrator || userMask"
+          key="userBillboard"
           justify-center
           align-center
           fill-height
@@ -150,8 +148,8 @@
             />
           </v-flex>
         </v-layout>
-      </v-card>
-    </v-scroll-y-transition>
+      </v-scroll-x-transition>
+    </v-card>
   </div>
 </template>
 <script src="./billboard.controller.js"></script>

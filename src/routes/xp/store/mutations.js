@@ -17,7 +17,12 @@ export default {
   FILTERED_ACHIEVEMENTS: filteredAchievements,
   NAV_TOGGLED: navToggled,
   ABILITY_POINTS_TALLIED: abilityPointsTallied,
-  PLAYERS_LOADED: playersLoaded
+  PLAYERS_LOADED: playersLoaded,
+  PLAYER_STARTED: playerStarted
+}
+
+function playerStarted (state, payload) {
+
 }
 
 function playersLoaded (state, payload) {

@@ -15,8 +15,13 @@
       </v-toolbar-title>
       <v-img :src="plugin.icon" />
       <v-spacer />
-      <!-- <v-toolbar-items class="hidden-sm-and-down"> -->
-      <!-- </v-toolbar-items> -->
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-switch
+          v-model="userMask"
+          icon="fa-mask"
+          label="Masquerade"
+        />
+      </v-toolbar-items>
     </v-app-bar>
     <v-container
       fluid
@@ -26,7 +31,51 @@
       <v-layout
         row
         wrap
+        justify-center
+        align-center
+        fill-height
       >
+        <v-flex
+          v-if="!currentPlayer.birthdate"
+          xs12
+          sm6
+          md4
+          pb-2
+        >
+          <v-card
+            ma-5
+            color="green"
+            dark
+            fill-height
+          >
+            <v-layout
+              pa-3
+              justify-center
+              align-center
+              fill-height
+            >
+              <v-flex
+                shrink
+                text-center
+              >
+                <v-card-title>
+                  Press
+                  Start
+                  to Join
+                </v-card-title>
+                <v-btn
+                  @click="startPlayerDialog = true"
+                >
+                  <v-icon>
+                    fa-controller
+                  </v-icon>
+                  Start
+                </v-btn>
+                <!-- {{ currentPlayer }} -->
+              </v-flex>
+            </v-layout>
+          </v-card>
+        </v-flex>
         <v-flex
           v-for="(player, p) in players"
           :key="p"
@@ -211,6 +260,71 @@
         </v-flex>
       </v-layout>
     </v-container>
+    <v-dialog
+      width="30vw"
+      v-model="startPlayerDialog"
+    >
+      <v-card>
+        <v-toolbar
+          color="grey darken-4"
+          class="elevation-5"
+          dark
+        >
+          <v-toolbar-title>
+            When is your birthdate?
+          </v-toolbar-title>
+        </v-toolbar>
+        <v-layout>
+          <!-- <v-flex -->
+          <!--   xs10 -->
+          <!--   text-center -->
+          <!-- > -->
+          <!--   <v-card-title> -->
+          <!--     {{ plugin.Name }} -->
+          <!--   </v-card-title> -->
+          <!--   {{ plugin.Description }} -->
+          <!-- </v-flex> -->
+          <!-- <v-flex xs2> -->
+          <!--   <v-img -->
+          <!--     class="ma-5" -->
+          <!--     :src="plugin.icon" -->
+          <!--   /> -->
+          <!-- </v-flex> -->
+          <v-flex
+            shrink
+            text-center
+          >
+            <v-date-picker
+              landscape
+              class="elevation-0"
+              elevation="0"
+              v-model="birthdate"
+            />
+          </v-flex>
+        </v-layout>
+        <v-card-actions>
+          <v-btn
+            color="red"
+            text
+          >
+            Nevermind
+          </v-btn>
+          <v-spacer />
+          <v-btn
+            @click="startPlayer"
+            color="primary"
+          >
+            {{ birthdate|moment("ddd, MMM DD YYYY") }}
+            <v-icon
+              right
+              small
+            >
+              fad fa-check
+            </v-icon>
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-content>
 </template>
 <script src="./xp-leaderboard.controller.js"></script>

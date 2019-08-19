@@ -41,10 +41,10 @@ export default () => ({
   listPlayers (filters) {
     return api.get('xp_list_players', filters)
   },
+  startPlayer (birthdate) {
+    return api.put('xp_start_player', birthdate)
+  },
   addNewCategory (category) {
     return api.put('xp_add_new_category', category)
   }
-  // funct(filters){
-  //   return api.get('api_funt',filters);
-  // }
 })

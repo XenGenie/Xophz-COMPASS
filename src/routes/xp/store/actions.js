@@ -18,7 +18,24 @@ export default {
   LOAD_LOG: loadLog,
   SEARCH_ACHIEVEMENTS: searchAchievements,
   TALLY_ABILITY_POINTS: tallyAbilityPoints,
-  LOAD_PLAYERS: loadPlayers
+  LOAD_PLAYERS: loadPlayers,
+  START_PLAYER: startPlayer
+}
+
+function startPlayer ({ dispatch, commit }, birthdate) {
+  return Api()
+    .startPlayer({ birthdate })
+    .then(commitResponse)
+    .catch(handleErrors)
+
+  function commitResponse (response) {
+    commit('PLAYER_STARTED', response.data)
+    dispatch('xp/GET_USER')
+  }
+
+  function handleErrors (response) {
+    commit('SET_ERRORS', response)
+  }
 }
 
 function loadPlayers ({ commit }) {

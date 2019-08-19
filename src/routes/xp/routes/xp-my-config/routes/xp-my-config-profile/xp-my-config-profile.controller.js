@@ -25,7 +25,8 @@ export default {
 
 function data () {
   return {
-
+    birthdateDialog: false,
+    birthdate: []
   }
 }
 
@@ -36,9 +37,16 @@ function getComputed () {
         return this.$store.state.xp.log
       }
     },
-    user: {
+    player: {
       get () {
         return this.$store.state.xp.user
+      }
+    },
+    birthdate: {
+      get () {
+        return this.player.birthdate
+      },
+      set (birthdate) {
       }
     },
     currentUser: {
@@ -51,7 +59,17 @@ function getComputed () {
 
 function getMethods () {
   return {
-
+    loadPlayer,
+    saveBirthdate
+  }
+  function loadPlayer () {
+    this.$store.dispatch('xp/GET_USER')
+  }
+  function saveBirthdate () {
+    this.birthdateDialog = false
+    this.$store.dispatch('xp/START_PLAYER', this.birthdate).then(
+      this.loadPlayer
+    )
   }
 }
 
@@ -67,6 +85,7 @@ function onBeforeCreate () {
 
 function onCreated () {
   this.$store.dispatch('xp/LOAD_LOG')
+  this.birthdate = this.player.birthdate
 }
 
 function onBeforeMount () {

@@ -1,6 +1,7 @@
 <template>
   <div class="$options.name">
     <v-menu
+      :close-on-content-click="false"
       offset-y
       left
       attach=".breadcrumbs"

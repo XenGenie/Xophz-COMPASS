@@ -32,7 +32,7 @@ export default {
 
 function data () {
   return {
-    xp_level1: 600,
+    xp_level1: 60 * 24,
     nextLevel: 0,
     currentLevel: 0,
     userProgress: 0,
@@ -57,6 +57,11 @@ function getComputed () {
     currentUser: {
       get () {
         return this.$store.state.compass.currentUser
+      }
+    },
+    player: {
+      get () {
+        return this.$store.state.xp.user
       }
     },
     xpToNextLevel: {
@@ -98,11 +103,15 @@ function getMethods () {
 
     layLevels () {
       const vm = this
-      const handicap = 12 / 10
+      const { age } = vm.player
+      const handicap = age / 10
       const level1 = (vm.xp_level1 * handicap)
       let i
       for (i = 0; i < (Math.floor(vm.user.xp / level1) + 2); i += 1) {
-        vm.levels[i] = Math.ceil(level1 * (i * handicap))
+        const xp = Math.ceil(level1 * i)
+        // xp -= level1 * i
+        vm.levels[i] = xp
+        // vm.levels[i] = level1 * (i ** 2) - (level1 * i)
         if (vm.user.xp >= vm.levels[i]) {
           vm.currentLevel = i
           vm.nextLevel = i + 1

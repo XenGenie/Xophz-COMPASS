@@ -25,6 +25,7 @@
                 class="p-3"
               />
             </v-layout>
+            {{ levels }}
           </v-card>
         </v-flex>
         <v-flex

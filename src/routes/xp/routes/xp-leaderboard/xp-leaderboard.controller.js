@@ -31,6 +31,8 @@ export default {
 function data () {
   return {
     levels: [],
+    birthdate: new Date().toISOString().substr(0, 10),
+    startPlayerDialog: false,
     xp_level1: 600
   }
 }
@@ -50,6 +52,19 @@ function getComputed () {
         this.$store.dispatch('compass/SET_BILLBOARD_CHIPS', chips)
       }
     },
+    userMask: {
+      get () {
+        return this.$store.state.compass.userMask
+      },
+      set (userMask) {
+        this.$store.dispatch('compass/SET_USER_MASK', userMask)
+      }
+    },
+    currentPlayer: {
+      get () {
+        return this.$store.state.xp.user
+      }
+    },
     players: {
       get () {
         return this.$store.state.xp.players
@@ -61,7 +76,15 @@ function getComputed () {
 function getMethods () {
   return {
     loadPlayers,
-    xpToNextLevel
+    xpToNextLevel,
+    startPlayer
+  }
+
+  function startPlayer () {
+    const vm = this
+    vm.startPlayerDialog = false
+    vm.$store.dispatch('xp/START_PLAYER', vm.birthdate)
+      .then(vm.loadPlayers)
   }
 
   function loadPlayers () {

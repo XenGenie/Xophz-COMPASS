@@ -184,7 +184,7 @@ function getMethods () {
     const to = vm.$route
     let where = to.path.split('/')[1]
 
-    where = where && where != 'compass' ? `-${where}` : ''
+    where = where && where !== 'compass' ? `-${where}` : ''
     where = `xophz-compass${where}`
 
     if (vm.plugins) {
@@ -292,11 +292,6 @@ function getWatched () {
       if (!vm.children.length) vm.isOpen = false
     },
     plugin (plugin) {
-      this.billboard = {
-        h1: plugin.Name,
-        block: plugin.Description,
-        ...this.billboard
-      }
       this.walkChildren(this.getCurrentRoute())
     }
   }

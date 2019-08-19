@@ -17,9 +17,8 @@
         </template>
         <template v-slot:opposite>
           <span class="headline font-weight-bold">
-            AGE: 12
-            LVL : 10
-
+            AGE: {{ player.age }}
+            LVL : {{ player.level }}
           </span>
         </template>
         <v-card class="elevation-2">
@@ -41,6 +40,14 @@
               <v-card-text />
             </v-flex>
           </v-layout>
+          <v-card-actions>
+            <v-spacer />
+            <v-btn
+              @click="birthdateDialog = true"
+            >
+              {{ player.birthdate|moment('MMMM DD YYYY') }}
+            </v-btn>
+          </v-card-actions>
         </v-card>
       </v-timeline-item>
       <!-- <v-timeline-item -->
@@ -184,6 +191,72 @@
         </v-card>
       </v-timeline-item>
     </v-timeline>
+    <v-dialog
+      width="30vw"
+      v-model="birthdateDialog"
+    >
+      <v-card>
+        <v-toolbar
+          color="grey darken-4"
+          class="elevation-5"
+          dark
+        >
+          <v-toolbar-title>
+            When is your birthdate?
+          </v-toolbar-title>
+        </v-toolbar>
+        <v-layout>
+          <!-- <v-flex -->
+          <!--   xs10 -->
+          <!--   text-center -->
+          <!-- > -->
+          <!--   <v-card-title> -->
+          <!--     {{ plugin.Name }} -->
+          <!--   </v-card-title> -->
+          <!--   {{ plugin.Description }} -->
+          <!-- </v-flex> -->
+          <!-- <v-flex xs2> -->
+          <!--   <v-img -->
+          <!--     class="ma-5" -->
+          <!--     :src="plugin.icon" -->
+          <!--   /> -->
+          <!-- </v-flex> -->
+          <v-flex
+            shrink
+            text-center
+          >
+            <v-date-picker
+              landscape
+              class="elevation-0"
+              elevation="0"
+              v-model="birthdate"
+            />
+          </v-flex>
+        </v-layout>
+        <v-card-actions>
+          <v-btn
+            @click="birthdateDialog = false"
+            color="red"
+            text
+          >
+            Nevermind
+          </v-btn>
+          <v-spacer />
+          <v-btn
+            @click="saveBirthdate"
+            color="primary"
+          >
+            {{ birthdate|moment("ddd, MMM DD YYYY") }}
+            <v-icon
+              right
+              small
+            >
+              fad fa-check
+            </v-icon>
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 <script src="./xp-my-config-profile.controller.js"></script>

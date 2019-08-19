@@ -135,6 +135,22 @@
                 </div>
               </v-flex>
             </v-layout>
+            <v-card-actions>
+              <v-spacer />
+              <v-btn
+                small
+              >
+                <span>
+                  Enable
+                  <v-icon
+                    small
+                    right
+                  >
+                    fa-toggle-off
+                  </v-icon>
+                </span>
+              </v-btn>
+            </v-card-actions>
           </v-card>
         </v-flex>
       </v-layout>
