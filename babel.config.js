@@ -1,6 +1,6 @@
 module.exports = {
   presets: [
-    "env", { "modules": false },
+    'env', { modules: false },
     '@vue/app'
   ]
 }

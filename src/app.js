@@ -1,5 +1,6 @@
 import Vue from 'vue'
 
+import lodash from 'lodash'
 import VueLodash from 'vue-lodash'
 
 // import NProgress from 'vue-nprogress'
@@ -18,7 +19,9 @@ import App from './index.vue'
 import router from './app.router'
 import store from './app.store'
 
-Vue.use(VueLodash)
+// name is optional
+Vue.use(VueLodash, { name: 'custom', lodash })
+
 window.Vue = require('vue')
 
 Vue.config.productionTip = false
@@ -60,7 +63,6 @@ function capitalize () {
 }
 
 // USE Plugins
-
 Vue.use(require('vue-moment'))
 
 Vue.use(vuetify)

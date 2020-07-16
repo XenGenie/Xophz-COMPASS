@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <v-app
     :id="$options.name"
     :class="$options.name"
@@ -8,7 +8,7 @@
     <v-app-bar
       app
       clipped-left
-      color="#0680AE"
+      color="#5E73DD"
     >
       <v-app-bar-nav-icon @click="toggleAppNavDrawer" />
       &nbsp;
@@ -34,6 +34,5 @@
     <!-- </v-footer> -->
   </v-app>
 </template>
-
-<script src="./post-digger.controller.js"></script>
-<style lang="scss" src="./_post-digger.scss" scoped></style>
+<script src="./quests.controller.js"></script>
+<style lang="scss" src="./_quests.scss" scoped></style>

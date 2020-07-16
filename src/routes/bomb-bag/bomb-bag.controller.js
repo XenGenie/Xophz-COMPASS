@@ -1,9 +1,13 @@
+import navDrawer from '@/components/routes-navigation-drawer/routes-navigation-drawer.vue'
+
 export default {
   name: 'bomb-bag',
   data,
   props: {
     plugin: Object
   },
+  components: { navDrawer },
+  mixins: [navDrawer],
   computed: getComputed(),
   created: onCreated,
   methods: getMethods()

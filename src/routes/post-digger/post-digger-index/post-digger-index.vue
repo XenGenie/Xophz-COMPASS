@@ -1,8 +1,6 @@
 <template v-slot="{posts}">
   <div class="post-digger md-layout">
-    <trinity-rings-spinner v-if="loadingPosts" />
     <md-table
-      v-else
       v-model="searched"
       md-sort="post_date"
       md-sort-order="asc"

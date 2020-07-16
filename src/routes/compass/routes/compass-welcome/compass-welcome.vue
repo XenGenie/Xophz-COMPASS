@@ -6,7 +6,7 @@
   >
     <link
       rel="prefetch"
-      href="./../../../../../wp-content/plugins/xophz-compass/assets/xophz-compass-ii.png"
+      href="/wp-content/plugins/xophz-compass/assets/xophz-compass-ii.png"
     >
     <v-layout
       fill-height
@@ -46,13 +46,15 @@
                   </h1>
                   <h6 class="small--text">
                     <small>
-                      Cardinal Operators Master Panel
+
+                      <!-- Cardinal Operators Master Panel -->
+                      Company Overview Management Planning
                       <br>
                       And
                       <!-- &  -->
                       <!-- <br/> -->
                       Strategic System
-                      <!-- Company Overview Management Planning   -->
+
                       <!-- <br/> -->
                       <!-- &  -->
                       <!-- <br/> -->

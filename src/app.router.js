@@ -21,6 +21,7 @@ import map from './routes/treasure-map/treasure-map.routes'
 import mirror from './routes/enchanted-mirror/enchanted-mirror.routes'
 import mitt from './routes/titans-mitt/titans-mitt.routes'
 import nerd from './routes/midnight-nerd/midnight-nerd.routes'
+import quests from './routes/quests/quests.routes'
 import phantomZone from './routes/phantom-zone/phantom-zone.routes'
 import pixieDust from './routes/pixie-dust/pixie-dust.routes'
 import posts from './routes/post-digger/post-digger.routes'
@@ -54,6 +55,7 @@ const router = new Router({
     mirror,
     mitt,
     nerd,
+    quests,
     phantomZone,
     pixieDust,
     posts,

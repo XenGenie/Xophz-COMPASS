@@ -1,4 +1,4 @@
-import navDrawer from '../../components/routes-navigation-drawer'
+import navDrawer from '@/components/routes-navigation-drawer/routes-navigation-drawer.vue'
 
 export default {
   name: 'bugnet',
@@ -6,6 +6,7 @@ export default {
   props: {
     plugin: Object
   },
+  components: { navDrawer },
   mixins: [navDrawer],
   computed: getComputed(),
   methods: getMethods()

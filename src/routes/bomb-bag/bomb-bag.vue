@@ -11,7 +11,7 @@
       color="#ED55A9"
     >
       <v-app-bar-nav-icon
-        @click.stop.prevent="toggleDrawer"
+        @click.stop.prevent="toggleAppNavDrawer"
         id="navMenuBtn"
       />
       &nbsp;

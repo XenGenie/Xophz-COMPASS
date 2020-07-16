@@ -182,16 +182,17 @@
         <v-toolbar-title
           class="d-none d-sm-flex"
         >
-          <b>C</b>ardinal
-          &nbsp;
-          <b>O</b>perators
-          &nbsp;
-          <b>M</b>aster
           <!-- <b>C</b>ompany -->
           <!-- &nbsp; -->
           <!-- <b>O</b>verview -->
           <!-- &nbsp; -->
           <!-- <b>M</b>anagment -->
+
+          <!-- <b>C</b>ardinal
+          &nbsp;
+          <b>O</b>perators
+          &nbsp;
+          <b>M</b>aster
           &nbsp;
           <b>P</b>lanning
           &nbsp;
@@ -199,7 +200,8 @@
           &nbsp;
           <b>S</b>trategic
           &nbsp;
-          <b>S</b>ystem
+          <b>S</b>ystem -->
+          COMPASS
         </v-toolbar-title>
           &nbsp;
         <v-spacer />
@@ -224,10 +226,12 @@
             :key="plugin.TextDomain"
           >
             <v-list-item
-              @click="$router.push({
-                path: getTextDomainPath(plugin.TextDomain),
-                hash : 'v-content-billboard'
-              });"
+              @click="
+                bottomSheet = false;
+                $router.push({
+                  path: getTextDomainPath(plugin.TextDomain),
+                  hash : 'v-content-billboard'
+                }); "
             >
               <v-list-item-icon>
                 <v-avatar

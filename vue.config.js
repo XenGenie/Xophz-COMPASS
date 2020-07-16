@@ -12,7 +12,7 @@ module.exports = {
 
   publicPath: process.env.NODE_ENV === 'production'
     ? '/wp-content/plugins/xophz-compass/admin/dist/'
-    : 'http://localhost:8080/',
+    : 'http://localhost:8081/',
   outputDir: './wp-content/plugins/xophz-compass/admin/dist/',
 
   devServer: {
