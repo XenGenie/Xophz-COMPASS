@@ -7,3 +7,6 @@
 [submodule "wp-content/plugins/xophz-compass-bazaar"]
 	path = wp-content/plugins/xophz-compass-bazaar
 	url = git@bitbucket.org:mycompass/xophz-compass-bazaar.git
+[submodule "docs"]
+	path = docs
+	url = git@github.com:XenGenie/Xophz-COMPASS.wiki.git
