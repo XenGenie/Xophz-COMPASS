@@ -1,38 +1,39 @@
-import compass from './compass.vue'
-import compassWelcome from './routes/compass-welcome/compass-welcome.vue'
-import compassExplore from './routes/compass-explore/compass-explore.vue'
-import compassDashboard from './routes/compass-dashboard/compass-dashboard.vue'
+import type { RouteRecordRaw } from "vue-router";
+import compass from "./compass.vue";
+import compassWelcome from "./routes/compass-welcome/compass-welcome.vue";
+import compassExplore from "./routes/compass-explore/compass-explore.vue";
+import compassDashboard from "./routes/compass-dashboard/compass-dashboard.vue";
 
 export default {
-  path: '/',
+  path: "/",
   meta: {
-    icon: 'fa fa-compass'
+    icon: "fa fa-compass",
   },
   component: compass,
   children: [
     {
-      path: '/',
-      name: 'Welcome to Compass',
+      path: "/",
+      name: "Welcome to Compass",
       meta: {
-        icon: 'fa fa-compass'
+        icon: "fa fa-compass",
       },
-      component: compassWelcome
+      component: compassWelcome,
     },
     {
-      path: '/compass/explore',
-      name: 'Explore Compass',
+      path: "/compass/explore",
+      name: "Explore Compass",
       meta: {
-        icon: 'fa fa-compass'
+        icon: "fa fa-compass",
       },
-      component: compassExplore
+      component: compassExplore,
     },
     {
-      path: '/compass/dashboard',
-      name: 'Compass Dashboard',
+      path: "/compass/dashboard",
+      name: "Compass Dashboard",
       meta: {
-        icon: 'fa fa-compass'
+        icon: "fa fa-compass",
       },
-      component: compassDashboard
-    }
-  ]
-}
+      component: compassDashboard,
+    },
+  ],
+} satisfies RouteRecordRaw;

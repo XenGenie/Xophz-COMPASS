@@ -290,6 +290,6 @@ class Xophz_Compass_Admin {
 
   private function isDevServer()
   {
-    return DB_HOST == 'compass-mysql-service:3306'; 
+    return in_array(DB_HOST, ['mysql:3306']); 
   }
 }

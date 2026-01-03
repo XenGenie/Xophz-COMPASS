@@ -1,8 +1,9 @@
+import { defineComponent } from "vue";
 import compassMixin from "./mixins/compass-mixin/compass-mixin.controller";
 import { mapStores } from "pinia";
 import { useCompassStore } from "@/routes/compass/store";
 
-export default {
+export default defineComponent({
   name: "xophz-compass",
   data,
   props: {
@@ -11,6 +12,7 @@ export default {
   components: {},
   created: onCreated,
   mounted,
+  unmounted: onUnmounted,
   mixins: [compassMixin],
   computed: {
     ...getComputed(),
@@ -18,7 +20,7 @@ export default {
   },
   watch: getWatched(),
   methods: getMethods(),
-};
+});
 
 function data() {
   return {
@@ -137,6 +139,11 @@ function mounted() {
 }
 
 function onCreated() {}
+
+function onUnmounted(this: any) {
+  this.compassStore.turnOffBillboard(false);
+  this.compassStore.turnOffAppBar(false);
+}
 
 function getMethods() {
   return {

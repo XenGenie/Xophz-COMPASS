@@ -28,6 +28,12 @@
       </v-toolbar-items>
     </v-app-bar>
     <v-main>
+      <v-container fluid>
+        <Billboard
+          id="v-main-billboard"
+          v-if="!isBillboardOff"
+        />
+      </v-container>
       <router-view />
     </v-main>
     <!-- <v-footer> -->

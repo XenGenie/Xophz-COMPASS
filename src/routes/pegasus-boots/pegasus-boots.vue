@@ -1,5 +1,5 @@
 <template>
-  <v-main
+  <v-layout
     :id="$options.name"
     :class="$options.name"
     class="min-h-screen bg-slate-950"
@@ -55,7 +55,7 @@
         <router-view />
       </v-fade-transition>
     </v-container>
-  </v-main>
+  </v-layout>
 </template>
 <script lang="ts" src="./pegasus-boots.controller.ts"></script>
 <style lang="scss" src="./_pegasus-boots.scss" scoped></style>

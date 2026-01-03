@@ -13,11 +13,11 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 
 WORKDIR /var/www/html
 
-# Copy package files first
-COPY package.json ./
+# Copy package files first (including workspace config for overrides)
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
-# Install dependencies using pnpm
-RUN pnpm install
+# Install dependencies using pnpm with frozen lockfile for reproducibility
+RUN pnpm install --frozen-lockfile
 
 # Copy start script
 COPY ./docker/compass-node/start.sh /usr/local/bin/start.sh
