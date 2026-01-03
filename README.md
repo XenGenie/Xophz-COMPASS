@@ -1,6 +1,6 @@
 # 🧭 Xophz-COMPASS
 
-![COMPASS Hero Banner](./docs/assets/banner.png)
+![COMPASS Hero Banner](https://raw.githubusercontent.com/wiki/XenGenie/Xophz-COMPASS/assets/banner.png)
 
 > **"It's dangerous to go alone! Explore the depths of your site without getting lost using my handy dandy COMPASS."**
 
