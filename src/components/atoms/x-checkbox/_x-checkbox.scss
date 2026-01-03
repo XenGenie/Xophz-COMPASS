@@ -1,0 +1,9 @@
+.x-checkbox {
+  &.v-checkbox {
+    // Custom checkbox flare: subtle scale on focus
+    transition: transform 0.2s ease;
+    &:focus-within {
+      transform: scale(1.02);
+    }
+  }
+}

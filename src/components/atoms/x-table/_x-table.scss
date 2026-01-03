@@ -1,0 +1,34 @@
+.x-table {
+  &.v-table {
+    background: transparent;
+    color: inherit;
+
+    .v-table__wrapper {
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    thead {
+      background: rgba(255, 255, 255, 0.03);
+      
+      tr th {
+        font-weight: 700 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.6) !important;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.05) !important;
+      }
+    }
+
+    tbody tr {
+      &:hover {
+        background: rgba(255, 255, 255, 0.02) !important;
+      }
+      
+      td {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03) !important;
+      }
+    }
+  }
+}

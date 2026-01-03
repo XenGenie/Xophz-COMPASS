@@ -1,13 +1,17 @@
 import { defineComponent } from "vue";
 import navDrawer from "@/components/routes-navigation-drawer/routes-navigation-drawer.vue";
 import userAvatarBtn from "@/components/user-avatar-btn/user-avatar-btn.vue";
+import xSystemBarMolecule from "@/components/molecules/bars/x-system-bar/x-system-bar.molecule.vue";
+import xAppBarMolecule from "@/components/molecules/bars/x-app-bar/x-app-bar.molecule.vue";
+import xApplicationLayoutTemplate from "@/components/templates/layouts/x-application-layout-template/x-application-layout-template.vue";
+import trinityRingsSpinner from "@/routes/spinner/spinner.vue";
 import navigationMixin from "@/mixins/navigation.mixin";
 import { mapStores } from "pinia";
 import { useCompassStore } from "@/routes/compass/store";
 import * as _ from "lodash";
 
 export default defineComponent({
-  name: "DefaultLayout",
+  name: "XCompassLayout",
   watch: getWatched(),
   data,
   mounted,
@@ -17,7 +21,7 @@ export default defineComponent({
   },
   methods: getMethods(),
   mixins: [navigationMixin as any],
-  components: { navDrawer, userAvatarBtn },
+  components: { navDrawer, userAvatarBtn, xSystemBarMolecule, xAppBarMolecule, xApplicationLayoutTemplate, trinityRingsSpinner },
 });
 
 function data() {
@@ -26,6 +30,7 @@ function data() {
     wpMenuId: "wpwrap",
     wpOpenClass: "wp-responsive-open",
     wpSwitchLabels: ["Off", "On"],
+    appBarOrder: 0, // 0 = next to drawer, -1 = above drawer
     _, // exposing lodash if needed by templates or legacy code
   };
 }
@@ -125,6 +130,9 @@ function getMethods() {
     },
     wpmenu() {
       this.isWpMenuOpen = !this.isWpMenuOpen;
+    },
+    toggleAppBarOrder() {
+      this.appBarOrder = this.appBarOrder === 0 ? -1 : 0;
     },
     getTextDomainPath(textDomain) {
       if (!textDomain) return "/";

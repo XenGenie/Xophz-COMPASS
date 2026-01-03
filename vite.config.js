@@ -1,12 +1,11 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vuetify from "vite-plugin-vuetify";
-import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  plugins: [vue(), tailwindcss(), vuetify()],
+  plugins: [vue(), vuetify()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

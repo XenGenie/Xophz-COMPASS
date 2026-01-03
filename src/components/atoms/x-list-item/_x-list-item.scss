@@ -1,0 +1,8 @@
+.x-list-item {
+  &.v-list-item {
+     // Specific list-item flare
+     .v-list-item-title {
+        font-weight: 600;
+     }
+  }
+}

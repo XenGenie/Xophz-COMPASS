@@ -6,6 +6,7 @@ import _ from "lodash";
 import Billboard from "./components/billboard/billboard.vue";
 import NavDrawer from "./components/routes-navigation-drawer/routes-navigation-drawer.vue";
 import AnimatedNumber from "./components/animated-number/animated-number.vue";
+import { XBtn, XIcon, XCard, XTextField, XSelect, XCheckbox, XSwitch, XChip, XAvatar, XDivider, XList, XListItem, XMenu, XDialog, XTable, XSystemBar, XNavigationDrawer, XAppBar, XFooter, XBottomSheet, XMain } from "./components/atoms";
 
 // Import plugin instances
 import vuetify from "./plugins/vuetify";
@@ -16,7 +17,6 @@ import menuFix from "./utils/admin_menu_fix";
 import "@fortawesome/fontawesome-pro/css/all.min.css";
 import "@fortawesome/fontawesome-pro/css/duotone.min.css";
 import "roboto-fontface/css/roboto/roboto-fontface.css";
-import "./styles/tailwind.css";
 
 const pinia = createPinia();
 
@@ -69,6 +69,29 @@ const mountApp = () => {
     app.component("animated-number", AnimatedNumber);
     app.component("Billboard", Billboard);
     app.component("NavDrawer", NavDrawer);
+
+    // X Atoms
+    app.component("XBtn", XBtn);
+    app.component("XIcon", XIcon);
+    app.component("XCard", XCard);
+    app.component("XTextField", XTextField);
+    app.component("XSelect", XSelect);
+    app.component("XCheckbox", XCheckbox);
+    app.component("XSwitch", XSwitch);
+    app.component("XChip", XChip);
+    app.component("XAvatar", XAvatar);
+    app.component("XDivider", XDivider);
+    app.component("XList", XList);
+    app.component("XListItem", XListItem);
+    app.component("XMenu", XMenu);
+    app.component("XDialog", XDialog);
+    app.component("XTable", XTable);
+    app.component("XSystemBar", XSystemBar);
+    app.component("XNavigationDrawer", XNavigationDrawer);
+    app.component("XAppBar", XAppBar);
+    app.component("XFooter", XFooter);
+    app.component("XBottomSheet", XBottomSheet);
+    app.component("XMain", XMain);
 
     app.mount(el);
   }

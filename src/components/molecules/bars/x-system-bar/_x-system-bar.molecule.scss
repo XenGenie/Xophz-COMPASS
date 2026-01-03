@@ -1,0 +1,14 @@
+.x-system-bar-molecule {
+  // Molecule specific overrides if any
+  .v-col {
+    padding: 0 8px;
+  }
+
+  .x-btn {
+     // Ensure buttons in system bar are extra sleek
+     &.v-btn--size-small {
+        font-size: 0.7rem;
+        letter-spacing: 0.05em;
+     }
+  }
+}

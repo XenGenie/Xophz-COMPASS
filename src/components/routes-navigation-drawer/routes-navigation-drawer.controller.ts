@@ -43,6 +43,10 @@ export default {
       type: String,
       default: undefined,
     },
+    appBarOrder: {
+      type: Number,
+      default: 0,
+    },
   },
   computed: {
     ...getComputed(),

@@ -14,7 +14,9 @@ export default {
       const vm = this
       if (!vm.breadcrumbs) return []
       return vm.breadcrumbs.map((breadcrumb, index) => {
-        const pluginName = vm.activePlugin ? vm.activePlugin.Name : (vm.plugin ? vm.plugin.Name : 'COMPASS')
+        const activePlugin = (vm as any).compassStore.activePlugin
+        const plugin = (vm as any).compassStore.plugin
+        const pluginName = activePlugin ? activePlugin.Name : (plugin ? plugin.Name : 'COMPASS')
         const text = index === 0
           ? pluginName
           : (breadcrumb.name || breadcrumb.meta?.title || '...')

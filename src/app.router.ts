@@ -38,7 +38,7 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      component: () => import("@/components/molecules/layouts/DefaultLayout.vue"),
+      component: () => import("@/components/templates/layouts/DefaultLayout.vue"),
       children: [
         compass,
         arrow,

@@ -1,0 +1,18 @@
+.x-chip {
+  &.v-chip {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    &.v-chip--variant-tonal {
+      background: rgba(var(--v-theme-surface-variant), 0.3);
+      backdrop-filter: blur(4px);
+    }
+
+    &:hover {
+      transform: scale(1.02);
+      border-color: rgba(var(--v-theme-primary), 0.3);
+    }
+  }
+}

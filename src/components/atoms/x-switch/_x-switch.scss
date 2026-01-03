@@ -1,0 +1,8 @@
+.x-switch {
+  &.v-switch {
+    // Custom switch flare: glow effect on active
+    .v-selection-control--active {
+      filter: drop-shadow(0 0 4px rgba(var(--v-theme-primary), 0.4));
+    }
+  }
+}
