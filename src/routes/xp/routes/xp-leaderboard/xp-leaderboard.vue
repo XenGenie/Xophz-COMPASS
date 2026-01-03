@@ -234,8 +234,8 @@
       </v-row>
     </v-container>
     <v-dialog
-      width="30vw"
       v-model="startPlayerDialog"
+      width="30vw"
     >
       <v-card>
         <v-toolbar
@@ -253,8 +253,8 @@
             class="text-center mx-auto"
           >
             <v-date-picker
-              class="elevation-0"
               v-model="birthdate"
+              class="elevation-0"
             />
           </v-col>
         </v-row>
@@ -267,8 +267,8 @@
           </v-btn>
           <v-spacer />
           <v-btn
-            @click="startPlayer"
             color="primary"
+            @click="startPlayer"
           >
             {{ birthdate }}
             <v-icon

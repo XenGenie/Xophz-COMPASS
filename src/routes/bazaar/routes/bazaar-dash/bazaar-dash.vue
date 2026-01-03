@@ -11,7 +11,7 @@
       <v-toolbar-title>
         Bazaar
       </v-toolbar-title>
-      <v-spacer></v-spacer>
+      <v-spacer />
       <v-img
         :src="plugin.icon"
         max-height="40"

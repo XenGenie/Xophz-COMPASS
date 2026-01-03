@@ -29,7 +29,7 @@
         <v-date-picker
           v-model="date"
           multiple
-        ></v-date-picker>
+        />
       </v-row>
     </v-dialog>
     <filter-dialog />

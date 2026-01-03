@@ -9,7 +9,7 @@
       :server-items-length="parseInt(total)"
       :items-per-page="limit"
     >
-      <template v-slot:item="{ item }">
+      <template #item="{ item }">
         <tr>
           <td>
             <v-avatar>

@@ -46,8 +46,8 @@
                Original had it here. Vuetify 3 v-pagination is fine. -->
           <v-pagination
             v-if="total && limit"
-            theme="dark"
             v-model="page"
+            theme="dark"
             :length="Math.ceil(total/limit)"
           />
           <router-view />

@@ -1,7 +1,7 @@
 <template>
   <v-dialog
-    width="50vw"
     v-model="isActive"
+    width="50vw"
   >
     <v-card theme="dark">
       <v-card-title>Search Products</v-card-title>
@@ -15,20 +15,20 @@
 
             <v-col cols="12">
               <v-text-field
-                label="SKU"
-                name="sku"
                 id="sku"
                 v-model="form.sku"
+                label="SKU"
+                name="sku"
                 :disabled="isSaving"
                 variant="outlined"
               />
             </v-col>
             <v-col cols="12">
               <v-text-field
-                label="Title"
-                name="title"
                 id="title"
                 v-model="form.title"
+                label="Title"
+                name="title"
                 :disabled="isSaving"
                 variant="outlined"
               />

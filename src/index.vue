@@ -20,16 +20,16 @@
         >
           <v-col
             cols="auto"
-            justify="space-between"
+            class="flex items-center"
           >
             <v-tooltip location="bottom">
-              <template v-slot:activator="{ props }">
+              <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  @click="wpmenu"
                   size="small"
                   variant="tonal"
                   :prepend-icon="isWpMenuOpen ? 'fad fa-toggle-on' : 'fad fa-toggle-off'"
+                  @click="wpmenu"
                 >
                   <span class="d-none d-sm-inline">WP Menu {{ wpSwitchLabel }}</span>
                 </v-btn>
@@ -37,14 +37,14 @@
               <span>Toggle Wordpress Menu</span>
             </v-tooltip>
             <v-tooltip location="bottom">
-              <template v-slot:activator="{ props }">
+              <template #activator="{ props }">
                 <v-btn
+                  v-if="blogInfo"
                   size="small"
                   variant="tonal"
                   v-bind="props"
-                  @click="goHome"
-                  v-if="blogInfo"
                   prepend-icon="fa fa-globe"
+                  @click="goHome"
                 >
                   <span class="d-none d-sm-inline font-bold">
                     {{ blogInfo.name }}
@@ -68,7 +68,7 @@
             class="flex items-center"
           >
             <v-tooltip location="bottom">
-              <template v-slot:activator="{ props }">
+              <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
                   size="small"
@@ -89,9 +89,9 @@
     <nav-drawer v-model="isAppNavDrawerOpen" />
     <!-- <trinity-rings-spinner v-if="spinner" /> -->
     <v-main
+      v-if="!isBillboardOff"
       id="v-main-billboard"
       class="v-main-billboard pt-0"
-      v-if="!isBillboardOff"
     >
       <v-container
         fluid
@@ -176,9 +176,9 @@
         &nbsp;
         <v-spacer />
         <v-btn
-          @click="bottomSheet = false"
           icon
           variant="text"
+          @click="bottomSheet = false"
         >
           <v-icon icon="fa fa-times" />
         </v-btn>
@@ -186,18 +186,20 @@
       <v-list>
         <v-row class="ma-0">
           <v-col
-            cols="3"
-            lg="2"
             v-for="plugin in plugins"
             :key="plugin.TextDomain"
+            cols="3"
+            lg="2"
           >
-            <v-list-item @click="
+            <v-list-item
+              @click="
                 bottomSheet = false;
                 $router.push({
                   path: getTextDomainPath(plugin.TextDomain),
                   hash : '#v-main-billboard'
-                }); ">
-              <template v-slot:prepend>
+                }); "
+            >
+              <template #prepend>
                 <v-avatar
                   size="64"
                   class="d-none d-xl-flex"
@@ -219,7 +221,9 @@
                   />
                 </v-avatar>
               </template>
-              <v-list-item-title class="text-right">{{ plugin.Name }}</v-list-item-title>
+              <v-list-item-title class="text-right">
+                {{ plugin.Name }}
+              </v-list-item-title>
             </v-list-item>
           </v-col>
         </v-row>

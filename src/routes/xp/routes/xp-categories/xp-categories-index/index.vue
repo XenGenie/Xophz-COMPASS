@@ -5,7 +5,7 @@
       :items="categories"
       class="bg-transparent"
     >
-      <template v-slot:item="{ item }">
+      <template #item="{ item }">
         <tr>
           <td>{{ item.name }}</td>
           <td class="text-end">

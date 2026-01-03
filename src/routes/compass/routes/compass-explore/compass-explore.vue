@@ -22,9 +22,9 @@
             Below are different cardinal areas of COMPASS.
             Navigate to them at any time by pressing the
             <v-btn
-              @click="bottomSheet = !bottomSheet"
               size="small"
               class="mx-2"
+              @click="bottomSheet = !bottomSheet"
             >
               <v-icon
                 start
@@ -46,11 +46,11 @@
         >
           <v-card class="plugin ma-2">
             <v-btn
-              size="small"
               v-if="plugin.Name != 'COMPASS'"
-              @click="togglePlugin(this,plugin)"
+              size="small"
               :color="plugin.isActivated ? 'green' : ''"
               class="activate-btn"
+              @click="togglePlugin(this,plugin)"
             >
               <span v-if="plugin.isActivated">
                 Disable
@@ -145,7 +145,7 @@
         </v-avatar>
         &nbsp;
         {{ snack.text }}
-        <template v-slot:actions>
+        <template #actions>
           <v-btn
             color="pink"
             variant="text"

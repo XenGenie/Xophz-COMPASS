@@ -36,11 +36,13 @@
           </v-card-subtitle>
 
           <v-card-actions>
-            <v-spacer></v-spacer>
+            <v-spacer />
             <v-btn
               variant="text"
               color="primary"
-            >Details</v-btn>
+            >
+              Details
+            </v-btn>
           </v-card-actions>
         </v-card>
       </v-col>

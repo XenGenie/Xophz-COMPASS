@@ -8,7 +8,7 @@
       md="4"
     >
       <v-hover>
-        <template v-slot:default="{ isHovering, props }">
+        <template #default="{ isHovering, props }">
           <v-card
             v-bind="props"
             :elevation="isHovering ? 15 : 5"
@@ -103,8 +103,8 @@
             <v-card-actions>
               <v-spacer />
               <v-btn
-                @click="playFx('click'); checkoffAchievement(achievement)"
                 color="green-darken-1"
+                @click="playFx('click'); checkoffAchievement(achievement)"
               >
                 Complete
                 <v-icon end>

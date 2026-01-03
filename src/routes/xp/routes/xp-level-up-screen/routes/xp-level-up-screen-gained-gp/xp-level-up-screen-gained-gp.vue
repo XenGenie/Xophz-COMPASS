@@ -167,15 +167,15 @@
           <v-spacer />
           <v-btn
             v-if="itemsOffered.length"
-            @click="takeEverything()"
             class="mx-2"
+            @click="takeEverything()"
           >
             take everything
           </v-btn>
           <v-btn
-            @click="backToAchievements"
             color="primary"
             class="mx-2"
+            @click="backToAchievements"
           >
             Back to Achievements
           </v-btn>

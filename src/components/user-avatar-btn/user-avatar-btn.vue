@@ -1,16 +1,16 @@
 <template>
   <div
-    :class="$options.name"
     v-if="user"
+    :class="$options.name"
   >
     <v-menu
       :close-on-content-click="false"
       location="bottom end"
     >
-      <template v-slot:activator="{ props }">
+      <template #activator="{ props }">
         <v-btn
-          size="small"
           id="user-avatar-btn"
+          size="small"
           class="header-btn user-avatar-btn mx-1"
           variant="flat"
           rounded="pill"
@@ -87,8 +87,8 @@
         <v-card-actions>
           <v-btn
             color="green"
-            @click="logoutDialog = false"
             variant="text"
+            @click="logoutDialog = false"
           >
             <v-icon
               start
@@ -99,8 +99,8 @@
           <v-spacer />
           <v-btn
             color="primary"
-            @click="logout"
             variant="elevated"
+            @click="logout"
           >
             Log Off
             <v-icon

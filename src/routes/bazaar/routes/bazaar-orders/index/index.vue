@@ -22,7 +22,7 @@
       :items-per-page="limit"
       :server-items-length="total"
     >
-      <template v-slot:item="{ item }">
+      <template #item="{ item }">
         <tr>
           <td>
             {{ item.order }}

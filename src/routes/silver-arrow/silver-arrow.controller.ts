@@ -1,23 +1,23 @@
-import navDrawer from '@/components/routes-navigation-drawer/routes-navigation-drawer.vue'
+import { defineComponent } from "vue";
+import { mapStores } from "pinia";
+import { useCompassStore } from "@/routes/compass/store";
+import navigationMixin from "@/mixins/navigation.mixin";
 
-export default {
-  data,
-  props: {
-    plugin: Object
+export default defineComponent({
+  name: "SilverArrow",
+  mixins: [navigationMixin],
+  data() {
+    return {};
   },
-  components: { navDrawer },
-  computed: getComputed(),
-  methods: getMethods()
-}
-
-function data () {
-  return {}
-}
-
-function getComputed () {
-  return {}
-}
-
-function getMethods () {
-  return {}
-}
+  computed: {
+    ...mapStores(useCompassStore),
+    plugin() {
+      return this.compassStore.activePlugin;
+    },
+  },
+  methods: {
+    toggleAppNavDrawer() {
+      this.compassStore.setIsAppNavDrawerOpen(!this.compassStore.isAppNavDrawerOpen);
+    },
+  },
+});

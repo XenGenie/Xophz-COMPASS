@@ -5,20 +5,20 @@
       fixed
     >
       <v-navigation-drawer
+        v-model="showAddNewForm"
         app
         absolute
         clipped
-        v-model="showAddNewForm"
       >
         <v-list class="p-1">
           <v-list-item
             tag="div"
             title="Add New Job Category"
           >
-            <template v-slot:prepend>
+            <template #prepend>
               <v-icon>fal fa-hat-wizard</v-icon>
             </template>
-            <template v-slot:append>
+            <template #append>
               <v-btn
                 icon
                 @click.stop="showAddNewForm = !showAddNewForm"
@@ -31,8 +31,8 @@
 
         <v-form
           v-model="valid"
-          @submit.prevent="addNewCategory"
           dark
+          @submit.prevent="addNewCategory"
         >
           <v-container>
             <v-row>
@@ -59,9 +59,9 @@
               </v-col>
               <v-col cols="12">
                 <v-textarea
+                  v-model="description"
                   variant="filled"
                   rows="3"
-                  v-model="description"
                   label="Description"
                 />
               </v-col>

@@ -9,11 +9,11 @@
       >
         <v-btn
           :variant="stepper === 1 ? 'elevated' : 'text'"
-          @click="stepper = 1"
           color="primary"
           class="mx-1 px-4"
           rounded="lg"
           size="small"
+          @click="stepper = 1"
         >
           <span class="mr-2 opacity-50 font-bold">1</span>
           Welcome
@@ -22,14 +22,14 @@
           vertical
           inset
           class="mx-4 border-gray-700"
-        ></v-divider>
+        />
         <v-btn
           :variant="stepper === 2 ? 'elevated' : 'text'"
-          @click="stepper = 2"
           color="primary"
           class="mx-1 px-4"
           rounded="lg"
           size="small"
+          @click="stepper = 2"
         >
           <span class="mr-2 opacity-50 font-bold">2</span>
           Navigate
@@ -38,32 +38,28 @@
           vertical
           inset
           class="mx-4 border-gray-700"
-        ></v-divider>
+        />
         <v-btn
           :variant="stepper === 3 ? 'elevated' : 'text'"
-          @click="stepper = 3"
           color="primary"
           class="mx-1 px-4"
           rounded="lg"
           size="small"
+          @click="stepper = 3"
         >
           <span class="mr-2 opacity-50 font-bold">3</span>
           Explore
         </v-btn>
       </v-sheet>
 
-      <v-window v-model="stepper">
-        <v-window-item :value="1">
-          <!-- <trinity-rings-spinner v-if="loading" /> -->
-          <router-view v-if="stepper == 1" />
-        </v-window-item>
-        <v-window-item :value="2">
-          <router-view v-if="stepper == 2" />
-        </v-window-item>
-        <v-window-item :value="3">
-          <router-view v-if="stepper == 3" />
-        </v-window-item>
-      </v-window>
+      <router-view v-slot="{ Component }">
+        <transition
+          :name="transitionName"
+          mode="out-in"
+        >
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </v-container>
   </div>
 </template>

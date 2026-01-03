@@ -1,8 +1,8 @@
 <template>
   <div class="switch">
     <v-switch
-      v-model="isOn"
       :id="plugin.TextDomain"
+      v-model="isOn"
       :disabled="plugin.Name == 'COMPASS'"
       dark
       :label="label"

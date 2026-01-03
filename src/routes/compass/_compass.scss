@@ -1,24 +1,44 @@
-.xophz-compass{
-  .x-stepper{
+.xophz-compass {
+  .x-stepper {
     background: transparent;
   }
 
-  .step-1{
+  .step-1 {
     background-color: transparent;
-    .step-1-layout{
+    .step-1-layout {
       padding: 1rem;
       margin: 1rem;
     }
   }
 
-  .step-2{
-    .xs2{
+  .step-2 {
+    .xs2 {
       max-width: 20% !important;
     }
   }
 
-  .snack-img{
+  .snack-img {
     max-width: 95px;
     width: 95px;
+  }
+
+  // Slide Transitions
+  .slide-left-enter-active,
+  .slide-left-leave-active,
+  .slide-right-enter-active,
+  .slide-right-leave-active {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+  }
+
+  .slide-left-enter-from,
+  .slide-right-leave-to {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  .slide-left-leave-to,
+  .slide-right-enter-from {
+    opacity: 0;
+    transform: translateX(-100px);
   }
 }

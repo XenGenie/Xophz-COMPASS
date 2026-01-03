@@ -15,35 +15,34 @@
       </v-toolbar-title>
       <v-spacer />
       <v-select
-        class="mx-2"
         v-model="category"
+        class="mx-2"
         density="compact"
         hide-details
         :items="categories"
         label="Select a Category"
-        @update:model-value="selectedFilter"
         prepend-inner-icon="fa-tags"
         single-line
         item-title="text"
         item-value="id"
+        @update:model-value="selectedFilter"
       />
 
       <v-select
-        class="mx-2"
         v-model="productType"
-        @update:model-value="selectedFilter"
+        class="mx-2"
         density="compact"
         :items="productTypes"
         hide-details
         label="Filter by product type"
         prepend-inner-icon="fa-pallet"
         single-line
+        @update:model-value="selectedFilter"
       />
 
       <v-select
-        class="mx-2"
         v-model="stock"
-        @update:model-value="selectedFilter"
+        class="mx-2"
         clearable
         :items="stockStatus"
         density="compact"
@@ -51,6 +50,7 @@
         label="Filter by stock status"
         prepend-inner-icon="fa-inventory"
         single-line
+        @update:model-value="selectedFilter"
       />
       <v-spacer />
       <div class="flex items-center">
@@ -59,8 +59,12 @@
             icon
             @click="viewList = !viewList"
           >
-            <v-icon v-if="!viewList">fa fa-list</v-icon>
-            <v-icon v-else>fa fa-th-large</v-icon>
+            <v-icon v-if="!viewList">
+              fa fa-list
+            </v-icon>
+            <v-icon v-else>
+              fa fa-th-large
+            </v-icon>
           </v-btn>
         </v-toolbar-items>
       </div>
@@ -70,8 +74,8 @@
         <v-col>
           <v-pagination
             v-if="total && limit"
-            theme="dark"
             v-model="page"
+            theme="dark"
             :length="Math.ceil(total/limit)"
           />
           <router-view />

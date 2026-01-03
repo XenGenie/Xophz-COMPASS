@@ -18,7 +18,7 @@
         location="bottom end"
         :close-on-content-click="false"
       >
-        <template v-slot:activator="{ props }">
+        <template #activator="{ props }">
           <v-btn
             icon="fal fa-search"
             variant="text"

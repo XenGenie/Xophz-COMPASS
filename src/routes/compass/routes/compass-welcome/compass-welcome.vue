@@ -1,7 +1,7 @@
 <template>
   <div
-    :class="$options.name"
     :id="$options.name"
+    :class="$options.name"
     class="m-5"
   >
     <!-- <link
@@ -21,8 +21,8 @@
         <!-- Used for gyroscope effect -->
         <div class="outer-outer-ring" />
         <div
-          class="circle"
           ref="compassCircle"
+          class="circle"
         >
           <div class="front text-center">
             <div class="front-inner text-center">

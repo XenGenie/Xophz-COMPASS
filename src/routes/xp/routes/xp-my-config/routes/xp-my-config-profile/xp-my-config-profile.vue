@@ -10,12 +10,12 @@
         left
         large
       >
-        <template v-slot:icon>
+        <template #icon>
           <v-avatar>
             <img :src="currentUser.avatar">
           </v-avatar>
         </template>
-        <template v-slot:opposite>
+        <template #opposite>
           <span class="headline font-weight-bold">
             AGE: {{ player.age }}
             LVL : {{ player.level }}
@@ -137,14 +137,14 @@
         color="test lighten-2"
         large
       >
-        <template v-slot:icon>
+        <template #icon>
           <v-avatar>
             <img :src="stamp.thumbnail">
           </v-avatar>
         </template>
-        <template v-slot:opposite>
+        <template #opposite>
           <h2 class="headline">
-            <span v-html="stamp.title"></span>
+            <span v-html="stamp.title" />
             <br>
             <small class="small--text grey--text">
               {{ stamp.time|moment('MMMM DD YYYY hh:mm') }}
@@ -186,8 +186,8 @@
       </v-timeline-item>
     </v-timeline>
     <v-dialog
-      width="30vw"
       v-model="birthdateDialog"
+      width="30vw"
     >
       <v-card>
         <v-toolbar
@@ -220,25 +220,25 @@
             text-center
           >
             <v-date-picker
+              v-model="birthdate"
               landscape
               class="elevation-0"
               elevation="0"
-              v-model="birthdate"
             />
           </v-flex>
         </v-layout>
         <v-card-actions>
           <v-btn
-            @click="birthdateDialog = false"
             color="red"
             text
+            @click="birthdateDialog = false"
           >
             Nevermind
           </v-btn>
           <v-spacer />
           <v-btn
-            @click="saveBirthdate"
             color="primary"
+            @click="saveBirthdate"
           >
             {{ birthdate|moment("ddd, MMM DD YYYY") }}
             <v-icon

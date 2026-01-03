@@ -15,10 +15,10 @@
     width="300"
   >
     <v-list-item
-      link
       v-if="!isBillboardNav && plugin"
+      link
     >
-      <template v-slot:prepend>
+      <template #prepend>
         <v-avatar>
           <v-img
             :src="plugin.icon"
@@ -35,8 +35,8 @@
       </v-list-item-subtitle>
 
       <template
-        v-slot:append
         v-if="!mini"
+        #append
       >
         <v-btn
           icon
@@ -52,8 +52,8 @@
     </v-list-item>
 
     <v-divider
-      class="m-2"
       v-if="!isBillboardNav"
+      class="m-2"
     />
 
     <v-list
@@ -71,8 +71,8 @@
         })"
       >
         <template
-          v-slot:prepend
           v-if="mini"
+          #prepend
         >
           <v-icon :color="child.color">
             fa fa-{{ child.icon }}
@@ -83,7 +83,7 @@
           {{ child.name }}
         </v-list-item-title>
 
-        <template v-slot:append>
+        <template #append>
           <v-icon
             v-if="isBillboardNav || !mini"
             class="route-icon"

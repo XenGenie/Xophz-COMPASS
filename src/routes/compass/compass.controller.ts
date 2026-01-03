@@ -1,12 +1,12 @@
-import compassMixin from './mixins/compass-mixin/compass-mixin.controller'
-import { mapStores } from 'pinia'
-import { useCompassStore } from '@/routes/compass/store'
+import compassMixin from "./mixins/compass-mixin/compass-mixin.controller";
+import { mapStores } from "pinia";
+import { useCompassStore } from "@/routes/compass/store";
 
 export default {
-  name: 'xophz-compass',
+  name: "xophz-compass",
   data,
   props: {
-    plugin: Object
+    plugin: Object,
   },
   components: {},
   created: onCreated,
@@ -14,113 +14,150 @@ export default {
   mixins: [compassMixin],
   computed: {
     ...getComputed(),
-    ...mapStores(useCompassStore)
+    ...mapStores(useCompassStore),
   },
   watch: getWatched(),
-  methods: getMethods()
-}
+  methods: getMethods(),
+};
 
-function data () {
+function data() {
   return {
-    active: 'first',
+    active: "first",
     first: false,
     second: false,
     third: false,
     showSnackbar: false,
     snackbarPlugin: {},
-    secondStepError: null
-  }
+    secondStepError: null,
+    transitionName: "slide-left",
+  };
 }
 
-function getComputed () {
+function getComputed() {
   return {
     currentUser: {
-      get () {
-        return this.compassStore.currentUser
-      }
+      get() {
+        return this.compassStore.currentUser;
+      },
     },
     plugins: {
-      get () {
-        return this.compassStore.pluginList
-      }
+      get() {
+        return this.compassStore.pluginList;
+      },
     },
     billboard: {
-      get () {
-        return this.compassStore.billboard
+      get() {
+        return this.compassStore.billboard;
       },
-      set (billboard) {
-        this.compassStore.setBillboard(billboard)
-      }
+      set(billboard) {
+        this.compassStore.setBillboard(billboard);
+      },
     },
     isBillboardOff: {
-      get () {
-        return this.compassStore.isBillboardOff
-      }
+      get() {
+        return this.compassStore.isBillboardOff;
+      },
     },
     isAppBarOff: {
-      get () {
-        return this.compassStore.isAppBarOff
-      }
-    }
-  }
+      get() {
+        return this.compassStore.isAppBarOff;
+      },
+    },
+  };
 }
 
-function getWatched () {
+function getWatched() {
   return {
-    stepper (step) {
-      const vm = this
-      const hash = vm.$options.name
+    stepper(val, oldVal) {
+      const vm = this;
+      const hash = vm.$options.name;
       const path = {
-        1: '/',
-        2: '/compass/explore',
-        3: '/compass/dashboard'
-      }[step]
+        1: "/",
+        2: "/compass/explore",
+        3: "/compass/dashboard",
+      }[val];
 
       const isBillboardOff = {
         1: true,
         2: true,
-        3: true
-      }[step]
+        3: true,
+      }[val];
 
-      vm.compassStore.turnOffBillboard(isBillboardOff)
+      vm.transitionName = val > oldVal ? "slide-left" : "slide-right";
 
-      vm.loading = true
-      vm.$router.push({ path, hash }).then(() => {
-        vm.loading = false
-      })
-    }
-  }
-}
+      vm.compassStore.turnOffBillboard(isBillboardOff);
 
-function mounted () {
-  this.showCompass()
-  this.compassStore.turnOffBillboard(true)
-  this.compassStore.turnOffAppBar(true)
-}
-
-function onCreated () {
-}
-
-function getMethods () {
-  return {
-    mouseOver (plugin) {
-      const vm = this
-      vm.showSnackbar = true
-      vm.snackbarPlugin = plugin
+      if (vm.$route.path !== path) {
+        vm.loading = true;
+        vm.$router.push({ path, hash }).then(() => {
+          vm.loading = false;
+        });
+      }
     },
-    refreshLayout () {
+    $route(to) {
+      const pathMap = {
+        "/": 1,
+        "/compass": 1, // Handle base route
+        "/compass/explore": 2,
+        "/compass/dashboard": 3,
+      };
+      // Check if the current route matches one of our steps
+      // We check if the path *ends with* our expected paths to handle potential base URLs if needed,
+      // but strict matching is safer if we know the full structure.
+      // Based on the push above, it seems to be absolute paths.
+      // However, to be safe with sub-routes or query params, exact match usually best for this stepper.
+
+      // Let's iterate to find match
+      let step = 1;
+      for (const [path, s] of Object.entries(pathMap)) {
+        if (to.path === path || to.path.endsWith(path)) {
+          // Simple check
+          step = s;
+          if (to.path === "/" && path === "/compass") continue; // Prefer / over /compass if both match? No, they map to same.
+          break;
+        }
+      }
+
+      // More specific check based on the 'path' object in stepper watcher
+      if (to.path === "/" || to.path === "/compass") step = 1;
+      else if (to.path.includes("/explore")) step = 2;
+      else if (to.path.includes("/dashboard")) step = 3;
+
+      if (this.stepper !== step) {
+        this.stepper = step;
+      }
+    },
+  };
+}
+
+function mounted() {
+  this.showCompass();
+  this.compassStore.turnOffBillboard(true);
+  this.compassStore.turnOffAppBar(true);
+}
+
+function onCreated() {}
+
+function getMethods() {
+  return {
+    mouseOver(plugin) {
+      const vm = this;
+      vm.showSnackbar = true;
+      vm.snackbarPlugin = plugin;
+    },
+    refreshLayout() {
       // $('#second').reloadItems();
       // this.$refs.layout();
     },
-    togglePlugin (e, plugin) {
-      const vm = this
+    togglePlugin(e, plugin) {
+      const vm = this;
       if (e.target.checked) {
-        vm.activatePlugin(plugin)
+        vm.activatePlugin(plugin);
       } else {
-        vm.deactivatePlugin(plugin)
+        vm.deactivatePlugin(plugin);
       }
     },
-    activatePlugin (plugin) {
+    activatePlugin(plugin) {
       // $.ajax({
       //   url: '',
       //   data : { 'action' : 'activate_plugin', 'plugin' : plugin.TextDomain },
@@ -131,7 +168,7 @@ function getMethods () {
       //   }
       // });
     },
-    deactivatePlugin (plugin) {
+    deactivatePlugin(plugin) {
       // $.ajax({
       //   // url: ajaxurl,
       //   data : { 'action' : 'deactivate_plugin', 'plugin' : plugin.TextDomain },
@@ -142,18 +179,18 @@ function getMethods () {
       //   }
       // });
     },
-    setDone (id, index) {
-      this[id] = true
-      this.secondStepError = null
+    setDone(id, index) {
+      this[id] = true;
+      this.secondStepError = null;
       if (index) {
-        this.active = index
+        this.active = index;
       }
     },
-    setError () {
-      this.secondStepError = 'This is an error!'
+    setError() {
+      this.secondStepError = "This is an error!";
     },
-    showCompass () {
+    showCompass() {
       // this.$refs.compassCircle.style.opacity = 1;
-    }
-  }
+    },
+  };
 }

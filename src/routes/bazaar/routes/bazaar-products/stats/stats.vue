@@ -8,7 +8,9 @@
               <v-icon
                 size="64"
                 color="primary"
-              >fal fa-binoculars</v-icon>
+              >
+                fal fa-binoculars
+              </v-icon>
             </v-col>
             <v-col>
               <h6 class="text-subtitle-1 text-medium-emphasis">
@@ -67,7 +69,9 @@
               <v-icon
                 size="64"
                 color="error"
-              >fal fa-cubes</v-icon>
+              >
+                fal fa-cubes
+              </v-icon>
             </v-col>
             <v-col>
               <h6 class="text-subtitle-1 text-medium-emphasis">
@@ -105,7 +109,9 @@
               <v-icon
                 size="64"
                 color="warning"
-              >fal fa-box-usd</v-icon>
+              >
+                fal fa-box-usd
+              </v-icon>
             </v-col>
             <v-col>
               <h6 class="text-subtitle-1 text-medium-emphasis">
@@ -143,7 +149,9 @@
               <v-icon
                 size="64"
                 color="success"
-              >fal fa-hand-holding-usd</v-icon>
+              >
+                fal fa-hand-holding-usd
+              </v-icon>
             </v-col>
             <v-col>
               <h6 class="text-subtitle-1 text-medium-emphasis">

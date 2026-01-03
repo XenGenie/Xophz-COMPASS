@@ -1,38 +1,61 @@
 <template>
-  <v-app
+  <v-main
     :id="$options.name"
     :class="$options.name"
-    dark
+    class="min-h-screen bg-slate-950"
   >
-    <nav-drawer v-model="isAppNavDrawerOpen" />
     <v-app-bar
-      app
-      clipped-left
-      color="#333941"
+      density="compact"
+      class="bg-slate-900/40 backdrop-blur-xl border-b border-white/5"
+      flat
     >
-      <v-app-bar-nav-icon @click="toggleAppNavDrawer" />
-      &nbsp;
-      <v-img :src="plugin.icon" />
-      &nbsp;
-      <v-toolbar-title>
+      <v-btn
+        icon
+        variant="text"
+        class="ml-2 hover:bg-white/10 transition-colors"
+        @click="toggleAppNavDrawer"
+      >
+        <v-icon color="#9C27B0">
+          fad fa-bars
+        </v-icon>
+      </v-btn>
+
+      <v-avatar
+        size="28"
+        class="mx-3 rounded-lg border border-white/10 shadow-lg"
+      >
+        <v-img
+          v-if="plugin && plugin.icon"
+          :src="plugin.icon"
+          cover
+        />
+      </v-avatar>
+
+      <v-toolbar-title class="text-sm font-black tracking-widest text-white/90 uppercase">
         {{ $route.name }}
       </v-toolbar-title>
+
       <v-spacer />
-      <v-toolbar-items class="hidden-sm-and-down">
+
+      <div class="mr-4 flex gap-2">
         <v-btn
-          icon
-          @click="true"
-        >
-          <v-icon />
-        </v-btn>
-      </v-toolbar-items>
+          icon="fa fa-user-secret"
+          variant="tonal"
+          size="x-small"
+          class="bg-white/5 border border-white/10 text-purple-400"
+        />
+      </div>
     </v-app-bar>
-    <v-main>
-      <router-view />
-    </v-main>
-    <!-- <v-footer> -->
-    <!-- </v-footer> -->
-  </v-app>
+
+    <v-container
+      fluid
+      class="p-6"
+    >
+      <v-fade-transition mode="out-in">
+        <router-view />
+      </v-fade-transition>
+    </v-container>
+  </v-main>
 </template>
 <script lang="ts" src="./magic-cloak.controller.ts"></script>
 <style lang="scss" src="./_magic-cloak.scss" scoped></style>

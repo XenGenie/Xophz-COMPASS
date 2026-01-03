@@ -17,8 +17,8 @@
       </v-toolbar-title>
       <v-spacer />
       <v-btn-toggle
-        color=""
         v-model="toggleMultiple"
+        color=""
         multiple
       >
         <v-btn>
@@ -47,7 +47,7 @@
           :close-on-click="false"
           :close-on-content-click="false"
         >
-          <template v-slot:activator="{ on }">
+          <template #activator="{ on }">
             <v-btn
               icon
               small

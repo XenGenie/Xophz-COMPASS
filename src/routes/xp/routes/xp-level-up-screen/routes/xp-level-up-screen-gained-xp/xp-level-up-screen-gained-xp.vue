@@ -118,7 +118,7 @@
                         :start="user.xp"
                         :number="user.xp"
                         :sound="soundFx.points"
-                        @updateProgress="updateProgressBar"
+                        @update-progress="updateProgressBar"
                       />
                     </h1>
                   </v-col>
@@ -157,9 +157,9 @@
                     class="pr-3 self-center"
                   >
                     <v-progress-linear
+                      v-model="userProgress"
                       color="info"
                       height="10"
-                      v-model="userProgress"
                     />
                   </v-col>
                 </v-row>

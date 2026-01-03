@@ -3,7 +3,10 @@
     :id="$options.name"
     :class="$options.name"
   >
-    <v-app-bar color="blue" elevation="2">
+    <v-app-bar
+      color="blue"
+      elevation="2"
+    >
       <v-app-bar-nav-icon @click="toggleAppNavDrawer" />
       <v-icon icon="fa-hand-holding-magic" />
       <v-toolbar-title>
@@ -33,15 +36,15 @@
       
       <v-btn
         variant="text"
-        @click="index = !index"
         :icon="!index ? 'fal fa-list' : 'fal fa-th-large'"
+        @click="index = !index"
       />
 
       <v-menu
         location="bottom end"
         :close-on-content-click="false"
       >
-        <template v-slot:activator="{ props }">
+        <template #activator="{ props }">
           <v-btn
             color="primary"
             variant="flat"

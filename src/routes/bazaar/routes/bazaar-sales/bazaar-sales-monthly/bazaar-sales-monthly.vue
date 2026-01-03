@@ -5,15 +5,21 @@
         v-model="stepper"
         bg-color="primary"
       >
-        <v-tab :value="1">Refine Report</v-tab>
+        <v-tab :value="1">
+          Refine Report
+        </v-tab>
         <v-tab
           :value="2"
           :disabled="stepper < 2"
-        >Report Results</v-tab>
+        >
+          Report Results
+        </v-tab>
         <v-tab
           :value="3"
           :disabled="stepper < 3"
-        >Export Results</v-tab>
+        >
+          Export Results
+        </v-tab>
       </v-tabs>
 
       <v-window v-model="stepper">
@@ -59,7 +65,7 @@
                   Click <v-icon
                     icon="fas fa-play"
                     size="small"
-                  ></v-icon> when you're ready.
+                  /> when you're ready.
                 </v-alert>
                 <v-alert
                   v-if="error && error.status"
@@ -88,16 +94,16 @@
                       variant="underlined"
                       readonly
                       @click="menu = true"
-                    ></v-text-field>
+                    />
                     <v-dialog
                       v-model="menu"
                       width="290px"
                     >
                       <v-date-picker
                         v-model="date"
-                        @update:model-value="menu = false"
                         view-mode="month"
-                      ></v-date-picker>
+                        @update:model-value="menu = false"
+                      />
                     </v-dialog>
                   </v-col>
 
@@ -109,8 +115,8 @@
                       v-model="sku"
                       label="Search All Product SKUs"
                       prepend-icon="fas fa-barcode"
-                      @keyup.enter="runReport"
                       variant="underlined"
+                      @keyup.enter="runReport"
                     />
                   </v-col>
                   <v-col
@@ -119,8 +125,8 @@
                     md="4"
                   >
                     <v-select
-                      :items="skuScopeOptions"
                       v-model="skuScope"
+                      :items="skuScopeOptions"
                       label="Scope SKU"
                       prepend-icon="fas fa-search"
                       variant="underlined"
@@ -135,8 +141,7 @@
                       multiple
                       prepend-icon="fas fa-cash-register"
                       variant="underlined"
-                    >
-                    </v-select>
+                    />
                   </v-col>
                   <v-col class="text-right">
                     <v-switch
@@ -150,14 +155,14 @@
                       color="primary"
                       elevation="5"
                       size="large"
-                      @click="runReport"
                       :loading="loading"
                       class="mr-2"
+                      @click="runReport"
                     >
                       <v-icon
                         start
                         icon="fas fa-play"
-                      ></v-icon>
+                      />
                       Run Report
                     </v-btn>
                     <v-btn
@@ -171,7 +176,7 @@
                         start
                         icon="fas fa-stop"
                         color="red"
-                      ></v-icon>
+                      />
                       Stop
                     </v-btn>
                   </v-col>
@@ -183,8 +188,8 @@
 
         <v-window-item :value="2">
           <v-container
-            fluid
             v-if="sales.unique_products > 0"
+            fluid
           >
             <v-row>
               <v-col
@@ -199,23 +204,33 @@
                       size="64"
                       icon="fas fa-search-dollar"
                       class="mr-4"
-                    ></v-icon>
+                    />
                     <div>
-                      <div class="text-caption">Sales Reported for</div>
-                      <h2 class="text-h5">{{ date }}</h2>
+                      <div class="text-caption">
+                        Sales Reported for
+                      </div>
+                      <h2 class="text-h5">
+                        {{ date }}
+                      </h2>
                     </div>
                   </div>
-                  <v-divider class="mb-2"></v-divider>
+                  <v-divider class="mb-2" />
                   <v-row>
                     <v-col
-                      cols="4"
                       v-if="sku"
+                      cols="4"
                     >
-                      <div class="text-caption">SKU</div>
-                      <h2 class="text-h6">{{ sku }}</h2>
+                      <div class="text-caption">
+                        SKU
+                      </div>
+                      <h2 class="text-h6">
+                        {{ sku }}
+                      </h2>
                     </v-col>
                     <v-col>
-                      <div class="text-caption">Order Status</div>
+                      <div class="text-caption">
+                        Order Status
+                      </div>
                       <v-chip
                         v-for="(stat, s) in selectStatus"
                         :key="s"
@@ -243,26 +258,40 @@
                       size="64"
                       icon="fas fa-cash-register"
                       class="mr-4"
-                    ></v-icon>
+                    />
                     <div>
-                      <div class="text-caption text-success">Total Net Sales</div>
-                      <h2 class="text-h5 text-success">{{ sales.total_sales }}</h2>
+                      <div class="text-caption text-success">
+                        Total Net Sales
+                      </div>
+                      <h2 class="text-h5 text-success">
+                        {{ sales.total_sales }}
+                      </h2>
                     </div>
                   </div>
                   <v-row>
                     <v-col cols="5">
-                      <div class="text-caption text-success">Gross Sales</div>
-                      <h2 class="text-h6">{{ sales.gross }}</h2>
+                      <div class="text-caption text-success">
+                        Gross Sales
+                      </div>
+                      <h2 class="text-h6">
+                        {{ sales.gross }}
+                      </h2>
                     </v-col>
                     <v-col
                       cols="2"
                       class="text-center"
                     >
-                      <div class="text-caption text-success">-</div>
+                      <div class="text-caption text-success">
+                        -
+                      </div>
                     </v-col>
                     <v-col cols="5">
-                      <div class="text-caption text-success">Discounts</div>
-                      <h2 class="text-h6">{{ sales.discounts }}</h2>
+                      <div class="text-caption text-success">
+                        Discounts
+                      </div>
+                      <h2 class="text-h6">
+                        {{ sales.discounts }}
+                      </h2>
                     </v-col>
                   </v-row>
                 </v-card>
@@ -280,20 +309,32 @@
                       size="64"
                       icon="fas fa-hand-holding-usd"
                       class="mr-4"
-                    ></v-icon>
+                    />
                     <div>
-                      <div class="text-caption text-success">50% Total Net Sales</div>
-                      <h2 class="text-h5 text-success">{{ sales.total_sales / 2 }}</h2>
+                      <div class="text-caption text-success">
+                        50% Total Net Sales
+                      </div>
+                      <h2 class="text-h5 text-success">
+                        {{ sales.total_sales / 2 }}
+                      </h2>
                     </div>
                   </div>
                   <v-row>
                     <v-col cols="6">
-                      <div class="text-caption text-success">50% of Est. Revenue</div>
-                      <h2 class="text-h6">{{ sales.est_revenue / 2 }}</h2>
+                      <div class="text-caption text-success">
+                        50% of Est. Revenue
+                      </div>
+                      <h2 class="text-h6">
+                        {{ sales.est_revenue / 2 }}
+                      </h2>
                     </v-col>
                     <v-col cols="6">
-                      <div class="text-caption text-success">Est. Cash Out Value</div>
-                      <h2 class="text-h6">{{ (sales.est_revenue / 2) + (sales.total_sales / 2) }}</h2>
+                      <div class="text-caption text-success">
+                        Est. Cash Out Value
+                      </div>
+                      <h2 class="text-h6">
+                        {{ (sales.est_revenue / 2) + (sales.total_sales / 2) }}
+                      </h2>
                     </v-col>
                   </v-row>
                 </v-card>
@@ -311,20 +352,32 @@
                       size="64"
                       icon="fas fa-cubes"
                       class="mr-4"
-                    ></v-icon>
+                    />
                     <div>
-                      <div class="text-caption"># Products Sold (Qty)</div>
-                      <h2 class="text-h5">{{ sales.unique_products }} ({{ sales.total_items_sold }})</h2>
+                      <div class="text-caption">
+                        # Products Sold (Qty)
+                      </div>
+                      <h2 class="text-h5">
+                        {{ sales.unique_products }} ({{ sales.total_items_sold }})
+                      </h2>
                     </div>
                   </div>
                   <v-row>
                     <v-col cols="6">
-                      <div class="text-caption">Current Stock</div>
-                      <h2 class="text-h6">{{ sales.unique_in_stock }} / {{ sales.unique_products }}</h2>
+                      <div class="text-caption">
+                        Current Stock
+                      </div>
+                      <h2 class="text-h6">
+                        {{ sales.unique_in_stock }} / {{ sales.unique_products }}
+                      </h2>
                     </v-col>
                     <v-col cols="6">
-                      <div class="text-caption">Qty. Remaining</div>
-                      <h2 class="text-h6 text-red">{{ sales.remaining_stock }}</h2>
+                      <div class="text-caption">
+                        Qty. Remaining
+                      </div>
+                      <h2 class="text-h6 text-red">
+                        {{ sales.remaining_stock }}
+                      </h2>
                     </v-col>
                   </v-row>
                 </v-card>
@@ -342,9 +395,11 @@
                       size="64"
                       icon="fas fa-box-open"
                       class="mr-4"
-                    ></v-icon>
+                    />
                     <div>
-                      <div class="text-caption">Remaining Stock Value</div>
+                      <div class="text-caption">
+                        Remaining Stock Value
+                      </div>
                       <h2 class="text-h5">
                         <span v-if="sales.in_stock_value">{{ sales.in_stock_value }}</span>
                         <span v-else>Out of Stock</span>
@@ -353,16 +408,28 @@
                   </div>
                   <v-row>
                     <v-col>
-                      <div class="text-caption">{{ date }}'s Discount</div>
-                      <h2 class="text-h6">{{ sales.discount_percentage }}%</h2>
+                      <div class="text-caption">
+                        {{ date }}'s Discount
+                      </div>
+                      <h2 class="text-h6">
+                        {{ sales.discount_percentage }}%
+                      </h2>
                     </v-col>
                     <v-col>
-                      <div class="text-caption">Projected Discount</div>
-                      <h2 class="text-h6">{{ sales.projected_discount }}</h2>
+                      <div class="text-caption">
+                        Projected Discount
+                      </div>
+                      <h2 class="text-h6">
+                        {{ sales.projected_discount }}
+                      </h2>
                     </v-col>
                     <v-col>
-                      <div class="text-caption">Est. Revenue</div>
-                      <h2 class="text-h6 text-warning">{{ sales.est_revenue }}</h2>
+                      <div class="text-caption">
+                        Est. Revenue
+                      </div>
+                      <h2 class="text-h6 text-warning">
+                        {{ sales.est_revenue }}
+                      </h2>
                     </v-col>
                   </v-row>
                 </v-card>
@@ -374,33 +441,39 @@
                 md="4"
               >
                 <v-card
+                  v-ripple
                   :color="loading ? 'success' : ''"
                   class="flex items-center justify-center h-full pointer"
                   theme="dark"
                   @click="exportReport"
-                  v-ripple
                 >
                   <div
                     v-if="loading"
                     class="text-center"
                   >
-                    <div class="text-h4">Loading...</div>
+                    <div class="text-h4">
+                      Loading...
+                    </div>
                     <v-icon
                       size="64"
                       icon="fas fa-spinner fa-spin"
-                    ></v-icon>
+                    />
                   </div>
                   <div
                     v-else
                     class="text-center"
                   >
-                    <h2 class="text-h5">Download Report</h2>
+                    <h2 class="text-h5">
+                      Download Report
+                    </h2>
                     <v-icon
                       size="64"
                       color="success"
                       icon="fas fa-file-export"
-                    ></v-icon>
-                    <div class="text-caption">{{ filename }}</div>
+                    />
+                    <div class="text-caption">
+                      {{ filename }}
+                    </div>
                   </div>
                 </v-card>
               </v-col>
@@ -417,7 +490,7 @@
                     start
                     icon="fas fa-stop"
                     color="red"
-                  ></v-icon>
+                  />
                   Go Back
                 </v-btn>
               </v-col>
@@ -425,8 +498,8 @@
           </v-container>
 
           <v-container
-            fluid
             v-else
+            fluid
             class="h-full"
           >
             <v-row
@@ -439,9 +512,13 @@
                   color="orange-lighten-2"
                   icon="fas fa-search-dollar"
                   class="mb-4"
-                ></v-icon>
-                <h2 class="text-h4">Nothing Here</h2>
-                <div class="text-subtitle-1 mb-4">Adjust your search settings and try again.</div>
+                />
+                <h2 class="text-h4">
+                  Nothing Here
+                </h2>
+                <div class="text-subtitle-1 mb-4">
+                  Adjust your search settings and try again.
+                </div>
                 <v-btn
                   color="primary"
                   @click="stepper = 1"
@@ -449,7 +526,7 @@
                   <v-icon
                     start
                     icon="fas fa-backward"
-                  ></v-icon>
+                  />
                   Go Back
                 </v-btn>
               </v-col>
@@ -472,29 +549,33 @@
                   color="green"
                   icon="fas fa-file-csv"
                   class="mb-4"
-                ></v-icon>
-                <h2 class="text-h4">Report Downloaded</h2>
-                <div class="text-h6 mb-4">{{ filename }}</div>
+                />
+                <h2 class="text-h4">
+                  Report Downloaded
+                </h2>
+                <div class="text-h6 mb-4">
+                  {{ filename }}
+                </div>
 
                 <div v-if="!sheet">
                   <v-btn
                     size="large"
                     color="primary"
                     elevation="3"
-                    @click="stepper = 2"
                     class="mr-2"
+                    @click="stepper = 2"
                   >
-                    <v-icon icon="fas fa-play"></v-icon>
+                    <v-icon icon="fas fa-play" />
                   </v-btn>
                   <v-btn
                     size="large"
                     color="success"
                     elevation="3"
                     :loading="loading"
-                    @click="exportReport"
                     class="mr-2"
+                    @click="exportReport"
                   >
-                    <v-icon icon="fas fa-file-export"></v-icon>
+                    <v-icon icon="fas fa-file-export" />
                   </v-btn>
                   <v-btn
                     size="large"
@@ -505,11 +586,13 @@
                     <v-icon
                       icon="fas fa-stop"
                       color="red"
-                    ></v-icon>
+                    />
                   </v-btn>
                 </div>
                 <div v-else>
-                  <div class="mb-4">Close this window or click the button to download the report again.</div>
+                  <div class="mb-4">
+                    Close this window or click the button to download the report again.
+                  </div>
                   <v-btn
                     size="large"
                     color="success"
@@ -517,7 +600,7 @@
                     :loading="loading"
                     @click="exportReport"
                   >
-                    <v-icon icon="fas fa-file-export"></v-icon>
+                    <v-icon icon="fas fa-file-export" />
                   </v-btn>
                 </div>
               </v-col>

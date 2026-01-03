@@ -1,7 +1,7 @@
 <template>
   <nav-drawer
-    class="xp-navigation-drawer"
     v-model="isRoutesNavActive"
+    class="xp-navigation-drawer"
   />
 </template>
 <script lang="ts" src="./navigation-drawer.controller.ts"></script>

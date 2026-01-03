@@ -79,8 +79,8 @@
                 variant="tonal"
                 color="blue-grey-lighten-4"
                 class="text-left justify-start font-bold lowercase opacity-60 hover:opacity-100"
-                @click="$router.push(child.path)"
                 rounded="sm"
+                @click="$router.push(child.path)"
               >
                 {{ child.name }}
               </v-btn>
@@ -135,11 +135,13 @@
                   class="font-bold border border-white/10"
                 >
                   {{ chip.text }}
-                  <template v-slot:append>
+                  <template #append>
                     <v-icon
                       size="small"
                       class="ml-1"
-                    >{{ chip.icon }}</v-icon>
+                    >
+                      {{ chip.icon }}
+                    </v-icon>
                   </template>
                 </v-chip>
               </div>
@@ -159,8 +161,8 @@
                 variant="tonal"
                 color="blue-grey-lighten-4"
                 class="text-left justify-start font-bold lowercase opacity-60 hover:opacity-100"
-                @click="$router.push(child.path)"
                 rounded="sm"
+                @click="$router.push(child.path)"
               >
                 {{ child.name }}
               </v-btn>
