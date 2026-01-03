@@ -1,9 +1,9 @@
-[submodule "wp-content/plugins/xophz-compass-bazaar"]
-	path = wp-content/plugins/xophz-compass-bazaar
-	url = git@bitbucket.org:mycompass/xophz-compass-bazaar.git
 [submodule "docs"]
 	path = docs
 	url = git@github.com:XenGenie/Xophz-COMPASS.wiki.git
 [submodule "wp-content/plugins/xophz-compass"]
 	path = wp-content/plugins/xophz-compass
 	url = git@bitbucket.org:mycompass/xophz-compass.git
+[submodule "wp-content/plugins/xophz-compass-xp"]
+	path = wp-content/plugins/xophz-compass-xp
+	url = git@bitbucket.org:mycompass/xophz-compass-xp.git
