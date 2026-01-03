@@ -1,5 +1,5 @@
 FROM compass-node-image
-MAINTAINER My Compass Constuling <x@mycompassconsulting.com>
+LABEL maintainer="My Compass Consulting <x@mycompassconsulting.com>"
 
 # set ubuntu front-end for remote work
 ENV DEBIAN_FRONTEND noninteractive
