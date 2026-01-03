@@ -1,25 +1,25 @@
-@import '../../styles/_mixins.scss';
+@use "../../styles/mixins" as *;
 
-.xp{
-  .sm5{
+.xp {
+  .sm5 {
     flex-basis: 20%;
     flex-grow: 0;
     max-width: 20%;
-    @include phone{
+    @include phone {
       flex-basis: 20%;
       flex-grow: 1;
       max-width: 100%;
     }
-    @include tablet{
+    @include tablet {
       flex-basis: 33.3%;
       flex-grow: 1;
       max-width: 33.3%;
     }
-    img{
+    img {
       max-width: 80%;
     }
   }
-  .v-input{
+  .v-input {
     input {
       border: none;
       background-color: transparent;

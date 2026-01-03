@@ -4,5 +4,5 @@
     v-model="isRoutesNavActive"
   />
 </template>
-<script src="./navigation-drawer.controller.js"></script>
+<script lang="ts" src="./navigation-drawer.controller.ts"></script>
 <!-- <style lang="scss" src="./_navigation-drawer.scss"></style> -->

@@ -1,239 +1,212 @@
 <template>
   <v-app
     id="app"
+    theme="dark"
+    class="app-container"
   >
-    <v-footer
-      dark
-      class="breadcrumbs p-1"
+    <v-app-bar
+      density="compact"
+      theme="dark"
+      class="border-b border-white/10 bg-slate-900/40 backdrop-blur-xl shadow-2xl"
+      elevation="1"
     >
-      <v-layout
-        justify-center
-        align-center
-        fill-height
+      <v-container
+        fluid
+        class="p-0"
       >
-        <v-flex shrink>
-          <v-tooltip bottom>
-            <template v-slot:activator="{ on }">
-              <v-btn
-                v-on="on"
-                class="ml-1 mr-2"
-                small
-                @click="showBottomSheet"
-              >
-                <v-icon small>
-                  fad fa-compass
-                </v-icon>
-                &nbsp;COMPASS
-              </v-btn>
-            </template>
-            <span>Navigate COMPASS</span>
-          </v-tooltip>
-          <v-tooltip bottom>
-            <template v-slot:activator="{ on }">
-              <v-btn
-                small
-                v-on="on"
-                @click="goHome"
-              >
-                <v-icon
-                  small
+        <v-row
+          justify="space-between"
+          align="center"
+          class="h-full m-0"
+          no-gutters
+        >
+          <v-col
+            cols="auto"
+            class="flex items-center"
+          >
+            <v-tooltip location="bottom">
+              <template v-slot:activator="{ props }">
+                <v-btn
+                  v-bind="props"
+                  @click="wpmenu"
+                  class="ml-2"
+                  size="small"
+                  variant="tonal"
+                  rounded="pill"
+                  color="blue-grey-lighten-4"
+                  :prepend-icon="isWpMenuOpen ? 'fad fa-toggle-on' : 'fad fa-toggle-off'"
                 >
-                  fa fa-globe
-                </v-icon>
-                <span class="d-none d-sm-flex">
-                  &nbsp;
-                  {{ blogInfo.name }}
-                </span>
-              </v-btn>
-            </template>
-            <span>Go to Home Page</span>
-          </v-tooltip>
-        </v-flex>
-        <v-flex>
-          <v-breadcrumbs
-            :items="breadtrail"
-            divider="/"
-            class="p-0 pl-3 pt-1 d-none d-sm-flex"
-          />
-        </v-flex>
-        <v-spacer />
-        <v-flex shrink>
-          <v-tooltip bottom>
-            <template v-slot:activator="{ on }">
-              <v-btn
-                v-on="on"
-                @click="wpmenu"
-                class="mx-2 d-none d-sm-flex"
-                small
-              >
-                WP Menu
-                <!-- {{ wpSwitchLabel }} -->
-                <v-icon
-                  v-if="isWpMenuOpen"
-                  right
-                  small
+                  <span class="d-none d-sm-inline">WP Menu {{ wpSwitchLabel }}</span>
+                </v-btn>
+              </template>
+              <span>Toggle Wordpress Menu</span>
+            </v-tooltip>
+            <v-tooltip location="bottom">
+              <template v-slot:activator="{ props }">
+                <v-btn
+                  size="small"
+                  variant="tonal"
+                  rounded="pill"
+                  v-bind="props"
+                  @click="goHome"
+                  v-if="blogInfo"
+                  color="blue-grey-lighten-4"
+                  prepend-icon="fa fa-globe"
                 >
-                  fad fa-toggle-on
-                </v-icon>
-                <v-icon
-                  v-else
-                  small
-                  right
+                  <span class="d-none d-sm-inline font-bold">
+                    {{ blogInfo.name }}
+                  </span>
+                </v-btn>
+              </template>
+              <span>Go to Home Page</span>
+            </v-tooltip>
+          </v-col>
+
+          <v-col class="flex items-center justify-center">
+            <v-breadcrumbs
+              :items="breadtrail"
+              divider="/"
+              class="p-0 d-none d-md-flex text-gray-400 text-xs"
+            />
+          </v-col>
+
+          <v-col
+            cols="auto"
+            class="flex items-center gap-2"
+          >
+            <v-tooltip location="bottom">
+              <template v-slot:activator="{ props }">
+                <v-btn
+                  v-bind="props"
+                  size="small"
+                  variant="flat"
+                  rounded="pill"
+                  color="primary"
+                  prepend-icon="fad fa-compass"
+                  @click="showBottomSheet"
                 >
-                  fad fa-toggle-off
-                </v-icon>
-              </v-btn>
-            </template>
-            <span>Toggle Wordpress Menu</span>
-          </v-tooltip>
-        </v-flex>
-        <v-flex shrink>
-          <user-avatar-btn />
-        </v-flex>
-      </v-layout>
-    </v-footer>
+                  COMPASS
+                </v-btn>
+              </template>
+              <span>Navigate COMPASS</span>
+            </v-tooltip>
+            <user-avatar-btn />
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-app-bar>
     <nav-drawer v-model="isAppNavDrawerOpen" />
-    <trinity-rings-spinner v-if="spinner" />
-    <v-content
-      id="v-content-billboard"
-      class="no-flex v-content-billboard"
+    <!-- <trinity-rings-spinner v-if="spinner" /> -->
+    <v-main
+      id="v-main-billboard"
+      class="v-main-billboard pt-0"
       v-if="!isBillboardOff"
     >
       <v-container
         fluid
-        py-0
+        class="p-0 overflow-hidden"
       >
         <Billboard
           v-if="!isBillboardOff"
           :plugin="activePlugin"
         />
       </v-container>
-    </v-content>
+    </v-main>
     <router-view />
     <v-footer
-      dark
-      class="p-2 small--text copyright"
+      app
+      class="p-2 text-sm copyright"
+      theme="dark"
+      absolute
     >
-      <v-layout
-        justify-center
-        align-center
+      <v-row
+        justify="center"
+        align="center"
+        class="m-0"
       >
-        <v-flex
-          grow
-        >
+        <v-col class="text-center">
           <v-btn-toggle />
           &nbsp;
           <v-btn
-            outlined
+            variant="outlined"
             color="#E151AA"
-            small
+            size="small"
           >
             Support COMPASS&nbsp;
-            <v-icon small>
-              fa fa-heart
-            </v-icon>
+            <v-icon
+              size="small"
+              icon="fa fa-heart"
+            />
             <!-- Premiere Sponsor -->
           </v-btn>
-          <!-- <v-chip color="#E151AA"> -->
-          <!-- Support COMPASS  -->
-          <!-- </v-chip> -->
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-footer>
     <v-bottom-sheet
-      attach="#app"
       v-model="bottomSheet"
-      :hide-overlay="false"
+      :scrim="false"
     >
       <v-toolbar
         color="#212121"
-        dark
-        dense
+        theme="dark"
+        density="compact"
       >
-        <v-icon>
-          fad fa-compass
-        </v-icon>
+        <v-icon
+          start
+          class="ml-4"
+          icon="fad fa-compass"
+        />
         <v-chip
-          class="ml-4 "
+          class="ml-4"
           color="green"
         >
           <span>
             Premium
           </span>
-          <v-icon right>
-            fa fa-star
-          </v-icon>
+          <v-icon
+            end
+            icon="fa fa-star"
+          />
         </v-chip>
         <v-spacer />
-        <v-toolbar-title
-          class="headline d-flex d-sm-none"
-        >
+        <v-toolbar-title class="headline d-flex d-sm-none">
           COMPASS
           <v-avatar
-            size="32px"
-            tile
+            size="32"
+            rounded="0"
           />
           <v-chip color="green">
-            <v-icon>
-              fa fa-star
-            </v-icon>
+            <v-icon icon="fa fa-star" />
           </v-chip>
         </v-toolbar-title>
-        <v-toolbar-title
-          class="d-none d-sm-flex"
-        >
-          <!-- <b>C</b>ompany -->
-          <!-- &nbsp; -->
-          <!-- <b>O</b>verview -->
-          <!-- &nbsp; -->
-          <!-- <b>M</b>anagment -->
-
-          <!-- <b>C</b>ardinal
-          &nbsp;
-          <b>O</b>perators
-          &nbsp;
-          <b>M</b>aster
-          &nbsp;
-          <b>P</b>lanning
-          &nbsp;
-          <b>A</b>nd
-          &nbsp;
-          <b>S</b>trategic
-          &nbsp;
-          <b>S</b>ystem -->
+        <v-toolbar-title class="d-none d-sm-flex">
           COMPASS
         </v-toolbar-title>
-          &nbsp;
+        &nbsp;
         <v-spacer />
-        <v-toolbar-items>
-          <v-btn
-            @click="bottomSheet = false"
-            icon
-            text
-          >
-            <v-icon>
-              fa fa-times
-            </v-icon>
-          </v-btn>
-        </v-toolbar-items>
+        <v-btn
+          @click="bottomSheet = false"
+          icon
+          variant="text"
+        >
+          <v-icon icon="fa fa-times" />
+        </v-btn>
       </v-toolbar>
       <v-list>
-        <v-layout wrap>
-          <v-flex
-            xs3
-            lg2
+        <v-row class="ma-0">
+          <v-col
+            cols="3"
+            lg="2"
             v-for="plugin in plugins"
             :key="plugin.TextDomain"
           >
-            <v-list-item
-              @click="
+            <v-list-item @click="
                 bottomSheet = false;
                 $router.push({
                   path: getTextDomainPath(plugin.TextDomain),
-                  hash : 'v-content-billboard'
-                }); "
-            >
-              <v-list-item-icon>
+                  hash : '#v-main-billboard'
+                }); ">
+              <template v-slot:prepend>
                 <v-avatar
                   size="64"
                   class="d-none d-xl-flex"
@@ -241,6 +214,7 @@
                   <v-img
                     :src="plugin.icon"
                     :alt="plugin.title"
+                    cover
                   />
                 </v-avatar>
                 <v-avatar
@@ -250,19 +224,18 @@
                   <v-img
                     :src="plugin.icon"
                     :alt="plugin.title"
+                    cover
                   />
                 </v-avatar>
-              </v-list-item-icon>
-              <v-list-item-content text-right>
-                <v-list-item-title v-text="plugin.Name" />
-              </v-list-item-content>
+              </template>
+              <v-list-item-title class="text-right">{{ plugin.Name }}</v-list-item-title>
             </v-list-item>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
       </v-list>
     </v-bottom-sheet>
   </v-app>
 </template>
-<script src="./index.controller.js"></script>
+<script lang="ts" src="./index.controller.ts"></script>
 <style src="./styles/theme.scss" lang="scss" />
 <style lang="scss" src="./_index.scss" />

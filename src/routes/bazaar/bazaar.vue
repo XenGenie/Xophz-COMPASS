@@ -1,5 +1,5 @@
 <template>
   <router-view />
 </template>
-<script src="./bazaar.controller.js"></script>
+<script lang="ts" src="./bazaar.controller.ts"></script>
 <style lang="scss" src="./_bazaar.scss" ></style>

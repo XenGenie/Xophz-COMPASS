@@ -1,79 +1,61 @@
 <template>
-  <v-content
+  <v-main
     :id="$options.name"
     :class="$options.name"
   >
-    <v-app-bar
-      clipped-left
-      app
-      color="blue"
-    >
+    <v-app-bar color="blue" elevation="2">
       <v-app-bar-nav-icon @click="toggleAppNavDrawer" />
-      <v-icon>
-        fa-hand-holding-magic
-      </v-icon>
+      <v-icon icon="fa-hand-holding-magic" />
       <v-toolbar-title>
         My Achievements
       </v-toolbar-title>
       <v-spacer />
       <v-btn
-        icon
+        icon="fa-caret-left"
+        variant="text"
         @click="playFx('cursorX'); setDate(-1)"
-      >
-        <v-icon>fa-caret-left</v-icon>
-      </v-btn>
-      <v-toolbar-title>
-        {{ date|moment('dddd') }}
+      />
+      <v-toolbar-title class="flex-grow-0 mx-2">
+        {{ new Date(date).toLocaleString('en-us', {weekday:'long'}) }}
       </v-toolbar-title>
       <v-btn
-        icon
+        icon="fa-caret-right"
+        variant="text"
         @click="playFx('cursorX'); setDate(+1)"
-      >
-        <v-icon>fa-caret-right</v-icon>
-      </v-btn>
+      />
       <v-spacer />
-      <v-toolbar-items>
-        <v-btn
-          icon
-          @click="true"
-        >
-          <v-icon>fa-calendar</v-icon>
-        </v-btn>
-        <v-btn
-          text
-          icon
-          @click="index = !index"
-        >
-          <v-icon v-if="!index">
-            fal fa-list
-          </v-icon>
-          <v-icon v-else>
-            fal fa-th-large
-          </v-icon>
-        </v-btn>
-        <v-menu
-          offset-x
-          left
-          :close-on-click="false"
-          :close-on-content-click="false"
-        >
-          <template v-slot:activator="{ on }">
-            <v-btn
-              color="primary"
-              v-on="on"
-              small
-            >
-              <v-icon>fal fa-search</v-icon>
-            </v-btn>
-          </template>
-          <search dispatch="xp/SEARCH_ACHIEVEMENTS" />
-        </v-menu>
-      </v-toolbar-items>
+      
+      <v-btn
+        icon="fa-calendar"
+        variant="text"
+        @click="true"
+      />
+      
+      <v-btn
+        variant="text"
+        @click="index = !index"
+        :icon="!index ? 'fal fa-list' : 'fal fa-th-large'"
+      />
+
+      <v-menu
+        location="bottom end"
+        :close-on-content-click="false"
+      >
+        <template v-slot:activator="{ props }">
+          <v-btn
+            color="primary"
+            variant="flat"
+            size="small"
+            icon="fal fa-search"
+            v-bind="props"
+          />
+        </template>
+        <search dispatch="xp/SEARCH_ACHIEVEMENTS" />
+      </v-menu>
     </v-app-bar>
     <v-container
       fluid
-      grid-list-md
-      pt-3
+      class="pt-3"
     >
       <router-view :weekday="weekday" />
     </v-container>
@@ -84,75 +66,66 @@
       class="m-2"
     >
       <v-card fluid>
-        <v-layout
-          justify-center
-          align-center
+        <v-row
+          justify="center"
+          align="center"
         >
-          <v-flex text-center>
-            <h1
-              text-center
-              class="m-3 mb-0 headline"
-            >
+          <v-col class="text-center">
+            <h1 class="m-3 mb-0 text-2xl">
               {{ achievement.title }}
             </h1>
-          </v-flex>
-        </v-layout>
-        <v-layout
-          justify-center
-          align-center
-          fill-height
+          </v-col>
+        </v-row>
+        <v-row
+          justify="center"
+          align="center"
+          class="h-full"
         >
-          <v-flex
-            text-center
-            fill-height
-            xs2
+          <v-col
+            class="text-center h-full"
+            cols="2"
           >
-            <v-layout
-              justify-center
-              align-center
-              row
-              wrap
-              fill-height
+            <v-row
+              justify="center"
+              align="center"
+              class="h-full"
             >
-              <v-flex
+              <v-col
                 v-for="(day, d) in achievement.repeat_on"
                 :key="d"
-                :class="day == weekday ? 'green--text' : 'grey--text' "
-                text-center
-                xs12
+                :class="day == weekday ? 'text-green-500' : 'text-gray-500' "
+                class="text-center"
+                cols="12"
               >
                 {{ day.toUpperCase() }}
-              </v-flex>
-            </v-layout>
-          </v-flex>
-          <v-flex xs8>
+              </v-col>
+            </v-row>
+          </v-col>
+          <v-col cols="8">
             <v-img
               :src="achievement.img"
               class="m-5"
             />
-          </v-flex>
-        </v-layout>
-        <v-layout
-          justify-center
-          align-center
+          </v-col>
+        </v-row>
+        <v-row
+          justify="center"
+          align="center"
         >
-          <v-flex text-center />
-        </v-layout>
-        <v-layout
-          justify-center
-          align-center
+          <v-col class="text-center" />
+        </v-row>
+        <v-row
+          justify="center"
+          align="center"
         >
-          <v-flex text-center>
-            <h1
-              text-center
-              class="m-3 mb-0 headline"
-            >
-              <i class="grey--text darken-3">
+          <v-col class="text-center">
+            <h1 class="m-3 mb-0 text-2xl">
+              <i class="text-gray-700">
                 DID YOU DO IT?
               </i>
             </h1>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
         <v-card-actions>
           <v-btn
             color="red darken-1"
@@ -184,83 +157,80 @@
         <!--       {{achievement.the_content}} -->
         <!--   </v-layout> -->
         <!-- </v-footer> -->
-        <v-footer class="text-xs-center small--text grey--text darken-5">
-          <v-layout
-            justify-center
-            align-center
+        <v-footer class="text-center text-sm text-gray-700">
+          <v-row
+            justify="center"
+            align="center"
           >
-            <v-flex text-center>
+            <v-col class="text-center">
               REWARDS
-            </v-flex>
-          </v-layout>
+            </v-col>
+          </v-row>
         </v-footer>
         <v-footer>
-          <v-layout
-            align-center
-            row
-            wrap
-            text-center
-            class="m-3"
+          <v-row
+            align="center"
+            class="m-3 text-center"
           >
-            <v-flex
-              fill-height
-              xs4
+            <v-col
+              class="h-full"
+              cols="4"
             >
-              <h1 class="headline red--text">
+              <h1 class="text-2xl text-red-500">
                 <v-icon
-                  large
-                  left
-                  color="red lighten-1"
+                  size="large"
+                  start
+                  color="red-lighten-1"
                 >
                   fal fa-hand-holding-heart
                 </v-icon>
                 {{ achievement.ap }}
-                <small class="red--text darken-5">
+                <small class="text-red-900">
                   AP
                 </small>
               </h1>
-            </v-flex>
-            <v-flex
-              fill-height
-              xs4
+            </v-col>
+            <v-col
+              class="h-full"
+              cols="4"
             >
-              <h1 class="headline orange--text">
+              <h1 class="text-2xl text-orange-500">
                 <v-icon
-                  large
-                  left
-                  color="orange lighten-1"
+                  size="large"
+                  start
+                  color="orange-lighten-1"
                 >
                   fal fa-hand-holding-usd
                 </v-icon>
                 {{ achievement.gp }}
-                <small class="orange--text darken-5">
+                <small class="text-orange-900">
                   GP
                 </small>
               </h1>
-            </v-flex>
-            <v-flex
-              fill-height
-              xs4
+            </v-col>
+            <v-col
+              class="h-full"
+              cols="4"
             >
-              <h1 class="headline blue--text">
+              <h1 class="text-2xl text-blue-500">
                 <v-icon
-                  large
-                  left
-                  color="blue lighten-1"
+                  size="large"
+                  start
+                  color="blue-lighten-1"
                 >
                   fal fa-hand-holding-magic
                 </v-icon>
                 {{ achievement.xp }}
-                <small class="blue--text small--text darken-5">
+                <small class="text-blue-900 text-sm">
                   XP
                 </small>
               </h1>
-            </v-flex>
-          </v-layout>
+            </v-col>
+          </v-row>
         </v-footer>
       </v-card>
     </v-dialog>
-  </v-content>
+  </v-main>
 </template>
-<script src="./xp-my-achievements.controller.js"></script>
+<script lang="ts" src="./xp-my-achievements.controller.ts"></script>
 <style lang="scss" src="./_xp-my-achievements.scss"></style>

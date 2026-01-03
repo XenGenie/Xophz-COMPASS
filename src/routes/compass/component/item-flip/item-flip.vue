@@ -17,5 +17,5 @@
     </div>
   </div>
 </template>
-<script src="./item-flip.controller.js"></script>
+<script lang="ts" src="./item-flip.controller.ts"></script>
 <style lang="scss" src="./_item-flip.scss" scoped></style>

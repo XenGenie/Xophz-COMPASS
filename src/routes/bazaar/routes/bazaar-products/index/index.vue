@@ -1,28 +1,29 @@
 <template>
   <div class="products-index">
     <v-data-table
-      fluid
-      fill-height
-      dark
+      theme="dark"
       :loading="loading"
       :items="products"
       :headers="headers"
       class="elevation-1"
-      :total-items="parseInt(total)"
+      :server-items-length="parseInt(total)"
+      :items-per-page="limit"
     >
-      <template v-slot:items="props">
-        <td>
-          <v-avatar>
-            <img :src="props.item.thumb">
-          </v-avatar>
-        </td>
-        <td>{{ props.item.title }}</td>
-        <td>{{ props.item.sku }}</td>
-        <td>{{ props.item.price }}</td>
-        <td>{{ props.item.stock }}</td>
+      <template v-slot:item="{ item }">
+        <tr>
+          <td>
+            <v-avatar>
+              <v-img :src="item.thumb" />
+            </v-avatar>
+          </td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.sku }}</td>
+          <td>{{ item.price }}</td>
+          <td>{{ item.stock }}</td>
+        </tr>
       </template>
     </v-data-table>
   </div>
 </template>
-<script src="./index.controller.js"></script>
+<script lang="ts" src="./index.controller.ts"></script>
 <style lang="scss" src="./_index.scss"></style>

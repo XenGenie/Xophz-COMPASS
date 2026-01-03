@@ -1,5 +1,5 @@
 <template>
   <router-view class="xp" />
 </template>
-<script src="./xp.controller.js"></script>
+<script lang="ts" src="./xp.controller.ts"></script>
 <style lang="scss" src="./_xp.scss"></style>

@@ -27,13 +27,13 @@
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <router-view />
-    </v-content>
+    </v-main>
     <!-- <v-footer> -->
     <!-- </v-footer> -->
   </v-app>
 </template>
 
-<script src="./post-digger.controller.js"></script>
+<script lang="ts" src="./post-digger.controller.ts"></script>
 <style lang="scss" src="./_post-digger.scss" scoped></style>

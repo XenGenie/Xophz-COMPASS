@@ -27,12 +27,12 @@
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <router-view />
-    </v-content>
+    </v-main>
     <!-- <v-footer> -->
     <!-- </v-footer> -->
   </v-app>
 </template>
-<script src="./thors-hammer.controller.js"></script>
+<script lang="ts" src="./thors-hammer.controller.ts"></script>
 <style lang="scss" src="./_thors-hammer.scss" scoped></style>

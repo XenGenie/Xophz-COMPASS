@@ -3,19 +3,24 @@
     id="compass-dashboard"
     class="compass-dashboard"
   >
-    <v-layout>
-      <v-flex>
+    <v-row
+      justify="center"
+      align="center"
+      class="h-full"
+    >
+      <v-col class="text-center">
         <v-icon
-          size="4rem"
+          size="64"
+          class="mb-4"
         >
           fa fa-odometer
         </v-icon>
-        <h1 class="headline">
+        <h1 class="text-3xl font-bold">
           Setup Dashboard
         </h1>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </div>
 </template>
-<script src="./compass-dashboard.controller.js"></script>
+<script lang="ts" src="./compass-dashboard.controller.ts"></script>
 <style lang="scss" src="./_compass-dashboard.scss"></style>

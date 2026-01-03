@@ -1,0 +1,1 @@
+import{n as o,_ as t,r as n,c as r,o as a}from"./index.js";const c={data:s,beforeCreate:f,computed:u(),components:{navDrawer:o},methods:p()};function s(){return{}}function u(){return{}}function p(){return{}}function f(){}function _(i,d,m,l,v,C){const e=n("router-view");return a(),r(e)}const h=t(c,[["render",_]]);export{h as default};

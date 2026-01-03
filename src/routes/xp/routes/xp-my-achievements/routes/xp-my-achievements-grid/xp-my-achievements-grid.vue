@@ -1,143 +1,123 @@
 <template>
-  <v-layout
-    class="xp-my-achievements-grid pa-0"
-    row
-    wrap
-  >
-    <v-flex
+  <v-row class="xp-my-achievements-grid p-0">
+    <v-col
       v-for="(achievement,a) in achievements"
       :key="a"
-      sm6
-      md4
+      cols="12"
+      sm="6"
+      md="4"
     >
       <v-hover>
-        <v-card
-          slot-scope="{ hover }"
-          :class="`elevation-${hover ? 15: 5}`"
-          text-center
-        >
-          <v-footer>
-            <v-card-title
-              primary-title
-              class="m-1 mx-1 pb-0"
-            >
-              <v-layout
-                justify-center
-                align-center
-              >
-                <v-flex text-center>
-                  {{ achievement.title }}
-                </v-flex>
-              </v-layout>
-            </v-card-title>
-          </v-footer>
-          <v-layout
-            justify-center
-            align-center
-            fill-height
+        <template v-slot:default="{ isHovering, props }">
+          <v-card
+            v-bind="props"
+            :elevation="isHovering ? 15 : 5"
+            class="text-center"
           >
-            <v-flex
-              text-center
-              fill-height
-              xs3
-            >
-              <v-layout
-                justify-center
-                align-center
-                row
-                wrap
-                fill-height
-              >
-                <v-flex
-                  v-for="(day, d) in achievement.repeat_on"
-                  :key="d"
-                  :class="day == weekday ? 'green--text' : 'grey--text' "
-                  text-center
-                  xs12
+            <v-footer>
+              <v-card-title class="m-1 mx-1 pb-0">
+                <v-row
+                  justify="center"
+                  align="center"
                 >
-                  {{ day.toUpperCase() }}
-                </v-flex>
-              </v-layout>
-            </v-flex>
-            <v-flex xs6>
-              <v-img
-                v-if="achievement.img"
-                :src="achievement.img"
-                class="m-3"
-              />
-            </v-flex>
-            <v-flex
-              text-center
-              fill-height
-              grow
-              xs3
+                  <v-col class="text-center">
+                    {{ achievement.title }}
+                  </v-col>
+                </v-row>
+              </v-card-title>
+            </v-footer>
+            <v-row
+              justify="center"
+              align="center"
+              class="h-full"
             >
-              <v-layout
-                text-center
-                align-center
-                justify-center
-                row
-                wrap
+              <v-col
+                class="text-center h-full"
+                cols="3"
               >
-                <v-flex xs12>
-                  <v-badge>
-                    <template v-slot:badge>
-                      <span>{{ achievement.xp }}</span>
-                    </template>
-                    <v-icon
-                      color="blue lighten-1"
-                    >
-                      fal fa-hand-holding-magic
-                    </v-icon>
-                  </v-badge>
-                </v-flex>
-                <v-flex xs12>
-                  <v-badge color="orange darken-2">
-                    <template v-slot:badge>
-                      <span>{{ achievement.gp }}</span>
-                    </template>
-                    <v-icon
-                      color="orange darken-1"
-                    >
-                      fal fa-hand-holding-usd
-                    </v-icon>
-                  </v-badge>
-                </v-flex>
-                <v-flex xs12>
-                  <v-badge
-                    top
-                    color="red darken-2"
+                <v-row
+                  justify="center"
+                  align="center"
+                  class="h-full"
+                >
+                  <v-col
+                    v-for="(day, d) in achievement.repeat_on"
+                    :key="d"
+                    :class="day == weekday ? 'text-green-500' : 'text-gray-500' "
+                    class="text-center"
+                    cols="12"
                   >
-                    <template v-slot:badge>
-                      <span>{{ achievement.ap }}</span>
-                    </template>
-                    <v-icon
-                      color="red darken-2"
+                    {{ day.toUpperCase() }}
+                  </v-col>
+                </v-row>
+              </v-col>
+              <v-col cols="6">
+                <v-img
+                  v-if="achievement.img"
+                  :src="achievement.img"
+                  class="m-3"
+                />
+              </v-col>
+              <v-col
+                class="text-center h-full flex-grow"
+                cols="3"
+              >
+                <v-row
+                  class="text-center"
+                  align="center"
+                  justify="center"
+                >
+                  <v-col cols="12">
+                    <v-badge
+                      :content="achievement.xp"
+                      color="blue-lighten-1"
                     >
-                      fal fa-hand-holding-heart
-                    </v-icon>
-                  </v-badge>
-                </v-flex>
-              </v-layout>
-            </v-flex>
-          </v-layout>
-          <v-card-actions>
-            <v-spacer />
-            <v-btn
-              @click="playFx('click'); checkoffAchievement(achievement)"
-              color="green darken-1"
-            >
-              Complete
-              <v-icon>
-                fal fa-sword
-              </v-icon>
-            </v-btn>
-            <v-spacer />
-          </v-card-actions>
-        </v-card>
+                      <v-icon color="blue-lighten-1">
+                        fal fa-hand-holding-magic
+                      </v-icon>
+                    </v-badge>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-badge
+                      :content="achievement.gp"
+                      color="orange-darken-2"
+                    >
+                      <v-icon color="orange-darken-1">
+                        fal fa-hand-holding-usd
+                      </v-icon>
+                    </v-badge>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-badge
+                      :content="achievement.ap"
+                      color="red-darken-2"
+                    >
+                      <v-icon color="red-darken-2">
+                        fal fa-hand-holding-heart
+                      </v-icon>
+                    </v-badge>
+                  </v-col>
+                </v-row>
+              </v-col>
+            </v-row>
+            <v-card-actions>
+              <v-spacer />
+              <v-btn
+                @click="playFx('click'); checkoffAchievement(achievement)"
+                color="green-darken-1"
+              >
+                Complete
+                <v-icon end>
+                  fal fa-sword
+                </v-icon>
+              </v-btn>
+              <v-spacer />
+            </v-card-actions>
+          </v-card>
+        </template>
       </v-hover>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
-<script src="./xp-my-achievements-grid.controller.js"></script>
+<script lang="ts" src="./xp-my-achievements-grid.controller.ts"></script>
 <style lang="scss" src="./_xp-my-achievements-grid.scss"></style>

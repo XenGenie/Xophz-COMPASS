@@ -68,5 +68,5 @@
     </v-flex>
   </v-layout>
 </template>
-<script src="./xp-my-abilities-grid.controller.js"></script>
+<script lang="ts" src="./xp-my-abilities-grid.controller.ts"></script>
 <style lang="scss" src="./_xp-my-abilities-grid.scss"></style>

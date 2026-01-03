@@ -10,5 +10,5 @@
     />
   </div>
 </template>
-<script src="./switch.controller.js"></script>
+<script lang="ts" src="./switch.controller.ts"></script>
 <!-- <style lang="scss" src="./_switch.scss" scoped></style> -->

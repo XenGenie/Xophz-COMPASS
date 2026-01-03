@@ -1,147 +1,119 @@
 <template>
   <div class="xp-level-up-screen-gained-xp">
     <v-container>
-      <v-layout
-        row
-        wrap
-        justify-center
-      >
-        <v-flex xs12>
+      <v-row justify="center">
+        <v-col cols="12">
           <v-card>
-            <v-layout>
-              <v-flex grow>
-                <v-card-title class="headline">
+            <v-row dense>
+              <v-col class="flex-grow-1">
+                <v-card-title class="text-2xl">
                   <v-icon
-                    left
-                    large
+                    start
+                    size="large"
                   >
                     fal fa-hand-holding
                   </v-icon>
                   Gained XP and AP!
                 </v-card-title>
-              </v-flex>
-              <v-flex
-                xs1
+              </v-col>
+              <v-col
+                cols="1"
                 class="p-3"
               />
-            </v-layout>
+            </v-row>
             {{ levels }}
           </v-card>
-        </v-flex>
-        <v-flex
-          xs6
+        </v-col>
+        <v-col
+          cols="6"
           class="p-5"
         >
           <v-card color="blue">
-            <v-layout>
-              <v-flex grow>
-                <v-card-title class="headline">
+            <v-row dense>
+              <v-col class="flex-grow-1">
+                <v-card-title class="text-2xl">
                   <v-icon
-                    large
-                    left
+                    size="large"
+                    start
                   >
                     fal fa-hand-holding-magic
                   </v-icon>
                   XP
                 </v-card-title>
-              </v-flex>
-              <v-flex shrink>
-                <v-card-title
-                  class="headline text-right"
-                  text-right
-                >
+              </v-col>
+              <v-col class="flex-grow-0 flex-shrink-0">
+                <v-card-title class="text-2xl text-right">
                   {{ achievement.xp }}p
                 </v-card-title>
-              </v-flex>
-            </v-layout>
+              </v-col>
+            </v-row>
           </v-card>
-        </v-flex>
-        <v-flex
-          xs6
+        </v-col>
+        <v-col
+          cols="6"
           class="p-5"
         >
           <v-card color="red">
-            <v-layout>
-              <v-flex grow>
-                <v-card-title class="headline">
+            <v-row dense>
+              <v-col class="flex-grow-1">
+                <v-card-title class="text-2xl">
                   <v-icon
-                    large
-                    left
+                    size="large"
+                    start
                   >
                     fal fa-hand-holding-heart
                   </v-icon>
                   AP
                 </v-card-title>
-              </v-flex>
-              <v-flex shrink>
-                <v-card-title
-                  class="headline text-right"
-                  text-right
-                >
+              </v-col>
+              <v-col class="flex-grow-0 flex-shrink-0">
+                <v-card-title class="text-2xl text-right">
                   {{ achievement.ap }}p
                 </v-card-title>
-              </v-flex>
-            </v-layout>
+              </v-col>
+            </v-row>
           </v-card>
-        </v-flex>
-      </v-layout>
-      <v-layout>
-        <v-flex
-          xs12
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col
+          cols="12"
           class="mt-1"
         >
-          <v-card :class="hasLeveled ? 'elevation-24' : ''">
-            <v-layout fill-height>
-              <v-flex
-                shrink
-                xs2
+          <v-card :elevation="hasLeveled ? 24 : 1">
+            <v-row no-gutters>
+              <v-col
+                class="flex-grow-0 flex-shrink-0"
+                cols="2"
               >
-                <v-layout
-                  justify-center
-                  align-center
+                <v-row
+                  justify="center"
+                  align="center"
+                  class="h-full"
                 >
-                  <v-flex class="p-3">
-                    <v-img
-                      :src="currentUser.avatar"
-                    />
-                  </v-flex>
-                </v-layout>
-              </v-flex>
-              <v-flex>
-                <v-layout>
-                  <v-flex grow>
-                    <v-card-title
-                      class="headline text-right"
-                      text-right
-                    >
+                  <v-col class="p-3">
+                    <v-img :src="currentUser.avatar" />
+                  </v-col>
+                </v-row>
+              </v-col>
+              <v-col>
+                <v-row dense>
+                  <v-col class="flex-grow-1">
+                    <v-card-title class="text-2xl text-right">
                       {{ currentUser.data.user_login }}
-                      <!-- <v-chip v-if="hasLeveled" color="success" text-color="white"> -->
-                      <!--   {{user.level}} -->
-                      <!--   <v-icon right>fal fa-hand-holding-seedling</v-icon> -->
-                      <!-- </v-chip> -->
                       <v-spacer />
                     </v-card-title>
-                  </v-flex>
-                  <v-flex
-                    text-right
-                    shrink
-                  >
-                    <v-card-title
-                      class="headline text-right"
-                      text-right
-                    >
+                  </v-col>
+                  <v-col class="text-right flex-grow-0 flex-shrink-0">
+                    <v-card-title class="text-2xl text-right">
                       XP:
                     </v-card-title>
-                  </v-flex>
-                  <v-flex
-                    xs3
-                    grow
-                    text-right
+                  </v-col>
+                  <v-col
+                    cols="3"
+                    class="flex-grow-1 text-right"
                   >
-                    <h1
-                      class="headline text-right p-3 pr-0"
-                      text-right
-                    >
+                    <h1 class="text-2xl text-right p-3 pr-0">
                       <animated-number
                         :start="user.xp"
                         :number="user.xp"
@@ -149,118 +121,95 @@
                         @updateProgress="updateProgressBar"
                       />
                     </h1>
-                  </v-flex>
-                  <v-flex shrink>
-                    <h1
-                      class="headline text-right pl-0 p-3"
-                      text-right
-                    >
+                  </v-col>
+                  <v-col class="flex-grow-0 flex-shrink-0">
+                    <h1 class="text-2xl text-right pl-0 p-3">
                       p
                     </h1>
-                  </v-flex>
-                </v-layout>
-                <v-layout>
-                  <v-flex
-                    xs8
+                  </v-col>
+                </v-row>
+                <v-row dense>
+                  <v-col
+                    cols="8"
                     class="pr-3"
                   >
                     <v-card-title
                       v-if="hasLeveled"
-                      class="headline mb-0 pb-0"
-                      text-right
+                      class="text-2xl mb-0 pb-0 flex justify-end"
                     >
                       <span
                         v-if="tempLevel < user.level "
-                        class="green--text"
+                        class="text-green-500 font-bold"
                       >
                         LEVEL UP!
                       </span>
                       <span
                         v-else
-                        class="red--text"
+                        class="text-red-500 font-bold"
                       >
                         LEVEL DOWN!
                       </span>
                     </v-card-title>
                     <v-spacer />
-                  </v-flex>
-                  <v-flex
-                    xs4
-                    class="pr-3"
+                  </v-col>
+                  <v-col
+                    cols="4"
+                    class="pr-3 self-center"
                   >
                     <v-progress-linear
                       color="info"
                       height="10"
                       v-model="userProgress"
                     />
-                  </v-flex>
-                </v-layout>
-                <v-layout>
-                  <v-flex grow>
-                    <v-card-title
-                      class="headline text-right"
-                      text-right
-                    >
-                      <!-- <v-chip large color="green" text-color="white"> -->
-                      <!--   LEVEL {{user.level}}  -->
-                      <!--   <v-icon right>fa fa-hand-holding-seedling</v-icon> -->
-                      <!-- </v-chip> -->
+                  </v-col>
+                </v-row>
+                <v-row dense>
+                  <v-col class="flex-grow-1">
+                    <v-card-title class="text-2xl text-right font-bold">
                       Level:
                       {{ currentLevel }}
                     </v-card-title>
-                  </v-flex>
-                  <v-flex
-                    text-right
-                    shrink
-                  >
-                    <v-card-title
-                      class="headline text-right"
-                      text-right
-                    >
+                  </v-col>
+                  <v-col class="text-right flex-grow-0 flex-shrink-0">
+                    <v-card-title class="text-2xl text-right">
                       next level:
                     </v-card-title>
-                  </v-flex>
-                  <v-flex
-                    xs3
-                    grow
-                    text-right
+                  </v-col>
+                  <v-col
+                    cols="3"
+                    class="flex-grow-1 text-right"
                   >
-                    <h1
-                      class="headline text-right p-3 pr-0"
-                      text-right
-                    >
+                    <h1 class="text-2xl text-right p-3 pr-0">
                       <animated-number
                         :start="xpToNextLevel"
                         :number="xpToNextLevel"
                       />
                     </h1>
-                  </v-flex>
-                  <v-flex shrink>
-                    <h1
-                      class="headline text-right pl-0 p-3"
-                      text-right
-                    >
+                  </v-col>
+                  <v-col class="flex-grow-0 flex-shrink-0">
+                    <h1 class="text-2xl text-right pl-0 p-3">
                       p
                     </h1>
-                  </v-flex>
-                </v-layout>
-              </v-flex>
-            </v-layout>
+                  </v-col>
+                </v-row>
+              </v-col>
+            </v-row>
           </v-card>
-        </v-flex>
-      </v-layout>
-      <v-layout
-        justify-center
-        align-center
+        </v-col>
+      </v-row>
+      <v-row
+        justify="center"
+        align="center"
       >
-        <v-flex
-          xs12
-          class="mt-1"
-          text-center
+        <v-col
+          cols="12"
+          class="mt-4 text-center"
         >
           <v-btn
             color="orange"
-            large
+            size="large"
+            rounded="pill"
+            class="px-8 shadow-lg"
             @click="
               playFx('click');
               $router.push({
@@ -270,16 +219,16 @@
           >
             Collect GP
             <v-icon
-              large
-              right
+              size="large"
+              end
             >
               fa fa-hand-holding-usd
             </v-icon>
           </v-btn>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
-<script src="./xp-level-up-screen-gained-xp.controller.js"></script>
+<script lang="ts" src="./xp-level-up-screen-gained-xp.controller.ts"></script>
 <style lang="scss" src="./_xp-level-up-screen-gained-xp.scss"></style>

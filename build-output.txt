@@ -1,0 +1,665 @@
+
+> xophz-compass@1.0.0 build /home/xopher/www/x/Xophz-COMPASS
+> vite build
+
+vite v7.3.0 building client environment for production...
+transforming...
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../styles/_mixins.scss";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    src/components/routes-navigation-drawer/_routes-navigation-drawer.scss 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../styles/_variables.scss";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    src/components/routes-navigation-drawer/_routes-navigation-drawer.scss 2:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+5 │ @import "variables";
+  │         ^^^^^^^^^^^
+  ╵
+    src/styles/theme.scss 5:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+6 │ @import "./_mixins.scss";
+  │         ^^^^^^^^^^^^^^^^
+  ╵
+    src/styles/theme.scss 6:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+7 │ @import "base";
+  │         ^^^^^^
+  ╵
+    src/styles/theme.scss 7:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+8 │ @import "overrides";
+  │         ^^^^^^^^^^^
+  ╵
+    src/styles/theme.scss 8:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+10 │ @import "utils";
+   │         ^^^^^^^
+   ╵
+    src/styles/theme.scss 10:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+10 │ @import "./styles/_mixins.scss";
+   │         ^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/_index.scss 10:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+11 │ @import "./styles/_variables.scss";
+   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/_index.scss 11:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../styles/_mixins.scss";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    src/components/billboard/_billboard.scss 1:9  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+130 │ $body-bg-light: lighten($body-bg, 3%);
+    │                 ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 130:17  @import
+    src/styles/theme.scss 5:9          root stylesheet
+
+DEPRECATION WARNING [color-functions]: lighten() is deprecated. Suggestions:
+
+color.scale($color, $lightness: 4.5132743363%)
+color.adjust($color, $lightness: 3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+    ╷
+130 │ $body-bg-light: lighten($body-bg, 3%);
+    │                 ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 130:17  @import
+    src/styles/theme.scss 5:9          root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+171 │ $widget-shadow: 0 23px 20px -20px rgba(darken($body-bg, 25%), 0.1),
+    │                                        ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 171:40  @import
+    src/styles/theme.scss 5:9          root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -74.5614035088%)
+color.adjust($color, $lightness: -25%)
+
+More info: https://sass-lang.com/d/color-functions
+
+    ╷
+171 │ $widget-shadow: 0 23px 20px -20px rgba(darken($body-bg, 25%), 0.1),
+    │                                        ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 171:40  @import
+    src/styles/theme.scss 5:9          root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+172 │   0 0 15px rgba(darken($body-bg, 25%), 0.06);
+    │                 ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 172:17  @import
+    src/styles/theme.scss 5:9          root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -74.5614035088%)
+color.adjust($color, $lightness: -25%)
+
+More info: https://sass-lang.com/d/color-functions
+
+    ╷
+172 │   0 0 15px rgba(darken($body-bg, 25%), 0.06);
+    │                 ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 172:17  @import
+    src/styles/theme.scss 5:9          root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+178 │ $text-transparent: opacify($widget-bg, 0.07);
+    │                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 178:20  @import
+    src/styles/theme.scss 5:9          root stylesheet
+
+DEPRECATION WARNING [color-functions]: opacify() is deprecated. Suggestions:
+
+color.scale($color, $alpha: 43.75%)
+color.adjust($color, $alpha: 0.07)
+
+More info: https://sass-lang.com/d/color-functions
+
+    ╷
+178 │ $text-transparent: opacify($widget-bg, 0.07);
+    │                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 178:20  @import
+    src/styles/theme.scss 5:9          root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import '../../styles/_mixins.scss';
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    src/routes/xp/_xp.scss 1:9  root stylesheet
+
+[plugin vite:esbuild] src/routes/post-digger/post-digger-index/post-digger-index.controller.ts?vue&type=script&src=true&lang.ts: Duplicate key "onSelect" in object literal
+61 |        this.selected = items
+62 |      },
+63 |      onSelect (items) {
+   |      ^
+64 |        this.selected = items
+65 |      },
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use map.get instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+108 │   @return map-get($theme-colors, $key);
+    │           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 108:11  theme-color()
+    src/styles/_base.scss 25:21        @import
+    src/styles/theme.scss 7:9          root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+130 │ $body-bg-light: lighten($body-bg, 3%);
+    │                 ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 130:17  @import
+    src/_index.scss 11:9               root stylesheet
+
+DEPRECATION WARNING [color-functions]: lighten() is deprecated. Suggestions:
+
+color.scale($color, $lightness: 4.5132743363%)
+color.adjust($color, $lightness: 3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+    ╷
+130 │ $body-bg-light: lighten($body-bg, 3%);
+    │                 ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 130:17  @import
+    src/_index.scss 11:9               root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+130 │ $body-bg-light: lighten($body-bg, 3%);
+    │                 ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 130:17                                           @import
+    src/components/routes-navigation-drawer/_routes-navigation-drawer.scss 2:9  root stylesheet
+
+DEPRECATION WARNING [color-functions]: lighten() is deprecated. Suggestions:
+
+color.scale($color, $lightness: 4.5132743363%)
+color.adjust($color, $lightness: 3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+    ╷
+130 │ $body-bg-light: lighten($body-bg, 3%);
+    │                 ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 130:17                                           @import
+    src/components/routes-navigation-drawer/_routes-navigation-drawer.scss 2:9  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+171 │ $widget-shadow: 0 23px 20px -20px rgba(darken($body-bg, 25%), 0.1),
+    │                                        ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 171:40  @import
+    src/_index.scss 11:9               root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -74.5614035088%)
+color.adjust($color, $lightness: -25%)
+
+More info: https://sass-lang.com/d/color-functions
+
+    ╷
+171 │ $widget-shadow: 0 23px 20px -20px rgba(darken($body-bg, 25%), 0.1),
+    │                                        ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 171:40  @import
+    src/_index.scss 11:9               root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+171 │ $widget-shadow: 0 23px 20px -20px rgba(darken($body-bg, 25%), 0.1),
+    │                                        ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 171:40                                           @import
+    src/components/routes-navigation-drawer/_routes-navigation-drawer.scss 2:9  root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -74.5614035088%)
+color.adjust($color, $lightness: -25%)
+
+More info: https://sass-lang.com/d/color-functions
+
+    ╷
+171 │ $widget-shadow: 0 23px 20px -20px rgba(darken($body-bg, 25%), 0.1),
+    │                                        ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 171:40                                           @import
+    src/components/routes-navigation-drawer/_routes-navigation-drawer.scss 2:9  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+172 │   0 0 15px rgba(darken($body-bg, 25%), 0.06);
+    │                 ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 172:17  @import
+    src/_index.scss 11:9               root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -74.5614035088%)
+color.adjust($color, $lightness: -25%)
+
+More info: https://sass-lang.com/d/color-functions
+
+    ╷
+172 │   0 0 15px rgba(darken($body-bg, 25%), 0.06);
+    │                 ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 172:17  @import
+    src/_index.scss 11:9               root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+172 │   0 0 15px rgba(darken($body-bg, 25%), 0.06);
+    │                 ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 172:17                                           @import
+    src/components/routes-navigation-drawer/_routes-navigation-drawer.scss 2:9  root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -74.5614035088%)
+color.adjust($color, $lightness: -25%)
+
+More info: https://sass-lang.com/d/color-functions
+
+    ╷
+172 │   0 0 15px rgba(darken($body-bg, 25%), 0.06);
+    │                 ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 172:17                                           @import
+    src/components/routes-navigation-drawer/_routes-navigation-drawer.scss 2:9  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+178 │ $text-transparent: opacify($widget-bg, 0.07);
+    │                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 178:20  @import
+    src/_index.scss 11:9               root stylesheet
+
+DEPRECATION WARNING [color-functions]: opacify() is deprecated. Suggestions:
+
+color.scale($color, $alpha: 43.75%)
+color.adjust($color, $alpha: 0.07)
+
+More info: https://sass-lang.com/d/color-functions
+
+    ╷
+178 │ $text-transparent: opacify($widget-bg, 0.07);
+    │                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 178:20  @import
+    src/_index.scss 11:9               root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+178 │ $text-transparent: opacify($widget-bg, 0.07);
+    │                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 178:20                                           @import
+    src/components/routes-navigation-drawer/_routes-navigation-drawer.scss 2:9  root stylesheet
+
+DEPRECATION WARNING [color-functions]: opacify() is deprecated. Suggestions:
+
+color.scale($color, $alpha: 43.75%)
+color.adjust($color, $alpha: 0.07)
+
+More info: https://sass-lang.com/d/color-functions
+
+    ╷
+178 │ $text-transparent: opacify($widget-bg, 0.07);
+    │                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/styles/_variables.scss 178:20                                           @import
+    src/components/routes-navigation-drawer/_routes-navigation-drawer.scss 2:9  root stylesheet
+
+DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($spacer, 2) or calc($spacer / 2)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+   ╷
+44 │   margin-bottom: $spacer / 2;
+   │                  ^^^^^^^^^^^
+   ╵
+    src/styles/_overrides.scss 44:18  @import
+    src/styles/theme.scss 8:9         root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -5%)
+color.adjust($color, $lightness: -5%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+67 │     background-color: darken($input-bg, 5%);
+   │                       ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/styles/_overrides.scss 67:23  @import
+    src/styles/theme.scss 8:9         root stylesheet
+
+DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div(1rem, 2) or calc(1rem / 2)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+630 │   margin: 0 0 (1rem / 2);
+    │                ^^^^^^^^
+    ╵
+    src/styles/_overrides.scss 630:16  @import
+    src/styles/theme.scss 8:9          root stylesheet
+
+DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($line-height-base, 5) or calc($line-height-base / 5)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+   ╷
+96 │   border: #{$line-height-base/5}em solid transparent;
+   │             ^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/styles/_utils.scss 96:13  @import
+    src/styles/theme.scss 10:9    root stylesheet
+
+DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($spacer * 3, 2) or calc($spacer * 3 / 2)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+556 │   lg: $spacer * 3/2,
+    │       ^^^^^^^^^^^^^
+    ╵
+    src/styles/_utils.scss 556:7  @import
+    src/styles/theme.scss 10:9    root stylesheet
+
+DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($spacer, 2) or calc($spacer / 2)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+558 │   sm: $spacer/2,
+    │       ^^^^^^^^^
+    ╵
+    src/styles/_utils.scss 558:7  @import
+    src/styles/theme.scss 10:9    root stylesheet
+
+WARNING: 62 repetitive deprecation warnings omitted.
+Run in verbose mode to see all warnings.
+
+✓ 872 modules transformed.
+rendering chunks...
+computing gzip size...
+wp-content/plugins/xophz-compass/admin/dist/index.html                                      1.24 kB │ gzip:   0.67 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/xophz-compass-CvliDUT9.png               9.22 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/statistics-hlqWarM2.svg                 10.83 kB │ gzip:   2.59 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/xophz-compass-ii-BIU3WfUK.png           35.91 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-Thin-NicBC1pN.woff2              63.05 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-Light-DHTugVNA.woff2             64.32 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-Regular-C6rbFxYz.woff2           64.63 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-Bold-hN3duQhD.woff2              64.74 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-Black-VhoA2qKx.woff2             64.96 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-Medium-ByKogCTi.woff2            65.48 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-ThinItalic-CKlCjrO_.woff2        68.33 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-RegularItalic-CvPUdkvM.woff2     70.28 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-BoldItalic-BWDm51uc.woff2        70.36 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-LightItalic-JQyp2Y3P.woff2       70.76 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-MediumItalic-i1eR0KbF.woff2      71.28 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-BlackItalic-D4yie1YO.woff2       72.09 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-brands-400-BoGazL5X.woff2            76.73 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-Thin-BfJvJcog.woff               84.22 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-Light-Cu-PAxXt.woff              85.69 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-Regular-BX5l9hRW.woff            85.88 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-Bold-D9plYbeK.woff               86.18 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-Medium-b81vv18W.woff             86.44 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-Black-B0ZKieaB.woff              86.51 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-brands-400-BppY2YH5.woff             89.99 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-ThinItalic-DnIWFxRE.woff         90.78 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-RegularItalic-BjnLZsam.woff      91.73 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-BoldItalic-CyLKvOHD.woff         91.97 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-LightItalic-CZg5kHIB.woff        92.86 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-MediumItalic-DFQ-RYa0.woff       93.23 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/Roboto-BlackItalic-D0gSnuIb.woff        94.05 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-brands-400-Cvq_JjcI.ttf             133.99 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-brands-400-DOJ3d8S2.eot             134.29 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-solid-900-CYmgTyZd.woff2            137.10 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-regular-400-BMnJ9gFZ.woff2          168.82 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-duotone-900-ePr-_0-U.woff2          182.08 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-solid-900-DGcrDHd0.woff             183.37 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-light-300-JjeHsR9Q.woff2            184.20 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-regular-400-Do3gprBG.woff           224.59 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-light-300-DmSVN63B.woff             245.42 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-duotone-900-D8bJUhZ3.woff           258.98 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-solid-900-C-BFdRQh.ttf              383.83 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-solid-900-DRn1iMFJ.eot              384.11 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-regular-400-DLWfwCKD.ttf            449.94 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-regular-400-pAvjlHJy.eot            450.24 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-light-300-BqEkzVTj.ttf              488.99 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-light-300-Cjd8zpgO.eot              489.27 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-duotone-900-JJ7JpdMD.ttf            562.67 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-duotone-900-BxSDDPoS.eot            562.97 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-brands-400-CUMtpxsL.svg             747.88 kB │ gzip: 253.37 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-solid-900-zJJCaBLX.svg            1,784.91 kB │ gzip: 468.34 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-regular-400-D7GIZYaW.svg          2,182.46 kB │ gzip: 601.51 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-light-300-DPjzRXa1.svg            2,444.59 kB │ gzip: 673.91 kB
+wp-content/plugins/xophz-compass/admin/dist/assets/fa-duotone-900-kg1a_TEX.svg          2,660.03 kB │ gzip: 721.77 kB
+wp-content/plugins/xophz-compass/admin/dist/css/silver-arrow.css                            0.00 kB │ gzip:   0.02 kB
+wp-content/plugins/xophz-compass/admin/dist/css/bazaar-products.css                         0.03 kB │ gzip:   0.05 kB
+wp-content/plugins/xophz-compass/admin/dist/css/search.css                                  0.04 kB │ gzip:   0.06 kB
+wp-content/plugins/xophz-compass/admin/dist/css/index2.css                                  0.04 kB │ gzip:   0.06 kB
+wp-content/plugins/xophz-compass/admin/dist/css/xp-level-up-screen-gained-xp.css            0.06 kB │ gzip:   0.08 kB
+wp-content/plugins/xophz-compass/admin/dist/css/xp-categories.css                           0.06 kB │ gzip:   0.08 kB
+wp-content/plugins/xophz-compass/admin/dist/css/xp-my-achievements-grid.css                 0.07 kB │ gzip:   0.09 kB
+wp-content/plugins/xophz-compass/admin/dist/css/xp-my-achievements-index.css                0.07 kB │ gzip:   0.09 kB
+wp-content/plugins/xophz-compass/admin/dist/css/xp-my-abilities-grid.css                    0.08 kB │ gzip:   0.09 kB
+wp-content/plugins/xophz-compass/admin/dist/css/xp-my-accessories-grid.css                  0.08 kB │ gzip:   0.10 kB
+wp-content/plugins/xophz-compass/admin/dist/css/bazaar.css                                  0.18 kB │ gzip:   0.12 kB
+wp-content/plugins/xophz-compass/admin/dist/css/xp-my-achievements.css                      0.24 kB │ gzip:   0.14 kB
+wp-content/plugins/xophz-compass/admin/dist/css/grid.css                                    0.29 kB │ gzip:   0.19 kB
+wp-content/plugins/xophz-compass/admin/dist/css/post-digger.css                             0.30 kB │ gzip:   0.19 kB
+wp-content/plugins/xophz-compass/admin/dist/css/xp.css                                      0.33 kB │ gzip:   0.20 kB
+wp-content/plugins/xophz-compass/admin/dist/css/index.css                                 761.99 kB │ gzip: 112.83 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp-jobs.js                                   0.18 kB │ gzip:   0.16 kB
+wp-content/plugins/xophz-compass/admin/dist/js/bazaar.js                                    0.34 kB │ gzip:   0.23 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp-my-accessories-index.js                   0.35 kB │ gzip:   0.26 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp-my-abilities-index.js                     0.35 kB │ gzip:   0.26 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp.js                                        0.87 kB │ gzip:   0.45 kB
+wp-content/plugins/xophz-compass/admin/dist/js/sound-fx.js                                  0.88 kB │ gzip:   0.44 kB
+wp-content/plugins/xophz-compass/admin/dist/js/navigation-drawer.js                         0.93 kB │ gzip:   0.48 kB
+wp-content/plugins/xophz-compass/admin/dist/js/thors-hammer.js                              1.20 kB │ gzip:   0.64 kB
+wp-content/plugins/xophz-compass/admin/dist/js/post-digger.js                               1.20 kB │ gzip:   0.64 kB
+wp-content/plugins/xophz-compass/admin/dist/js/event-horizon.js                             1.20 kB │ gzip:   0.63 kB
+wp-content/plugins/xophz-compass/admin/dist/js/midnight-nerd.js                             1.20 kB │ gzip:   0.63 kB
+wp-content/plugins/xophz-compass/admin/dist/js/titans-mitt.js                               1.21 kB │ gzip:   0.66 kB
+wp-content/plugins/xophz-compass/admin/dist/js/enchanted-mirror.js                          1.21 kB │ gzip:   0.63 kB
+wp-content/plugins/xophz-compass/admin/dist/js/bugnet.js                                    1.21 kB │ gzip:   0.64 kB
+wp-content/plugins/xophz-compass/admin/dist/js/silver-arrow.js                              1.23 kB │ gzip:   0.65 kB
+wp-content/plugins/xophz-compass/admin/dist/js/pegasus-boots.js                             1.23 kB │ gzip:   0.65 kB
+wp-content/plugins/xophz-compass/admin/dist/js/magic-cloak.js                               1.23 kB │ gzip:   0.65 kB
+wp-content/plugins/xophz-compass/admin/dist/js/golden-keys.js                               1.23 kB │ gzip:   0.65 kB
+wp-content/plugins/xophz-compass/admin/dist/js/lead-magnet.js                               1.23 kB │ gzip:   0.66 kB
+wp-content/plugins/xophz-compass/admin/dist/js/treasure-map.js                              1.23 kB │ gzip:   0.65 kB
+wp-content/plugins/xophz-compass/admin/dist/js/quests.js                                    1.23 kB │ gzip:   0.65 kB
+wp-content/plugins/xophz-compass/admin/dist/js/phantom-zone.js                              1.23 kB │ gzip:   0.65 kB
+wp-content/plugins/xophz-compass/admin/dist/js/pixie-dust.js                                1.23 kB │ gzip:   0.65 kB
+wp-content/plugins/xophz-compass/admin/dist/js/mirror-shield.js                             1.23 kB │ gzip:   0.65 kB
+wp-content/plugins/xophz-compass/admin/dist/js/lit-lamp.js                                  1.24 kB │ gzip:   0.66 kB
+wp-content/plugins/xophz-compass/admin/dist/js/enchiridion.js                               1.25 kB │ gzip:   0.66 kB
+wp-content/plugins/xophz-compass/admin/dist/js/index4.js                                    1.27 kB │ gzip:   0.63 kB
+wp-content/plugins/xophz-compass/admin/dist/js/treasure-trove.js                            1.30 kB │ gzip:   0.68 kB
+wp-content/plugins/xophz-compass/admin/dist/js/grid.js                                      1.31 kB │ gzip:   0.70 kB
+wp-content/plugins/xophz-compass/admin/dist/js/moving-castle.js                             1.32 kB │ gzip:   0.69 kB
+wp-content/plugins/xophz-compass/admin/dist/js/magic-wand.js                                1.32 kB │ gzip:   0.70 kB
+wp-content/plugins/xophz-compass/admin/dist/js/index2.js                                    1.43 kB │ gzip:   0.66 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp-my-config.js                              1.43 kB │ gzip:   0.69 kB
+wp-content/plugins/xophz-compass/admin/dist/js/bomb-bag.js                                  1.65 kB │ gzip:   0.83 kB
+wp-content/plugins/xophz-compass/admin/dist/js/index3.js                                    1.74 kB │ gzip:   0.82 kB
+wp-content/plugins/xophz-compass/admin/dist/js/orders.js                                    1.92 kB │ gzip:   0.94 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp-level-up-screen.js                        2.03 kB │ gzip:   0.95 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp-my-accessories-grid.js                    2.08 kB │ gzip:   0.90 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp-my-accessories.js                         2.13 kB │ gzip:   1.01 kB
+wp-content/plugins/xophz-compass/admin/dist/js/search.js                                    2.18 kB │ gzip:   0.80 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp-my-abilities-grid.js                      2.26 kB │ gzip:   0.99 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp-my-abilities.js                           2.38 kB │ gzip:   1.04 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp-my-achievements-grid.js                   3.86 kB │ gzip:   1.37 kB
+wp-content/plugins/xophz-compass/admin/dist/js/bazaar-products.js                           4.04 kB │ gzip:   1.58 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp-my-achievements-index.js                  4.28 kB │ gzip:   1.34 kB
+wp-content/plugins/xophz-compass/admin/dist/js/stats.js                                     4.31 kB │ gzip:   1.04 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp-categories.js                             4.33 kB │ gzip:   1.55 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp-my-config-profile.js                      4.76 kB │ gzip:   1.67 kB
+wp-content/plugins/xophz-compass/admin/dist/js/index5.js                                    5.46 kB │ gzip:   1.57 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp-level-up-screen-gained-gp.js              5.53 kB │ gzip:   1.61 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp-leaderboard.js                            6.47 kB │ gzip:   1.99 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp-my-achievements.js                        6.64 kB │ gzip:   2.24 kB
+wp-content/plugins/xophz-compass/admin/dist/js/xp-level-up-screen-gained-xp.js              6.69 kB │ gzip:   2.02 kB
+wp-content/plugins/xophz-compass/admin/dist/js/bazaar-dash.js                               7.24 kB │ gzip:   2.33 kB
+wp-content/plugins/xophz-compass/admin/dist/js/gale-boomerang.js                           14.30 kB │ gzip:   3.14 kB
+wp-content/plugins/xophz-compass/admin/dist/js/index.js                                   821.45 kB │ gzip: 267.58 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 16.55s

@@ -1,17 +1,20 @@
 <template>
   <div class="products-stats">
-    <b-row>
-      <b-col>
-        <Widget>
-          <b-row>
-            <b-col>
-              <i class="fal fa-binoculars fa-4x text-primary" />
-            </b-col>
-            <b-col>
-              <h6>
+    <v-row>
+      <v-col>
+        <v-card class="pa-4">
+          <v-row align="center">
+            <v-col cols="auto">
+              <v-icon
+                size="64"
+                color="primary"
+              >fal fa-binoculars</v-icon>
+            </v-col>
+            <v-col>
+              <h6 class="text-subtitle-1 text-medium-emphasis">
                 Searched
               </h6>
-              <h2>
+              <h2 class="text-h5 font-weight-bold">
                 <template v-if="!filters.sku && !filters.title">
                   *
                 </template>
@@ -25,14 +28,14 @@
                   Title
                 </template>
               </h2>
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col>
-              <h6>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col>
+              <h6 class="text-subtitle-2 text-medium-emphasis">
                 By SKU
               </h6>
-              <h3>
+              <h3 class="text-h6">
                 <template v-if="!filters.sku">
                   *
                 </template>
@@ -40,12 +43,12 @@
                   {{ filters.sku }}
                 </template>
               </h3>
-            </b-col>
-            <b-col>
-              <h6>
+            </v-col>
+            <v-col>
+              <h6 class="text-subtitle-2 text-medium-emphasis">
                 By Title
               </h6>
-              <h3>
+              <h3 class="text-h6">
                 <template v-if="!filters.title">
                   *
                 </template>
@@ -53,116 +56,125 @@
                   {{ filters.title }}
                 </template>
               </h3>
-            </b-col>
-          </b-row>
-        </Widget>
-      </b-col>
-      <b-col>
-        <Widget>
-          <b-row>
-            <b-col>
-              <i class="fal fa-cubes fa-4x text-danger" />
-            </b-col>
-            <b-col>
-              <h6>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-col>
+      <v-col>
+        <v-card class="pa-4">
+          <v-row align="center">
+            <v-col cols="auto">
+              <v-icon
+                size="64"
+                color="error"
+              >fal fa-cubes</v-icon>
+            </v-col>
+            <v-col>
+              <h6 class="text-subtitle-1 text-medium-emphasis">
                 Products
               </h6>
-              <h2>
+              <h2 class="text-h5 font-weight-bold">
                 {{ stats.unique_stock }}
               </h2>
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col>
-              <h6>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col>
+              <h6 class="text-subtitle-2 text-medium-emphasis">
                 In Stock
               </h6>
-              <h2>
+              <h2 class="text-h6">
                 {{ stats.unique_in_stock }}
               </h2>
-            </b-col>
-            <b-col>
-              <h6>
+            </v-col>
+            <v-col>
+              <h6 class="text-subtitle-2 text-medium-emphasis">
                 All Stock
               </h6>
-              <h2>
+              <h2 class="text-h6">
                 {{ stats.total_stock }}
               </h2>
-            </b-col>
-          </b-row>
-        </Widget>
-      </b-col>
-      <b-col>
-        <Widget>
-          <b-row>
-            <b-col>
-              <i class="fal fa-box-usd fa-4x text-warning" />
-            </b-col>
-            <b-col>
-              <h6>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-col>
+      <v-col>
+        <v-card class="pa-4">
+          <v-row align="center">
+            <v-col cols="auto">
+              <v-icon
+                size="64"
+                color="warning"
+              >fal fa-box-usd</v-icon>
+            </v-col>
+            <v-col>
+              <h6 class="text-subtitle-1 text-medium-emphasis">
                 Stock Value
               </h6>
-              <h2 class="text-success">
+              <h2 class="text-success text-h5 font-weight-bold">
                 ${{ stats.in_stock_value }}
               </h2>
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col>
-              <h6>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col>
+              <h6 class="text-subtitle-2 text-medium-emphasis">
                 Avg. Discount %
               </h6>
-              <h2>
+              <h2 class="text-h6">
                 {{ stats.avg_discount }}
               </h2>
-            </b-col>
-            <b-col>
-              <h6>
+            </v-col>
+            <v-col>
+              <h6 class="text-subtitle-2 text-medium-emphasis">
                 Est. Discount $
               </h6>
-              <h2>
+              <h2 class="text-h6">
                 {{ stats.est_discount }}
               </h2>
-            </b-col>
-          </b-row>
-        </Widget>
-      </b-col>
-      <b-col>
-        <Widget>
-          <b-row>
-            <b-col>
-              <i class="fal fa-hand-holding-usd fa-4x text-success" />
-            </b-col>
-            <b-col>
-              <h6>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-col>
+      <v-col>
+        <v-card class="pa-4">
+          <v-row align="center">
+            <v-col cols="auto">
+              <v-icon
+                size="64"
+                color="success"
+              >fal fa-hand-holding-usd</v-icon>
+            </v-col>
+            <v-col>
+              <h6 class="text-subtitle-1 text-medium-emphasis">
                 Total Sales
               </h6>
-              <h2>
+              <h2 class="text-h5 font-weight-bold">
                 {{ stats.total_sales }}
               </h2>
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col>
-              <h6>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col>
+              <h6 class="text-subtitle-2 text-medium-emphasis">
                 Est. Sales
               </h6>
-              <h2>
+              <h2 class="text-h6">
                 {{ stats.est_sales }}
               </h2>
-            </b-col>
-            <b-col>
-              <h6>
+            </v-col>
+            <v-col>
+              <h6 class="text-subtitle-2 text-medium-emphasis">
                 50% of Sales
               </h6>
-              <h2>
+              <h2 class="text-h6">
                 {{ stats.est_sales/2 }}
               </h2>
-            </b-col>
-          </b-row>
-        </Widget>
-      </b-col>
-    </b-row>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-col>
+    </v-row>
   </div>
 </template>
-<script src="./stats.controller.js"></script>
+<script lang="ts" src="./stats.controller.ts"></script>

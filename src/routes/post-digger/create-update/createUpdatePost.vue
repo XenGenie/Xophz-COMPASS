@@ -69,4 +69,4 @@
   }
 </style>
 
-<script src="./createUpdatePost.controller.js"></script>
+<script lang="ts" src="./createUpdatePost.controller.ts"></script>

@@ -1,4 +1,6 @@
-@import 'mixins';
+@use "mixins" as *;
+@use "variables" as *;
+
 .page-title {
   margin: 0 0 calc(1rem + 6px);
 }
@@ -22,7 +24,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: theme-color('danger');
+  background-color: theme-color("danger");
 }
 
 #notification-buttons {
@@ -76,7 +78,7 @@
     z-index: 1;
     margin-right: $widget-padding-horizontal;
 
-    @include media-breakpoint-up(md) {
+    @media (min-width: 768px) {
       top: auto;
       bottom: 0;
     }
@@ -101,7 +103,8 @@
   background-color: $gray-300;
 }
 
-table > thead > tr > th, td {
+table > thead > tr > th,
+td {
   border-top: none !important;
   border-bottom-width: 1px !important;
   text-transform: uppercase;

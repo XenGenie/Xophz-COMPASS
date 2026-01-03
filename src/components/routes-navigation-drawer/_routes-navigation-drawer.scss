@@ -1,13 +1,13 @@
-@import '../../styles/_mixins.scss';
-@import '../../styles/_variables.scss';
+@use "../../styles/mixins";
+@use "../../styles/variables" as *;
 
-.wp-responsive-open {
-  .v-navigation-drawer--close{
+body.wp-responsive-open {
+  .v-navigation-drawer--close {
     opacity: 0;
     z-index: 0;
   }
 }
-.routes-navigation-drawer{
+.routes-navigation-drawer {
   width: auto !important;
   max-width: 256px !important;
   .route-icon {
@@ -15,10 +15,10 @@
     margin: auto;
   }
   z-index: 1;
-  transition-property: transform,width,-webkit-transform, opacity !important ;
+  transition-property: transform, width, -webkit-transform, opacity !important ;
   // top: $toolbar-height;
-    opacity: 1;
-  .v-list{
+  opacity: 1;
+  .v-list {
     position: -webkit-sticky; /* Safari */
     position: sticky;
   }
@@ -28,23 +28,23 @@
   //   z-index: 999;
   //   top: 96vh;
   // }
-  .mini-avatar{
-      justify-content: center !important;
+  .mini-avatar {
+    justify-content: center !important;
   }
-  .v-subheader{
+  .v-subheader {
     font-size: 1rem;
     height: auto;
     color: #333;
   }
 }
 .v-navigation-drawer {
-    overflow-y: visible !important;
-    overflow-x: visible !important;
+  overflow-y: visible !important;
+  overflow-x: visible !important;
 }
-.main-nav{
-    top: $sm-toolbar-height + $breadcrumb-height !important;
-    z-index: 6 !important;
-    @include desktop{
-      top: $toolbar-height + $breadcrumb-height !important;
-    }
+.main-nav {
+  top: $sm-toolbar-height + $breadcrumb-height !important;
+  z-index: 6 !important;
+  @include mixins.desktop {
+    top: $toolbar-height + $breadcrumb-height !important;
+  }
 }

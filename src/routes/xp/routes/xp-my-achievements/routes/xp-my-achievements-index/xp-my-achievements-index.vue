@@ -3,119 +3,182 @@
     <v-data-table
       :headers="headers"
       :items="achievements"
-      class="elevation-1"
+      hover
+      class="bg-transparent"
     >
-      <template
-        slot="headerCell"
-        slot-scope="props"
-      >
-        <span>
-          {{ props.header.text }}
-          <v-icon
-            v-if="props.header.icon"
-          >
-            {{ props.header.icon }}
-          </v-icon>
-        </span>
+      <template v-slot:header.xp="{ column }">
+        {{ column.title }}
+        <v-icon
+          :icon="column.icon"
+          size="small"
+          class="ml-1"
+        />
       </template>
-      <template v-slot:items="props">
-        <td
-          class="text-xs-left"
-          shrink
-          xs2
-        >
-          <v-img
-            :src="props.item.img"
-            class="m-3"
-          />
-        </td>
-        <td>
-          <h4>
-            {{ props.item.title }}
-            <small v-html="props.item.the_content">
-              {{ props.item.the_content }}
-            </small>
-          </h4>
-        </td>
-        <td>
-          <v-icon v-if="~props.item.repeat_on.indexOf('sun')">
-            fa fa-clock
-          </v-icon>
-          <v-icon v-else>
-            fal fa-ellipsis-h
-          </v-icon>
-        </td>
-        <td>
-          <v-icon v-if="~props.item.repeat_on.indexOf('mon')">
-            fa fa-clock
-          </v-icon>
-          <v-icon v-else>
-            fal fa-ellipsis-h
-          </v-icon>
-        </td>
-        <td>
-          <v-icon v-if="~props.item.repeat_on.indexOf('tue')">
-            fa fa-clock
-          </v-icon>
-          <v-icon v-else>
-            fal fa-ellipsis-h
-          </v-icon>
-        </td>
-        <td>
-          <v-icon v-if="~props.item.repeat_on.indexOf('wed')">
-            fa fa-clock
-          </v-icon>
-          <v-icon v-else>
-            fal fa-ellipsis-h
-          </v-icon>
-        </td>
-        <td>
-          <v-icon v-if="~props.item.repeat_on.indexOf('thu')">
-            fa fa-clock
-          </v-icon>
-          <v-icon v-else>
-            fal fa-ellipsis-h
-          </v-icon>
-        </td>
-        <td>
-          <v-icon v-if="~props.item.repeat_on.indexOf('fri')">
-            fa fa-clock
-          </v-icon>
-          <v-icon v-else>
-            fal fa-ellipsis-h
-          </v-icon>
-        </td>
-        <td>
-          <v-icon v-if="~props.item.repeat_on.indexOf('sat')">
-            fa fa-clock
-          </v-icon>
-          <v-icon v-else>
-            fal fa-ellipsis-h
-          </v-icon>
-        </td>
+      <template v-slot:header.ap="{ column }">
+        {{ column.title }}
+        <v-icon
+          :icon="column.icon"
+          size="small"
+          class="ml-1"
+        />
+      </template>
+      <template v-slot:header.gp="{ column }">
+        {{ column.title }}
+        <v-icon
+          :icon="column.icon"
+          size="small"
+          class="ml-1"
+        />
+      </template>
 
-        <td class="text-xs-right blue--text headline">
-          {{ props.item.xp }}
-        </td>
-        <td class="text-xs-right red--text headline">
-          {{ props.item.ap }}
-        </td>
-        <td class="text-xs-right orange--text headline">
-          {{ props.item.gp }}
-        </td>
-        <td class="text-xs-center">
-          <v-btn
-            color="green"
-            @click="checkoffAchievement(props.item)"
-          >
-            <v-icon>
-              fal fa-check
-            </v-icon>
-          </v-btn>
-        </td>
+      <template v-slot:item.img="{ item }">
+        <v-avatar
+          rounded="lg"
+          size="large"
+          class="ma-2"
+        >
+          <v-img :src="item.img" />
+        </v-avatar>
+      </template>
+
+      <template v-slot:item.title="{ item }">
+        <div class="py-2">
+          <div class="text-subtitle-1 font-weight-bold">{{ item.title }}</div>
+          <div
+            class="text-caption text-disabled"
+            v-html="item.the_content"
+          ></div>
+        </div>
+      </template>
+
+      <template v-slot:item.sun="{ item }">
+        <v-icon
+          v-if="item.repeat_on.includes('sun')"
+          color="primary"
+          icon="fa fa-clock"
+          size="small"
+        />
+        <v-icon
+          v-else
+          color="disabled"
+          icon="fal fa-ellipsis-h"
+          size="small"
+        />
+      </template>
+
+      <template v-slot:item.mon="{ item }">
+        <v-icon
+          v-if="item.repeat_on.includes('mon')"
+          color="primary"
+          icon="fa fa-clock"
+          size="small"
+        />
+        <v-icon
+          v-else
+          color="disabled"
+          icon="fal fa-ellipsis-h"
+          size="small"
+        />
+      </template>
+
+      <template v-slot:item.tue="{ item }">
+        <v-icon
+          v-if="item.repeat_on.includes('tue')"
+          color="primary"
+          icon="fa fa-clock"
+          size="small"
+        />
+        <v-icon
+          v-else
+          color="disabled"
+          icon="fal fa-ellipsis-h"
+          size="small"
+        />
+      </template>
+
+      <template v-slot:item.wed="{ item }">
+        <v-icon
+          v-if="item.repeat_on.includes('wed')"
+          color="primary"
+          icon="fa fa-clock"
+          size="small"
+        />
+        <v-icon
+          v-else
+          color="disabled"
+          icon="fal fa-ellipsis-h"
+          size="small"
+        />
+      </template>
+
+      <template v-slot:item.thu="{ item }">
+        <v-icon
+          v-if="item.repeat_on.includes('thu')"
+          color="primary"
+          icon="fa fa-clock"
+          size="small"
+        />
+        <v-icon
+          v-else
+          color="disabled"
+          icon="fal fa-ellipsis-h"
+          size="small"
+        />
+      </template>
+
+      <template v-slot:item.fri="{ item }">
+        <v-icon
+          v-if="item.repeat_on.includes('fri')"
+          color="primary"
+          icon="fa fa-clock"
+          size="small"
+        />
+        <v-icon
+          v-else
+          color="disabled"
+          icon="fal fa-ellipsis-h"
+          size="small"
+        />
+      </template>
+
+      <template v-slot:item.sat="{ item }">
+        <v-icon
+          v-if="item.repeat_on.includes('sat')"
+          color="primary"
+          icon="fa fa-clock"
+          size="small"
+        />
+        <v-icon
+          v-else
+          color="disabled"
+          icon="fal fa-ellipsis-h"
+          size="small"
+        />
+      </template>
+
+      <template v-slot:item.xp="{ item }">
+        <span class="text-blue text-h6 font-weight-bold">{{ item.xp }}</span>
+      </template>
+
+      <template v-slot:item.ap="{ item }">
+        <span class="text-red text-h6 font-weight-bold">{{ item.ap }}</span>
+      </template>
+
+      <template v-slot:item.gp="{ item }">
+        <span class="text-orange text-h6 font-weight-bold">{{ item.gp }}</span>
+      </template>
+
+      <template v-slot:item.actions="{ item }">
+        <v-btn
+          color="success"
+          icon="fal fa-check"
+          variant="tonal"
+          size="small"
+          @click="checkoffAchievement(item)"
+        />
       </template>
     </v-data-table>
   </v-container>
 </template>
-<script src="./xp-my-achievements-index.controller.js"></script>
+<script lang="ts" src="./xp-my-achievements-index.controller.ts"></script>
 <style lang="scss" src="./_xp-my-achievements-index.scss"></style>

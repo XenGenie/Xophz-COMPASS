@@ -27,12 +27,12 @@
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <router-view />
-    </v-content>
+    </v-main>
     <!-- <v-footer> -->
     <!-- </v-footer> -->
   </div>
 </template>
-<script src="./titans-mitt.controller.js"></script>
+<script lang="ts" src="./titans-mitt.controller.ts"></script>
 <style lang="scss" src="./_titans-mitt.scss" scoped></style>

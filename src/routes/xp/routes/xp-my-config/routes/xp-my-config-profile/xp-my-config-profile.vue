@@ -24,9 +24,7 @@
         <v-card class="elevation-2">
           <v-layout>
             <v-flex xs4>
-              <v-img
-                :src="currentUser.avatar"
-              />
+              <v-img :src="currentUser.avatar" />
             </v-flex>
             <v-flex>
               <v-card-title class="headline">
@@ -42,9 +40,7 @@
           </v-layout>
           <v-card-actions>
             <v-spacer />
-            <v-btn
-              @click="birthdateDialog = true"
-            >
+            <v-btn @click="birthdateDialog = true">
               {{ player.birthdate|moment('MMMM DD YYYY') }}
             </v-btn>
           </v-card-actions>
@@ -148,9 +144,7 @@
         </template>
         <template v-slot:opposite>
           <h2 class="headline">
-            <span v-html="stamp.title">
-              {{ stamp.title }}
-            </span>
+            <span v-html="stamp.title"></span>
             <br>
             <small class="small--text grey--text">
               {{ stamp.time|moment('MMMM DD YYYY hh:mm') }}
@@ -259,5 +253,5 @@
     </v-dialog>
   </v-container>
 </template>
-<script src="./xp-my-config-profile.controller.js"></script>
+<script lang="ts" src="./xp-my-config-profile.controller.ts"></script>
 <!-- <style lang="scss" src="./_xp-my-config-profile.scss"></style> -->

@@ -3,154 +3,173 @@
     id="billboard"
     class="billboard"
   >
-    <nprogress-container />
+    <!-- <nprogress-container /> -->
     <v-card
-      dark
-      class="widget p-0"
+      theme="dark"
+      class="widget p-0 border-0 bg-transparent"
+      elevation="0"
     >
-      <v-scroll-x-transition
-        :duration="{ enter: 800, leave: 0 }"
-        mode="out-in"
-      >
-        <v-layout
-          v-if="currentUser.caps.administrator && false === userMask"
+      <v-fade-transition mode="out-in">
+        <v-row
+          v-if="currentUser && currentUser.caps && currentUser.caps.administrator && false === userMask"
           key="adminBillboard"
-          justify-center
-          align-center
-          fill-height
+          justify="center"
+          align="center"
+          class="h-full m-0"
         >
-          <v-flex xs2>
-            <v-layout
-              class="overflow-hidden"
-              justify-center
-              align-center
-              fill-height
-            >
-              <img
-                :src="plugin.icon"
-                class="billboard-img"
-              >
-            </v-layout>
-          </v-flex>
-          <v-flex
-            offset-x2
-            grow
+          <v-col
+            cols="12"
+            sm="2"
+            class="flex items-center justify-center p-4"
           >
-            <div :class="!mini ? 'mini-billboard': 'open-billboard'">
-              <h1 v-if="billboard.h1">
+            <v-avatar
+              size="120"
+              class="border-4 border-gray-800 shadow-2xl"
+            >
+              <v-img
+                v-if="plugin && plugin.icon"
+                :src="plugin.icon"
+                alt="Plugin Icon"
+              />
+            </v-avatar>
+          </v-col>
+          <v-col
+            cols="12"
+            sm="8"
+            class="flex flex-col justify-center px-6 py-4"
+          >
+            <div :class="!isBillboardMini ? 'mini-billboard': 'open-billboard'">
+              <h1
+                v-if="billboard && billboard.h1"
+                class="text-4xl font-black mb-2 tracking-tight text-white drop-shadow-md"
+              >
                 {{ billboard.h1 }}
               </h1>
-              <h1 v-else>
+              <h1
+                v-else-if="plugin"
+                class="text-4xl font-black mb-2 tracking-tight text-white drop-shadow-md"
+              >
                 {{ plugin.Name }}
-              <!-- <template v-for="(breadcrumb, i) in breadcrumbs"> -->
-              <!--     <small> -->
-              <!--     </small> -->
-              <!-- </template> -->
               </h1>
               <blockquote
-                v-if="billboard.block"
-                class="p-4 pt-0"
+                v-if="billboard && billboard.block"
+                class="text-lg text-gray-300 italic border-l-4 border-primary pl-4"
               >
                 {{ billboard.block }}
               </blockquote>
               <blockquote
-                v-else
-                class="p-4 pt-0"
+                v-else-if="plugin"
+                class="text-lg text-gray-300 italic border-l-4 border-primary pl-4"
               >
                 {{ plugin.Description }}
-              <!-- <v-chip dark> -->
-              <!--   <v-avatar> -->
-              <!--     <v-icon> -->
-              <!--       fal fa-compass -->
-              <!--     </v-icon> -->
-              <!--   </v-avatar> -->
-              <!--   Questions? Email: -->
-              <!--   {{plugin.Author}} -->
-              <!-- </v-chip> -->
-              <!-- <v-chip color="orange" text-color="white"> -->
-              <!--   Premium -->
-              <!--   <v-icon right>star</v-icon> -->
-              <!-- </v-chip> -->
               </blockquote>
             </div>
-          </v-flex>
-          <v-flex
-            shrink
+          </v-col>
+          <v-col
+            cols="12"
+            sm="2"
+            class="flex items-center justify-center"
           >
-            <nav-drawer
-              @miniChanged="setMini"
-              is-billboard-nav
-              :value="true"
-              :mini="mini"
-              dense
-            />
-          </v-flex>
-        </v-layout>
-        <v-layout
-          v-else-if="!currentUser.caps.administrator || userMask"
-          key="userBillboard"
-          justify-center
-          align-center
-          fill-height
-        >
-          <v-flex xs2>
-            <v-layout
-              class="overflow-hidden"
-              justify-center
-              align-center
-              fill-height
-            >
-              <img
-                :src="currentUser.avatar"
-                class="user-avatar"
+            <div class="flex flex-col gap-1 w-full p-2">
+              <v-btn
+                v-for="(child, c) in billboardSubroutes"
+                :key="c"
+                block
+                size="x-small"
+                variant="tonal"
+                color="blue-grey-lighten-4"
+                class="text-left justify-start font-bold lowercase opacity-60 hover:opacity-100"
+                @click="$router.push(child.path)"
+                rounded="sm"
               >
-            </v-layout>
-          </v-flex>
-          <v-flex xs8>
-            <div :class="!mini ? 'mini-billboard': 'open-billboard'">
-              <h1>
+                {{ child.name }}
+              </v-btn>
+            </div>
+          </v-col>
+        </v-row>
+        <v-row
+          v-else-if="!currentUser || !currentUser.caps || !currentUser.caps.administrator || userMask"
+          key="userBillboard"
+          justify="center"
+          align="center"
+          class="h-full m-0"
+        >
+          <v-col
+            cols="12"
+            sm="2"
+            class="flex items-center justify-center p-4"
+          >
+            <v-avatar
+              size="120"
+              class="border-4 border-gray-800 shadow-2xl"
+            >
+              <v-img
+                v-if="currentUser"
+                :src="currentUser.avatar"
+                alt="User Avatar"
+              />
+            </v-avatar>
+          </v-col>
+          <v-col
+            cols="12"
+            sm="8"
+            class="flex flex-col justify-center px-6 py-4"
+          >
+            <div :class="!isBillboardMini ? 'mini-billboard': 'open-billboard'">
+              <h1
+                v-if="currentUser && currentUser.data"
+                class="text-4xl font-black mb-2 tracking-tight text-white drop-shadow-md"
+              >
                 {{ currentUser.data.display_name }}
-                <!-- <template v-for="(breadcrumb, i) in breadcrumbs"> -->
-                <!--     <small> -->
-                <!--     </small> -->
-                <!-- </template> -->
-                <small>
-                  a.k.a.
-                  {{ currentUser.data.user_login }}
+                <small class="text-lg font-normal opacity-50 block sm:inline">
+                  a.k.a. {{ currentUser.data.user_login }}
                 </small>
               </h1>
-              <blockquote class="p-4 pt-0">
-                <br>
+              <div class="flex flex-wrap gap-2 mt-4">
                 <v-chip
-                  dark
                   v-for="(chip, c) in billboardChips"
                   :key="c"
-                  text-color="white"
-                  :color="chip.color"
+                  :color="chip.color || 'white'"
+                  variant="tonal"
+                  size="small"
+                  class="font-bold border border-white/10"
                 >
                   {{ chip.text }}
-                  <v-icon right>
-                    {{ chip.icon }}
-                  </v-icon>
+                  <template v-slot:append>
+                    <v-icon
+                      size="small"
+                      class="ml-1"
+                    >{{ chip.icon }}</v-icon>
+                  </template>
                 </v-chip>
-              </blockquote>
+              </div>
             </div>
-          </v-flex>
-          <v-flex
-            xs2
+          </v-col>
+          <v-col
+            cols="12"
+            sm="2"
+            class="flex items-center justify-center border-l border-white/5"
           >
-            <nav-drawer
-              @miniChanged="setMini"
-              is-billboard-nav
-              :value="true"
-              :mini="mini"
-              dense
-            />
-          </v-flex>
-        </v-layout>
-      </v-scroll-x-transition>
+            <div class="flex flex-col gap-1 w-full p-2">
+              <v-btn
+                v-for="(child, c) in billboardSubroutes"
+                :key="c"
+                block
+                size="x-small"
+                variant="tonal"
+                color="blue-grey-lighten-4"
+                class="text-left justify-start font-bold lowercase opacity-60 hover:opacity-100"
+                @click="$router.push(child.path)"
+                rounded="sm"
+              >
+                {{ child.name }}
+              </v-btn>
+            </div>
+          </v-col>
+        </v-row>
+      </v-fade-transition>
     </v-card>
   </div>
 </template>
-<script src="./billboard.controller.js"></script>
+<script lang="ts" src="./billboard.controller.ts"></script>
 <style lang="scss" src="./_billboard.scss"></style>

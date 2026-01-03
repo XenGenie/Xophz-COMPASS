@@ -3,9 +3,7 @@
     id="sparkplug"
     class="sparkplug"
   >
-    <v-card
-      dark
-    >
+    <v-card theme="dark">
       <v-sheet
         class="v-sheet--offset mx-auto"
         :color="color"
@@ -14,7 +12,7 @@
       >
         <v-sparkline
           :labels="labels"
-          :value="value"
+          :model-value="value"
           color="white"
           :auto-draw="autoDraw"
           label-size="12"
@@ -24,27 +22,27 @@
       </v-sheet>
       <v-expansion-panels>
         <v-expansion-panel>
-          <v-expansion-panel-header>
-            <v-layout
-              justify-center
-              align-center
+          <v-expansion-panel-title>
+            <v-row
+              justify="center"
+              align="center"
             >
-              <v-flex shrink>
+              <v-col cols="auto">
                 <v-icon
                   :color="color"
                   size="4rem"
                 >
                   {{ icon }}
                 </v-icon>
-              </v-flex>
-              <v-flex text-center>
-                <v-subheader>
+              </v-col>
+              <v-col class="text-center">
+                <v-card-subtitle>
                   {{ subheader }}
-                </v-subheader>
+                </v-card-subtitle>
                 <h2>
                   {{ header }}
                 </h2>
-                <div class="subheading font-weight-light grey--text">
+                <div class="subheading font-light text-gray-400">
                   +
                   <span class="text-success">
                     {{ plugSpark }}
@@ -57,44 +55,45 @@
                     {{ plugIcon }}
                   </v-icon>
                 </div>
-              </v-flex>
-            </v-layout>
-          </v-expansion-panel-header>
-          <v-expansion-panel-content>
+              </v-col>
+            </v-row>
+          </v-expansion-panel-title>
+          <v-expansion-panel-text>
             <v-divider class="my-2" />
-            <v-timeline>
+            <v-timeline
+              density="compact"
+              side="end"
+            >
               <v-timeline-item
                 v-for="(line, l) in items"
                 :key="l"
-                :color="color"
-                left
+                :dot-color="color"
                 :icon="line.icon"
+                size="small"
               >
-                <v-subheader>
-                  {{ line.line }}
-                </v-subheader>
-                <h3
-                  slot="opposite"
-                  class="title"
-                  v-if="!line.currency"
-                >
-                  {{ line.opposite }}
-                </h3>
-                <h3
-                  slot="opposite"
-                  v-else
-                  class="title"
-                >
-                  {{ line.opposite|currency }}
-                </h3>
+                <div class="flex justify-between w-full">
+                  <div>{{ line.line }}</div>
+                  <div
+                    v-if="!line.currency"
+                    class="font-bold"
+                  >
+                    {{ line.opposite }}
+                  </div>
+                  <div
+                    v-else
+                    class="font-bold"
+                  >
+                    {{ formatCurrency(line.opposite) }}
+                  </div>
+                </div>
               </v-timeline-item>
             </v-timeline>
             <slot />
-          </v-expansion-panel-content>
+          </v-expansion-panel-text>
         </v-expansion-panel>
       </v-expansion-panels>
     </v-card>
   </div>
 </template>
-<script src="./sparkplug.controller.js"></script>
+<script lang="ts" src="./sparkplug.controller.ts"></script>
 <style lang="scss" src="./_sparkplug.scss"></style>

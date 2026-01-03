@@ -1,61 +1,51 @@
 <template>
-  <v-content
+  <v-main
     :id="$options.name"
     :class="$options.name"
   >
     <v-app-bar
-      clipped-left
-      app
       color="orange"
+      elevation="2"
     >
       <v-app-bar-nav-icon @click="toggleAppNavDrawer" />
-      <v-icon>
-        fa-hand-holding-usd
-      </v-icon>
+      <v-icon icon="fa-hand-holding-usd" />
       <v-toolbar-title>
         My Accessories
       </v-toolbar-title>
       <v-spacer />
-      <!-- <search :xp="false" :ap="false"></search> -->
-      <v-toolbar-items>
-        <v-menu
-          offset-x
-          left
-          :close-on-click="false"
-          :close-on-content-click="false"
-        >
-          <template v-slot:activator="{ on }">
-            <v-btn
-              icon
-              small
-              v-on="on"
-            >
-              <v-icon small>
-                fal fa-search
-              </v-icon>
-            </v-btn>
-          </template>
-          <search
-            :xp="false"
-            :ap="false"
-            dispatch="xp/SEARCH_ACCESSORIES"
+
+      <v-menu
+        location="bottom end"
+        :close-on-content-click="false"
+      >
+        <template v-slot:activator="{ props }">
+          <v-btn
+            icon="fal fa-search"
+            variant="text"
+            size="small"
+            v-bind="props"
           />
-        </v-menu>
-        <v-btn
-          text
-          @click="true"
-        >
-          GP
-          {{ user.gp|currency(0,'') }}
-          <v-icon
-            right
-            small
-            color="orange lighten-4"
-          >
-            fa fa-coins
-          </v-icon>
-        </v-btn>
-      </v-toolbar-items>
+        </template>
+        <search
+          :xp="false"
+          :ap="false"
+          dispatch="xp/SEARCH_ACCESSORIES"
+        />
+      </v-menu>
+
+      <v-btn
+        variant="text"
+        @click="true"
+      >
+        GP
+        {{ $filters.currency(user.gp, 0, '') }}
+        <v-icon
+          icon="fa fa-coins"
+          size="small"
+          end
+          color="orange-lighten-4"
+        />
+      </v-btn>
     </v-app-bar>
     <v-container
       fluid
@@ -64,7 +54,7 @@
     >
       <router-view />
     </v-container>
-  </v-content>
+  </v-main>
 </template>
-<script src="./xp-my-accessories.controller.js"></script>
+<script lang="ts" src="./xp-my-accessories.controller.ts"></script>
 <style lang="scss" src="./_xp-my-accessories.scss"></style>

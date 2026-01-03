@@ -1,54 +1,27 @@
-FROM ubuntu:16.04
-MAINTAINER My Compass Consulting <x@mycompassconsulting.com>
+FROM node:20-alpine
 
-# set ubuntu front-end for remote work
-ENV DEBIAN_FRONTEND noninteractive
+# Install build dependencies if needed (for node-sass or similar)
+RUN apk add --no-cache \
+    python3 \
+    make \
+    g++ \
+    git \
+    bash
 
-# use Google's Public DNS to resolve dns lookups: bug fix for "Failed to fetch...archive.ubuntu.com...404 Bad Request"
-RUN echo nameserver 8.8.8.8 > /etc/resolv.conf
-RUN echo nameserver 8.8.8.4 > /etc/resolv.conf
+# Enable corepack and install pnpm
+RUN corepack enable && corepack prepare pnpm@latest --activate
 
-# set locale
-RUN apt-get update && apt-get install -yq locales
-RUN locale-gen en_US.UTF-8 \
-    && export LANG=en_US.UTF-8
-
-# add foundational linux packages
-RUN apt-get update && apt-get install -yq \
-    git-core \
-    vim \
-    curl \
-    wget
-
-# add node specific linux packages
-RUN apt-get update && apt-get install -yq \
-    build-essential
-
-# install servers: node
-RUN curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
-RUN bash nodesource_setup.sh
-RUN apt-get update && apt-get install -yq nodejs
-
-# install global node packages
-RUN npm install -g gulp jshint webpack-cli
-
-# set work directory
 WORKDIR /var/www/html
 
-# add linux packages needed for npm install
-RUN apt-get update && apt-get install -yq \
-    autoconf \
-    libpng-dev
+# Copy package files first
+COPY package.json ./
 
-# install all node packages
-ADD ./package.json /var/www/html/package.json
-RUN npm install --quiet
+# Install dependencies using pnpm
+RUN pnpm install
 
-# add start file to new environment
-COPY ./docker/compass-node/start.sh /var/www/docker/compass-node/start.sh
-RUN sed -i 's/\r//' /var/www/docker/compass-node/start.sh # Modify the executable to have the linux line endings
-RUN chmod u+x /var/www/docker/compass-node/start.sh # Give permissions to run executable
+# Copy start script
+COPY ./docker/compass-node/start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
 
-# clean up machine
-RUN npm cache clean --force
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# The entrypoint will be the start script
+ENTRYPOINT ["/usr/local/bin/start.sh"]

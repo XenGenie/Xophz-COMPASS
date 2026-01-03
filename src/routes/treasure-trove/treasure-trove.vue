@@ -29,12 +29,12 @@
       </v-toolbar-items>
     </v-app-bar>
     <nav-drawer v-model="isAppNavDrawerOpen" />
-    <v-content>
+    <v-main>
       <router-view />
-    </v-content>
+    </v-main>
     <!-- <v-footer> -->
     <!-- </v-footer> -->
   </v-app>
 </template>
-<script src="./treasure-trove.controller.js"></script>
+<script lang="ts" src="./treasure-trove.controller.ts"></script>
 <style lang="scss" src="./_treasure-trove.scss" scoped></style>

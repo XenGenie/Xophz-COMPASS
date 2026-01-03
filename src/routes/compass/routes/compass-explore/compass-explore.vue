@@ -1,26 +1,21 @@
 <template>
-  <v-content
+  <div
     :id="$options.name"
     :class="$options.name"
   >
     <v-container fluid>
-      <v-layout
-        justify-center
-        align-center
-        wrap
-        fill-height
+      <v-row
+        justify="center"
+        align="center"
+        class="h-full"
       >
-        <v-flex
-          shrink
-          pa-2
-          d-flex
-          text-center
+        <v-col
+          cols="auto"
+          class="p-2 flex text-center"
         >
           <v-alert
-            :value="true"
             color="blue"
             type="info"
-            large
             icon="fad fa-compass"
             class="step-2"
           >
@@ -28,30 +23,30 @@
             Navigate to them at any time by pressing the
             <v-btn
               @click="bottomSheet = !bottomSheet"
-              small
+              size="small"
+              class="mx-2"
             >
               <v-icon
-                left
-                small
+                start
+                size="small"
               >
                 fad fa-compass
               </v-icon>
               COMPASS
             </v-btn>
             button at the top of the page.
-            <!-- Take a minute to look around. Click GO to start exploring. -->
           </v-alert>
-        </v-flex>
-        <v-flex
+        </v-col>
+        <v-col
           v-for="(plugin, php) in plugins"
           :key="php"
-          d-flex
-          xs12
-          sm6
+          class="flex"
+          cols="12"
+          sm="6"
         >
           <v-card class="plugin ma-2">
             <v-btn
-              small
+              size="small"
               v-if="plugin.Name != 'COMPASS'"
               @click="togglePlugin(this,plugin)"
               :color="plugin.isActivated ? 'green' : ''"
@@ -60,8 +55,8 @@
               <span v-if="plugin.isActivated">
                 Disable
                 <v-icon
-                  right
-                  small
+                  end
+                  size="small"
                 >
                   fa-toggle-on
                 </v-icon>
@@ -69,21 +64,19 @@
               <span v-else>
                 Enable
                 <v-icon
-                  small
-                  right
+                  size="small"
+                  end
                 >
                   fa-toggle-off
                 </v-icon>
               </span>
             </v-btn>
-            <v-layout
-              justify-center
-              align-center
-              fill-height
+            <v-row
+              justify="center"
+              align="center"
+              class="h-full"
             >
-              <v-flex
-                shrink
-              >
+              <v-col cols="auto">
                 <img
                   :src="plugin.icon"
                   :class="{
@@ -92,59 +85,45 @@
                     deactivated: !plugin.isActivated
                   }"
                 >
-              </v-flex>
-              <v-flex
-                offset-xs5
-              >
+              </v-col>
+              <v-col class="ml-auto">
                 <v-btn
                   :disabled="!plugin.isActivated"
-                  class=" learn-more"
-                  @click="$router.push({
-                    path : plugin.TextDomain.replace('xophz-compass-', '/'),
-                    hash : 'billboard',
-                    offset : { y : 15 }
-                  })"
+                  class="learn-more"
+                  @click="goToPlugin(plugin)"
                 >
                   Go
                   <v-icon
-                    right
+                    end
                     color="success"
                   >
                     fad fa-traffic-light-go
                   </v-icon>
                 </v-btn>
-                <h3 class="headline mb-0">
-                  <router-link
-                    :to="{
-                      path : plugin.TextDomain.replace('xophz-compass-', ''),
-                      hash : 'billboard',
-                      offset : { y : 15 }
-                    }"
-                  />
-                  <div class="headline v-title">
+                <h3 class="text-2xl mb-0">
+                  <router-link :to="getPluginRoute(plugin)" />
+                  <div class="text-xl font-bold">
                     {{ plugin.Name }}
                   </div>
                 </h3>
-                <v-subheader text-right>
+                <v-list-subheader class="justify-end">
                   {{ plugin.Version }}
                   by
                   {{ plugin.Author }}
-                </v-subheader>
-                <div class="v-subhead mr-3">
+                </v-list-subheader>
+                <div class="text-sm text-gray-400 mr-3">
                   {{ plugin.Description }}
                 </div>
-              </v-flex>
-            </v-layout>
+              </v-col>
+            </v-row>
             <v-card-actions>
               <v-spacer />
-              <v-btn
-                small
-              >
+              <v-btn size="small">
                 <span>
                   Enable
                   <v-icon
-                    small
-                    right
+                    size="small"
+                    end
                   >
                     fa-toggle-off
                   </v-icon>
@@ -152,11 +131,11 @@
               </v-btn>
             </v-card-actions>
           </v-card>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
       <v-snackbar
         v-model="snackbar"
-        class="grey--text"
+        class="text-gray-400"
       >
         <v-avatar>
           <v-img
@@ -166,34 +145,18 @@
         </v-avatar>
         &nbsp;
         {{ snack.text }}
-        <v-btn
-          color="pink"
-          text
-          @click="snackbar = false"
-        >
-          Close
-        </v-btn>
+        <template v-slot:actions>
+          <v-btn
+            color="pink"
+            variant="text"
+            @click="snackbar = false"
+          >
+            Close
+          </v-btn>
+        </template>
       </v-snackbar>
     </v-container>
-    <!-- <v-dialog -->
-    <!--   v-model="welcomeDialog" -->
-    <!--   width="33vw" -->
-    <!-- > -->
-    <!--   <v-card> -->
-    <!--     <v-toolbar -->
-    <!--       class="headline grey darken-4" -->
-    <!--     > -->
-    <!--       <v-card-title -->
-    <!--         primary-title -->
-    <!--       > -->
-    <!--         It's Dangerous to Go Alone! -->
-    <!--       </v-card-title> -->
-    <!--     </v-toolbar> -->
-    <!--     <v-card-title> -->
-    <!--     </v-card-title> -->
-    <!--   </v-card> -->
-    <!-- </v-dialog> -->
-  </v-content>
+  </div>
 </template>
-<script src="./compass-explore.controller.js"></script>
+<script lang="ts" src="./compass-explore.controller.ts"></script>
 <style lang="scss" src="./_compass-explore.scss"></style>

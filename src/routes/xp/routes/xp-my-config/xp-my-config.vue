@@ -1,5 +1,5 @@
 <template>
-  <v-content
+  <v-main
     id="xp-my-config"
     class="xp-my-config"
   >
@@ -38,7 +38,7 @@
         </v-flex>
       </v-layout>
     </v-container>
-  </v-content>
+  </v-main>
 </template>
-<script src="./xp-my-config.controller.js"></script>
+<script lang="ts" src="./xp-my-config.controller.ts"></script>
 <!-- <style lang="scss" src="./_xp-my-config.scss"></style> -->

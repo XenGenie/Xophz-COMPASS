@@ -3,5 +3,5 @@
     {{ displayNumber }}
   </div>
 </template>
-<script src="./animated-number.controller.js"></script>
+<script lang="ts" src="./animated-number.controller.ts"></script>
 <!-- <style lang="scss" src="./_animated-number.scss"></style> -->

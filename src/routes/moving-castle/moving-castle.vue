@@ -34,12 +34,12 @@
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <router-view />
-    </v-content>
+    </v-main>
     <!-- <v-footer> -->
     <!-- </v-footer> -->
   </v-app>
 </template>
-<script src="./moving-castle.controller.js"></script>
+<script lang="ts" src="./moving-castle.controller.ts"></script>
 <style lang="scss" src="./_moving-castle.scss" scoped></style>

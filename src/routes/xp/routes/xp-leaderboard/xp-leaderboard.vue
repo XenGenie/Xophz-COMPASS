@@ -1,14 +1,10 @@
 <template>
-  <v-content
+  <v-main
     :id="$options.name"
     :class="$options.name"
-    dark
+    theme="dark"
   >
-    <v-app-bar
-      app
-      clipped-left
-      color="#5D3369"
-    >
+    <v-app-bar color="#5D3369">
       <v-app-bar-nav-icon @click="toggleAppNavDrawer" />
       <v-toolbar-title>
         {{ $route.name }}
@@ -25,240 +21,217 @@
     </v-app-bar>
     <v-container
       fluid
-      grid-list-md
-      pt-3
+      class="pt-3"
     >
-      <v-layout
-        row
-        wrap
-        justify-center
-        align-center
-        fill-height
+      <v-row
+        justify="center"
+        align="center"
+        class="h-full"
       >
-        <v-flex
+        <v-col
           v-if="!currentPlayer.birthdate"
-          xs12
-          sm6
-          md4
-          pb-2
+          cols="12"
+          sm="6"
+          md="4"
+          class="pb-2"
         >
           <v-card
-            ma-5
+            class="m-5 h-full"
             color="green"
-            dark
-            fill-height
+            theme="dark"
           >
-            <v-layout
-              pa-3
-              justify-center
-              align-center
-              fill-height
+            <v-row
+              justify="center"
+              align="center"
+              class="p-3 h-full"
             >
-              <v-flex
-                shrink
-                text-center
+              <v-col
+                cols="auto"
+                class="text-center"
               >
                 <v-card-title>
                   Press
                   Start
                   to Join
                 </v-card-title>
-                <v-btn
-                  @click="startPlayerDialog = true"
-                >
+                <v-btn @click="startPlayerDialog = true">
                   <v-icon>
                     fa-controller
                   </v-icon>
                   Start
                 </v-btn>
                 <!-- {{ currentPlayer }} -->
-              </v-flex>
-            </v-layout>
+              </v-col>
+            </v-row>
           </v-card>
-        </v-flex>
-        <v-flex
+        </v-col>
+        <v-col
           v-for="(player, p) in players"
           :key="p"
-          xs12
-          sm6
-          md4
-          pb-2
+          cols="12"
+          sm="6"
+          md="4"
+          class="pb-2"
         >
           <v-card
-            ma-5
-            dark
+            class="m-5"
+            theme="dark"
           >
-            <v-layout
-              pa-3
-              justify-center
-              align-center
+            <v-row
+              justify="center"
+              align="center"
+              class="p-3"
             >
-              <v-flex grow>
-                <v-layout>
-                  <v-flex>
-                    <v-avatar
-                      left
-                    >
-                      <v-img
-                        :src="player.avatar"
-                      />
+              <v-col class="flex-grow">
+                <v-row>
+                  <v-col>
+                    <v-avatar start>
+                      <v-img :src="player.avatar" />
                     </v-avatar>
-                    <v-card-title primary-title>
-                      <h1 class="headline m-0">
+                    <v-card-title>
+                      <h1 class="text-2xl m-0">
                         {{ player.user_login }}
                       </h1>
                     </v-card-title>
-                  </v-flex>
-                  <v-flex
-                    text-right
-                  >
+                  </v-col>
+                  <v-col class="text-right">
                     <v-chip
-                      class="ma-2"
+                      class="m-2"
                       color="green"
-                      text-color="black"
                     >
                       Level
                       <v-avatar
-                        right
-                        class="green darken-4 white--text"
-                        text-color="white"
+                        end
+                        class="bg-green-900 text-white"
                       >
                         {{ player.level }}
                       </v-avatar>
                     </v-chip>
-                  </v-flex>
-                </v-layout>
-              </v-flex>
-            </v-layout>
-            <v-layout
-              justify-center
-              align-center
+                  </v-col>
+                </v-row>
+              </v-col>
+            </v-row>
+            <v-row
+              justify="center"
+              align="center"
             >
-              <v-flex shrink>
+              <v-col cols="auto">
                 <v-chip
-                  class="ma-1"
+                  class="m-1"
                   color="red"
-                  text-color="white"
                 >
                   <v-avatar
-                    left
-                    class="red darken-4"
+                    start
+                    class="bg-red-900"
                   >
-                    <small class="small--text">AP</small>
+                    <small class="text-sm">AP</small>
                   </v-avatar>
                   {{ player.ap }}
                 </v-chip>
                 <v-chip
-                  class="ma-1"
-                  small
+                  class="m-1"
+                  size="small"
                   color="red"
-                  text-color="white"
                 >
                   D
                   <v-avatar
-                    right
-                    class="red darken-4"
+                    end
+                    class="bg-red-900"
                   >
-                    <small class="small--text">
+                    <small class="text-sm">
                       {{ player.ap }}
                     </small>
                   </v-avatar>
                 </v-chip>
                 <v-chip
-                  small
-                  class="ma-1"
+                  size="small"
+                  class="m-1"
                   color="red"
-                  text-color="white"
                 >
                   W
                   <v-avatar
-                    right
-                    class="red darken-4"
+                    end
+                    class="bg-red-900"
                   >
-                    <small class="small--text">
+                    <small class="text-sm">
                       {{ player.ap }}
                     </small>
                   </v-avatar>
                 </v-chip>
                 <v-chip
-                  small
-                  class="ma-1"
+                  size="small"
+                  class="m-1"
                   color="red"
-                  text-color="white"
                 >
                   M
                   <v-avatar
-                    right
-                    class="red darken-4"
+                    end
+                    class="bg-red-900"
                   >
-                    <small class="small--text">
+                    <small class="text-sm">
                       {{ player.ap }}
                     </small>
                   </v-avatar>
                 </v-chip>
                 <v-chip
-                  small
-                  class="ma-1"
+                  size="small"
+                  class="m-1"
                   color="red"
-                  text-color="white"
                 >
                   Y
                   <v-avatar
-                    right
-                    class="red darken-4"
+                    end
+                    class="bg-red-900"
                   >
-                    <small class="small--text">
+                    <small class="text-sm">
                       {{ player.ap }}
                     </small>
                   </v-avatar>
                 </v-chip>
-              </v-flex>
-            </v-layout>
+              </v-col>
+            </v-row>
             <v-card-actions>
               <v-chip
-                class="ma-2"
+                class="m-2"
                 color="blue"
-                text-color="white"
               >
                 <v-avatar
-                  left
-                  class="blue darken-4"
+                  start
+                  class="bg-blue-900"
                 >
-                  <small class="small--text">XP</small>
+                  <small class="text-sm">XP</small>
                 </v-avatar>
                 {{ player.xp }}
               </v-chip>
               <v-spacer />
               <v-chip
-                class="ma-2"
+                class="m-2"
                 color="orange"
-                text-color="white"
               >
                 <v-avatar
-                  left
-                  class="orange darken-4"
+                  start
+                  class="bg-orange-900"
                 >
-                  <small class="small--text">GP</small>
+                  <small class="text-sm">GP</small>
                 </v-avatar>
                 {{ player.gp }}
               </v-chip>
               <v-spacer />
               <v-chip
-                class="ma-2"
+                class="m-2"
                 color="blue"
-                text-color="white"
               >
                 <v-avatar
-                  left
-                  class="green darken-4"
+                  start
+                  class="bg-green-900"
                 >
                   {{ player.level + 1 }}
                 </v-avatar>
               </v-chip>
             </v-card-actions>
           </v-card>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
     <v-dialog
       width="30vw"
@@ -266,46 +239,29 @@
     >
       <v-card>
         <v-toolbar
-          color="grey darken-4"
-          class="elevation-5"
-          dark
+          color="grey-darken-4"
+          elevation="5"
+          theme="dark"
         >
           <v-toolbar-title>
             When is your birthdate?
           </v-toolbar-title>
         </v-toolbar>
-        <v-layout>
-          <!-- <v-flex -->
-          <!--   xs10 -->
-          <!--   text-center -->
-          <!-- > -->
-          <!--   <v-card-title> -->
-          <!--     {{ plugin.Name }} -->
-          <!--   </v-card-title> -->
-          <!--   {{ plugin.Description }} -->
-          <!-- </v-flex> -->
-          <!-- <v-flex xs2> -->
-          <!--   <v-img -->
-          <!--     class="ma-5" -->
-          <!--     :src="plugin.icon" -->
-          <!--   /> -->
-          <!-- </v-flex> -->
-          <v-flex
-            shrink
-            text-center
+        <v-row>
+          <v-col
+            cols="auto"
+            class="text-center mx-auto"
           >
             <v-date-picker
-              landscape
               class="elevation-0"
-              elevation="0"
               v-model="birthdate"
             />
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
         <v-card-actions>
           <v-btn
             color="red"
-            text
+            variant="text"
           >
             Nevermind
           </v-btn>
@@ -314,10 +270,10 @@
             @click="startPlayer"
             color="primary"
           >
-            {{ birthdate|moment("ddd, MMM DD YYYY") }}
+            {{ birthdate }}
             <v-icon
-              right
-              small
+              end
+              size="small"
             >
               fad fa-check
             </v-icon>
@@ -325,7 +281,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-  </v-content>
+  </v-main>
 </template>
-<script src="./xp-leaderboard.controller.js"></script>
+<script lang="ts" src="./xp-leaderboard.controller.ts"></script>
 <style lang="scss" src="./_xp-leaderboard.scss"></style>

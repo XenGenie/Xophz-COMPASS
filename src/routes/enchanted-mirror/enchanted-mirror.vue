@@ -28,12 +28,12 @@
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <router-view />
-    </v-content>
+    </v-main>
     <!-- <v-footer> -->
     <!-- </v-footer> -->
   </v-app>
 </template>
-<script src="./enchanted-mirror.controller.js"></script>
+<script lang="ts" src="./enchanted-mirror.controller.ts"></script>
 <!-- <style lang="scss" src="./_enchanted-mirror.scss" scoped></style> -->

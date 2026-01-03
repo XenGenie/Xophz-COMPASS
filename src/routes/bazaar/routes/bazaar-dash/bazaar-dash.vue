@@ -1,50 +1,33 @@
 <template>
-  <v-content
+  <v-main
     :id="$options.name"
     :class="$options.name"
   >
     <v-app-bar
       app
-      clipped-left
       color="#4874CC"
     >
       <v-app-bar-nav-icon @click="toggleAppNavDrawer" />
-      &nbsp;
-      <!-- <v-avatar> -->
-      <!--   <v-icon class="m-1"> -->
-      <!--     fa fa-store -->
-      <!--   </v-icon> -->
-      <!-- </v-avatar> -->
       <v-toolbar-title>
         Bazaar
       </v-toolbar-title>
-      &nbsp;
-      &nbsp;
-      <v-img :src="plugin.icon" />
-      <v-spacer />
-      <!-- <v-toolbar-items class="hidden-sm-and-down"> -->
-      <!-- </v-toolbar-items> -->
+      <v-spacer></v-spacer>
+      <v-img
+        :src="plugin.icon"
+        max-height="40"
+        max-width="40"
+        contain
+      />
     </v-app-bar>
-    <v-container
-      fluid
-      fill-height
-      grid-list-sm
-    >
-      <v-layout
-        justify-center
-        row
-        wrap
-      >
-        <v-flex>
+    <v-container fluid>
+      <v-row justify="center">
+        <v-col>
           <div class="dash-cards">
-            <v-layout
-              row
-              wrap
-            >
-              <v-flex
-                md3
-                sm6
-                xs12
+            <v-row>
+              <v-col
+                cols="12"
+                sm="6"
+                md="3"
               >
                 <x-sparkplug
                   color="blue"
@@ -67,12 +50,12 @@
                       opposite: Math.ceil(totalViews / totalPosts)
                     },
                   ]"
-                  :plug-spark="Math.ceil(totalSales / totalViews)|currency"
                 />
-              </v-flex>
-              <v-flex
-                md3
-                sm6
+              </v-col>
+              <v-col
+                cols="12"
+                sm="6"
+                md="3"
               >
                 <x-sparkplug
                   color="red"
@@ -95,12 +78,12 @@
                       opposite: Math.ceil(( totalOrders / totalUsers))
                     },
                   ]"
-                  :plug-spark="Math.ceil(totalSales / totalUsers)|currency"
                 />
-              </v-flex>
-              <v-flex
-                sm6
-                md3
+              </v-col>
+              <v-col
+                cols="12"
+                sm="6"
+                md="3"
               >
                 <x-sparkplug
                   color="orange"
@@ -125,16 +108,12 @@
                       currency: true
                     },
                   ]"
-                  :plug-spark="(
-                    Math.ceil(totalSales / totalOrders)
-                      -
-                      Math.ceil( totalShipping / totalOrders)
-                  )|currency"
                 />
-              </v-flex>
-              <v-flex
-                md3
-                sm6
+              </v-col>
+              <v-col
+                cols="12"
+                sm="6"
+                md="3"
               >
                 <x-sparkplug
                   color="green"
@@ -142,11 +121,9 @@
                   :value="totalSalesSparkline.value"
                   icon="fad fa-cash-register"
                   subheader="Total Sales"
-                  :header="totalSales|currency"
+                  :header="formatCurrency(totalSales)"
                   plug="Net"
-                  plug-icon="
-                    fa fa-hands-usd
-                  "
+                  plug-icon="fa fa-hands-usd"
                   :items="[
                     {
                       icon : 'fa-eye',
@@ -171,15 +148,15 @@
                       opposite: (totalOrders / totalViews).toFixed(2)
                     },
                   ]"
-                  :plug-spark="totalSales - totalShipping|currency"
+                  :plug-spark="formatCurrency(totalSales - totalShipping)"
                 />
-              </v-flex>
-            </v-layout>
+              </v-col>
+            </v-row>
           </div>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
-  </v-content>
+  </v-main>
 </template>
-<script src="./bazaar-dash.controller.js"></script>
+<script lang="ts" src="./bazaar-dash.controller.ts"></script>
 <style lang="scss" src="./_bazaar-dash.scss"></style>

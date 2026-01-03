@@ -29,12 +29,12 @@
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <router-view />
-    </v-content>
+    </v-main>
     <!-- <v-footer> -->
     <!-- </v-footer> -->
   </v-app>
 </template>
-<script src="./golden-keys.controller.js"></script>
+<script lang="ts" src="./golden-keys.controller.ts"></script>
 <style lang="scss" src="./_golden-keys.scss" scoped></style>

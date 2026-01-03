@@ -28,7 +28,7 @@
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <div class="row">
         <div class="col-lg-8">
           <section class="widget">
@@ -265,13 +265,6 @@
                     </div>
                   </section>
                   <section class="feed-item">
-                    <div class="icon pull-left">
-                      <img
-                        src="img/14.png"
-                        class="img-circle"
-                        alt=""
-                      >
-                    </div>
                     <div class="feed-item-body">
                       <div class="text">
                         New user <a href="#">Greg Wilson</a> registered.
@@ -371,7 +364,7 @@
                 <ul class="news-list">
                   <li>
                     <img
-                      src="img/1.png"
+                      src="/img/1.png"
                       alt=""
                       class="pull-left img-circle"
                     >
@@ -389,7 +382,7 @@
                   </li>
                   <li>
                     <img
-                      src="img/3.png"
+                      src="/img/3.png"
                       alt=""
                       class="pull-left img-circle"
                     >
@@ -407,7 +400,7 @@
                   </li>
                   <li>
                     <img
-                      src="img/2.png"
+                      src="/img/2.png"
                       alt=""
                       class="pull-left img-circle"
                     >
@@ -425,7 +418,7 @@
                   </li>
                   <li>
                     <img
-                      src="img/13.png"
+                      src="/img/13.png"
                       alt=""
                       class="pull-left img-circle"
                     >
@@ -443,7 +436,7 @@
                   </li>
                   <li>
                     <img
-                      src="img/14.png"
+                      src="/img/14.png"
                       alt=""
                       class="pull-left img-circle"
                     >
@@ -471,7 +464,7 @@
                 <ul class="news-list news-list-no-hover">
                   <li>
                     <img
-                      src="img/14.png"
+                      src="/img/14.png"
                       alt=""
                       class="pull-left img-circle"
                     >
@@ -493,7 +486,7 @@
                   </li>
                   <li>
                     <img
-                      src="img/13.png"
+                      src="/img/13.png"
                       alt=""
                       class="pull-left img-circle"
                     >
@@ -515,7 +508,7 @@
                   </li>
                   <li>
                     <img
-                      src="img/3.png"
+                      src="/img/3.png"
                       alt=""
                       class="pull-left img-circle"
                     >
@@ -537,7 +530,7 @@
                   </li>
                   <li>
                     <img
-                      src="img/2.png"
+                      src="/img/2.png"
                       alt=""
                       class="pull-left img-circle"
                     >
@@ -559,7 +552,7 @@
                   </li>
                   <li>
                     <img
-                      src="img/1.png"
+                      src="/img/1.png"
                       alt=""
                       class="pull-left img-circle"
                     >
@@ -591,7 +584,7 @@
                 <ul class="news-list">
                   <li>
                     <img
-                      src="img/13.png"
+                      src="/img/13.png"
                       alt=""
                       class="pull-left img-circle"
                     >
@@ -607,7 +600,7 @@
                   </li>
                   <li>
                     <img
-                      src="img/1.png"
+                      src="/img/1.png"
                       alt=""
                       class="pull-left img-circle"
                     >
@@ -623,7 +616,7 @@
                   </li>
                   <li>
                     <img
-                      src="img/14.png"
+                      src="/img/14.png"
                       alt=""
                       class="pull-left img-circle"
                     >
@@ -639,7 +632,7 @@
                   </li>
                   <li>
                     <img
-                      src="img/3.png"
+                      src="/img/3.png"
                       alt=""
                       class="pull-left img-circle"
                     >
@@ -655,7 +648,7 @@
                   </li>
                   <li>
                     <img
-                      src="img/2.png"
+                      src="/img/2.png"
                       alt=""
                       class="pull-left img-circle"
                     >
@@ -740,10 +733,10 @@
           </section>
         </div>
       </div>
-    </v-content>
+    </v-main>
     <!-- <v-footer> -->
     <!-- </v-footer> -->
   </v-app>
 </template>
-<script src="./gale-boomerang.controller.js"></script>
+<script lang="ts" src="./gale-boomerang.controller.ts"></script>
 <style lang="scss" src="./_gale-boomerang.scss" scoped></style>

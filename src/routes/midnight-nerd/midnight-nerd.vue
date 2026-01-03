@@ -27,12 +27,12 @@
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <router-view />
-    </v-content>
+    </v-main>
     <!-- <v-footer> -->
     <!-- </v-footer> -->
   </v-app>
 </template>
-<script src="./midnight-nerd.controller.js"></script>
+<script lang="ts" src="./midnight-nerd.controller.ts"></script>
 <style lang="scss" src="./_midnight-nerd.scss"></style>

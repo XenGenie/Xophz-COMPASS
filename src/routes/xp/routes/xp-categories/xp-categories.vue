@@ -10,27 +10,22 @@
         clipped
         v-model="showAddNewForm"
       >
-        <v-list class="pa-1">
+        <v-list class="p-1">
           <v-list-item
-            avatar
             tag="div"
+            title="Add New Job Category"
           >
-            <v-list-item-avatar>
+            <template v-slot:prepend>
               <v-icon>fal fa-hat-wizard</v-icon>
-            </v-list-item-avatar>
-
-            <v-list-item-content>
-              <v-list-item-title>Add New Job Category</v-list-item-title>
-            </v-list-item-content>
-
-            <v-list-item-action>
+            </template>
+            <template v-slot:append>
               <v-btn
                 icon
                 @click.stop="showAddNewForm = !showAddNewForm"
               >
                 <v-icon>chevron_left</v-icon>
               </v-btn>
-            </v-list-item-action>
+            </template>
           </v-list-item>
         </v-list>
 
@@ -40,67 +35,56 @@
           dark
         >
           <v-container>
-            <v-layout
-              row
-              wrap
-            >
-              <v-flex
-                xs12
-              >
+            <v-row>
+              <v-col cols="12">
                 <v-text-field
                   v-model="name"
                   :rules="nameRules"
-                  box
+                  variant="filled"
                   :counter="10"
                   label="Name"
                   required
-                  dark
                 />
-              </v-flex>
+              </v-col>
 
-              <v-flex
-                xs12
-              >
+              <v-col cols="12">
                 <v-text-field
                   v-model="slug"
                   :rules="slugRules"
-                  box
+                  variant="filled"
                   :counter="10"
                   label="Slug"
                   required
                 />
-              </v-flex>
-              <v-flex>
+              </v-col>
+              <v-col cols="12">
                 <v-textarea
-                  box
+                  variant="filled"
                   rows="3"
                   v-model="description"
                   label="Description"
-                  value=""
                 />
-              </v-flex>
-              <v-flex
-                xs12
-              >
-                <v-flex
-                  xs12
-                  sm6
-                  d-flex
+              </v-col>
+              <v-col cols="12">
+                <v-col
+                  cols="12"
+                  sm="6"
+                  class="flex"
                 >
                   <v-select
                     v-model="parentCategory"
                     :items="listParentCategories"
-                    box
+                    variant="filled"
                     label="Parent Category"
                   />
-                </v-flex>
-              </v-flex>
-              <v-flex>
+                </v-col>
+              </v-col>
+              <v-col cols="12">
                 <v-btn type="submit">
                   Add New Job Category
                 </v-btn>
-              </v-flex>
-            </v-layout>
+              </v-col>
+            </v-row>
           </v-container>
         </v-form>
       </v-navigation-drawer>
@@ -115,7 +99,7 @@
           Job Categories
         </v-toolbar-title>
         <v-spacer />
-        <v-toolbar-items class="hidden-sm-and-down">
+        <v-toolbar-items class="hidden sm:inline-flex">
           <v-btn
             icon
             @click="true"
@@ -130,22 +114,22 @@
           </v-btn>
         </v-toolbar-items>
       </v-app-bar>
-      <v-content>
+      <v-main>
         <v-container
           fluid
-          fill-height
+          class="h-full"
         >
-          <v-layout justify-center>
-            <v-flex>
+          <v-row justify="center">
+            <v-col cols="12">
               <router-view />
-            </v-flex>
-          </v-layout>
+            </v-col>
+          </v-row>
         </v-container>
-      </v-content>
+      </v-main>
       <!-- <v-footer> -->
       <!-- </v-footer> -->
     </v-app>
   </div>
 </template>
-<script src="./xp-categories.controller.js"></script>
+<script lang="ts" src="./xp-categories.controller.ts"></script>
 <style lang="scss" src="./_xp-categories.scss"></style>

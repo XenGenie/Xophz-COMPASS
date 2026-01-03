@@ -1,13 +1,20 @@
-button, input, select, textarea {
-  background-color: transparent ;
-  border-style: none ;
+@use "sass:color";
+@use "variables" as *;
+@use "mixins" as *;
+
+button,
+input,
+select,
+textarea {
+  background-color: transparent;
+  border-style: none;
   color: inherit;
 }
 
 .container--fluid {
   // padding-left: 30px;
   // padding-right: 30px;
-  @include phone{
+  @include phone {
     padding: 5px;
   }
 }
@@ -38,7 +45,7 @@ button, input, select, textarea {
 
 .progress {
   height: $spacer * 1.3;
-  margin-bottom: $spacer / 2;
+  margin-bottom: calc($spacer / 2);
 }
 
 .progress-sm {
@@ -61,10 +68,10 @@ button, input, select, textarea {
 
   &.no-border {
     border: none;
-    background-color: darken($input-bg, 5%);
+    background-color: color.adjust($input-bg, $lightness: -5%);
 
     &:focus {
-      background-color: darken($input-bg, 7%);
+      background-color: color.adjust($input-bg, $lightness: -7%);
     }
   }
 }
@@ -281,7 +288,7 @@ small {
   width: auto;
   height: auto;
   vertical-align: baseline;
-  opacity: .8;
+  opacity: 0.8;
   font-size: 85%;
 }
 
@@ -337,62 +344,62 @@ small {
 }
 
 .alert-success {
-  background: theme-color('success');
+  background: theme-color("success");
   color: $white;
 
   &.alert-transparent {
-    color: theme-color('success');
-    background: rgba(theme-color('success'), $alert-transparent);
+    color: theme-color("success");
+    background: rgba(theme-color("success"), $alert-transparent);
   }
 
   .btn:not(.btn-default) {
     background: rgba($white, 0.8);
-    color: theme-color('success');
+    color: theme-color("success");
   }
 }
 
 .alert-info {
-  background: theme-color('info');
+  background: theme-color("info");
   color: $white;
 
   &.alert-transparent {
-    color: theme-color('info');
-    background: rgba(theme-color('info'), $alert-transparent);
+    color: theme-color("info");
+    background: rgba(theme-color("info"), $alert-transparent);
   }
 
   .btn:not(.btn-default) {
     background: rgba($white, 0.8);
-    color: theme-color('info');
+    color: theme-color("info");
   }
 }
 
 .alert-warning {
-  background: theme-color('warning');
+  background: theme-color("warning");
   color: $white;
 
   &.alert-transparent {
-    color: theme-color('warning');
-    background: rgba(theme-color('warning'), $alert-transparent);
+    color: theme-color("warning");
+    background: rgba(theme-color("warning"), $alert-transparent);
   }
 
   .btn:not(.btn-default) {
     background: rgba($white, 0.8);
-    color: theme-color('warning');
+    color: theme-color("warning");
   }
 }
 
 .alert-danger {
-  background: theme-color('danger');
+  background: theme-color("danger");
   color: $white;
 
   &.alert-transparent {
-    color: theme-color('danger');
-    background: rgba(theme-color('danger'), $alert-transparent);
+    color: theme-color("danger");
+    background: rgba(theme-color("danger"), $alert-transparent);
   }
 
   .btn:not(.btn-default) {
     background: rgba($white, 0.8);
-    color: theme-color('danger');
+    color: theme-color("danger");
   }
 }
 
@@ -415,7 +422,7 @@ small {
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
-  content: '>';
+  content: ">";
   color: $gray-600;
 }
 
@@ -590,7 +597,7 @@ h6,
   background-color: $widget-bg;
 
   > .tab-pane {
-    padding: $spacer*2;
+    padding: $spacer * 2;
   }
 }
 
@@ -616,7 +623,7 @@ h6,
 
 code {
   font-size: 85%;
-  background-color: theme-color('danger-light');
+  background-color: theme-color("danger-light");
   color: $pink;
   padding: 0;
 }
@@ -624,7 +631,7 @@ code {
 pre {
   display: block;
   padding: 6.5px;
-  margin: 0 0 (1rem / 2);
+  margin: 0 0 calc(1rem / 2);
   font-size: 13px;
   line-height: 1rem;
   word-break: break-all;
@@ -633,10 +640,10 @@ pre {
   background-color: $gray-100;
   border: 1px solid $gray-400;
   border-radius: $border-radius;
-  white-space: pre-line;       /* css-3 */
-  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-  white-space: -pre-wrap;      /* Opera 4-6 */
-  white-space: -o-pre-wrap;    /* Opera 7 */
+  white-space: pre-line; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
 
   // Account for some code outputs that place code tags in pre tags
   code {
@@ -897,7 +904,7 @@ ul.messenger.messenger-spinner-active .messenger-spinner .messenger-spinner {
 }
 
 /* ----------- React Bootstrap Table ----------- */
-@include media-breakpoint-down(sm) {
+@media (max-width: 575.98px) {
   .react-bs-table table {
     table-layout: inherit;
   }

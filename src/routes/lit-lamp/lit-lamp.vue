@@ -30,12 +30,12 @@
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <router-view />
-    </v-content>
+    </v-main>
     <!-- <v-footer> -->
     <!-- </v-footer> -->
   </v-app>
 </template>
-<script src="./lit-lamp.controller.js"></script>
+<script lang="ts" src="./lit-lamp.controller.ts"></script>
 <style lang="scss" src="./_lit-lamp.scss" scoped></style>

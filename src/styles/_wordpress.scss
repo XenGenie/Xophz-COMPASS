@@ -1,6 +1,6 @@
-@import 'mixins';
+@use "mixins" as *;
 
-#wpfooter{
+#wpfooter {
   position: fixed;
   bottom: 0px;
   right: 0px;
@@ -20,7 +20,7 @@
   z-index: 10;
 }
 
-#wpcontent{
+#wpcontent {
   padding-top: 0;
   padding-left: 0px;
   overflow: inherit;
@@ -31,10 +31,10 @@
 }
 
 #wpbody {
-    padding-top: 0px;
+  padding-top: 0px;
 }
 
-#wpbody-content{
+#wpbody-content {
   padding-bottom: 0px !important;
 }
 
@@ -45,35 +45,45 @@
 /*         display: inline-block; */
 /*     } */
 /*  } */
-.auto-fold #adminmenuback, .auto-fold #adminmenuwrap {
-    display: none;
+.auto-fold #adminmenu,
+.auto-fold #adminmenuback,
+.auto-fold #adminmenuwrap {
+  position: absolute;
+  margin-top: 0;
+  display: none;
 }
 
-.auto-fold .wp-responsive-open #adminmenuback, .auto-fold .wp-responsive-open #adminmenuwrap {
-    display: block;
-}
-
-.auto-fold #adminmenu, .auto-fold #adminmenuback, .auto-fold #adminmenuwrap {
-    position: absolute;
-    margin-top: 0;
+body.wp-responsive-open.auto-fold #adminmenu,
+body.wp-responsive-open.auto-fold #adminmenuback,
+body.wp-responsive-open.auto-fold #adminmenuwrap {
+  display: block !important;
 }
 
 .auto-fold #wpcontent {
-    position: relative;
-    margin-left: 0;
+  position: relative;
+  margin-left: 0;
 }
 
-@include desktop{
-  .wp-responsive-open #wpcontent {
-      position: relative;
-      padding-left: 10px;
-      margin-left: 160px;
-      padding: 0px;
+@include desktop {
+  body.wp-responsive-open #wpcontent {
+    position: relative;
+    padding-left: 10px;
+    margin-left: 160px;
+    padding: 0px;
   }
 }
 
-#wpadminbar li#wp-admin-bar-comments, #wpadminbar li#wp-admin-bar-customize, #wpadminbar li#wp-admin-bar-edit, #wpadminbar li#wp-admin-bar-menu-toggle, #wpadminbar li#wp-admin-bar-my-account, #wpadminbar li#wp-admin-bar-my-sites, #wpadminbar li#wp-admin-bar-new-content, #wpadminbar li#wp-admin-bar-site-name, #wpadminbar li#wp-admin-bar-updates, #wpadminbar li#wp-admin-bar-wp-logo {
-    display: block;
+#wpadminbar li#wp-admin-bar-comments,
+#wpadminbar li#wp-admin-bar-customize,
+#wpadminbar li#wp-admin-bar-edit,
+#wpadminbar li#wp-admin-bar-menu-toggle,
+#wpadminbar li#wp-admin-bar-my-account,
+#wpadminbar li#wp-admin-bar-my-sites,
+#wpadminbar li#wp-admin-bar-new-content,
+#wpadminbar li#wp-admin-bar-site-name,
+#wpadminbar li#wp-admin-bar-updates,
+#wpadminbar li#wp-admin-bar-wp-logo {
+  display: block;
 }
 
 #wpadminbar #wp-admin-bar-menu-toggle a {
@@ -88,43 +98,44 @@
   margin-left: -1px;
 }
 #wpadminbar .ab-icon {
-    font: 40px/1 dashicons!important;
-    margin: 0;
-    padding: 0;
-    width: 52px;
-    height: 46px;
-    text-align: center;
+  font: 40px/1 dashicons !important;
+  margin: 0;
+  padding: 0;
+  width: 52px;
+  height: 46px;
+  text-align: center;
 }
-#wpadminbar ul#wp-admin-bar-root-default>li {
-    margin-right: 0;
-    display: none;
+#wpadminbar ul#wp-admin-bar-root-default > li {
+  margin-right: 0;
+  display: none;
 }
 
-#wpadminbar ul#wp-admin-bar-root-default>li:nth-child(1) {
-    display: block;
+#wpadminbar ul#wp-admin-bar-root-default > li:nth-child(1) {
+  display: block;
 }
 
 #wpadminbar #wp-admin-bar-menu-toggle .ab-icon:before {
-    content: "\f228";
-    display: inline-block;
-    float: left;
-    font: normal 40px/45px dashicons;
-    vertical-align: middle;
-    outline: 0;
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    height: 44px;
-    width: 50px;
-    padding: 0;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    box-sizing: border-box;
+  content: "\f228";
+  display: inline-block;
+  float: left;
+  font: normal 40px/45px dashicons;
+  vertical-align: middle;
+  outline: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 44px;
+  width: 50px;
+  padding: 0;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
-#wpadminbar .ab-icon, #wpadminbar .ab-item:before, #wpadminbar>#wp-toolbar>#wp-admin-bar-root-default .ab-icon {
-    padding: 0;
-    margin-right: 0;
+#wpadminbar .ab-icon,
+#wpadminbar .ab-item:before,
+#wpadminbar > #wp-toolbar > #wp-admin-bar-root-default .ab-icon {
+  padding: 0;
+  margin-right: 0;
 }
-

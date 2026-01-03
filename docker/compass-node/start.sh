@@ -1,10 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
-echo "Running compass-node-container's entrypoint file..."
+echo "Starting compass-node-service (Vite Dev Server)..."
 
-echo "Modifying user (hack for mac)..."
-usermod -u 1000 www-data #a hack for macs
+# Ensure node_modules is populated if volume is empty
+if [ ! -d "node_modules" ] || [ -z "$(ls -A node_modules)" ]; then
+  echo "node_modules is empty, running pnpm install..."
+  pnpm install
+fi
 
-# npm install webpack-cli
-# npm run watch-poll
-echo "compass-node-container is ready!"
+# Run vite dev server with host flag to listen on all interfaces
+pnpm run dev -- --host

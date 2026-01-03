@@ -1,0 +1,8 @@
+
+> xophz-compass@1.0.0 type-check /home/xopher/www/x/Xophz-COMPASS
+> vue-tsc --noEmit
+
+error TS2688: Cannot find type definition file for 'minimatch'.
+  The file is in the program because:
+    Entry point for implicit type library 'minimatch'
+ ELIFECYCLE  Command failed with exit code 2.

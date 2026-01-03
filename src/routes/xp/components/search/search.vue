@@ -51,5 +51,5 @@
     />
   </v-toolbar>
 </template>
-<script src="./search.controller.js"></script>
+<script lang="ts" src="./search.controller.ts"></script>
 <style lang="scss" src="./_search.scss"></style>

@@ -1,5 +1,5 @@
 <template>
-  <v-content
+  <v-main
     :id="$options.name"
     :class="$options.name"
   >
@@ -73,7 +73,7 @@
     >
       <router-view />
     </v-container>
-  </v-content>
+  </v-main>
 </template>
-<script src="./xp-my-abilities.controller.js"></script>
+<script lang="ts" src="./xp-my-abilities.controller.ts"></script>
 <style lang="scss" src="./_xp-my-abilities.scss"></style>

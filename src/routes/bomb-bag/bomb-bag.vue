@@ -32,7 +32,7 @@
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <v-container
         fluid
         fill-height
@@ -43,10 +43,10 @@
           </v-flex>
         </v-layout>
       </v-container>
-    </v-content>
+    </v-main>
     <!-- <v-footer> -->
     <!-- </v-footer> -->
   </v-app>
 </template>
-<script src="./bomb-bag.controller.js"></script>
+<script lang="ts" src="./bomb-bag.controller.ts"></script>
 <style lang="scss" src="./_bomb-bag.scss"></style>

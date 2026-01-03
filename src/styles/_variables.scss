@@ -1,36 +1,70 @@
+@use "sass:color";
+@use "sass:map";
+
 // Meta
 
 $breadcrumb-footer-height: 35px;
 $sm-toolbar-height: 56px;
 $toolbar-height: 64px;
 $breadcrumb-height: 35px;
-
-$enable-shadows:            true !default;
+$enable-shadows: true !default;
 
 $glyphicons-halflings-include-bonus: false !default;
 $glyphicons-halflings-class-prefix: glyphicon !default;
 $glyphicons-halflings-font-base-size: 14px !default;
 
-$glyphicons-halflings-font-path: '../fonts/glyphicons' !default;
-$fa-font-path: '../fonts/font-awesome' !default;
+$glyphicons-halflings-font-path: "../fonts/glyphicons" !default;
+$fa-font-path: "../fonts/font-awesome" !default;
 
 /*
  * Fonts
  * ======================================================================== */
-$font-size-initial:       13px; // reset default browser value from 16px to 14px
-$font-size-base:          1rem !default;
-$font-size-lg:            1.25rem !default;
-$font-size-sm:            0.875rem !default;
-$font-size-larger:        1.1rem;
-$font-size-mini:          0.9rem;
-$font-size-index:         0.7rem;
+$font-size-initial: 13px; // reset default browser value from 16px to 14px
+$font-size-base: 1rem !default;
+$font-size-lg: 1.25rem !default;
+$font-size-sm: 0.875rem !default;
+$font-size-larger: 1.1rem;
+$font-size-mini: 0.9rem;
+$font-size-index: 0.7rem;
 
-$font-family-base: 'Open Sans', sans-serif;
+$font-family-base: "Open Sans", sans-serif;
+
+// Line height (previously from Bootstrap)
+$line-height-base: 1.5 !default;
+$line-height-sm: 1.25 !default;
+$line-height-lg: 2 !default;
+
+// Heading font sizes (previously from Bootstrap)
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2 !default;
+$h3-font-size: $font-size-base * 1.75 !default;
+$h4-font-size: $font-size-base * 1.5 !default;
+$h5-font-size: $font-size-base * 1.25 !default;
+$h6-font-size: $font-size-base !default;
+
+// Font sizes map (for utilities)
+$font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size,
+) !default;
+
+// Height variants for utilities
+$height-variants: (
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%,
+  auto: auto,
+) !default;
 
 // Color system
 //
 
-$white:    #fff !default;
+$white: #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #d6dee5 !default;
@@ -40,43 +74,47 @@ $gray-600: #798892 !default;
 $gray-700: #636c72 !default;
 $gray-800: #3c484f !default;
 $gray-900: #29323a !default;
-$black:    #000 !default;
+$black: #000 !default;
 $gray-light: $gray-100 !default;
 
-$lime:     #8cbf26 !default;
-$red:      #ff0115 !default;
+$lime: #8cbf26 !default;
+$red: #ff0115 !default;
 $red-dark: #d04f4f !default;
-$blue:     #196EFF !default;
+$blue: #196eff !default;
 $green: #2ada7a !default;
 $orange: #ffc107 !default;
-$pink:     #e671b8 !default;
-$purple:   #a700ae !default;
-$brown:    #a05000 !default;
-$teal:     #7f49fa !default;
+$pink: #e671b8 !default;
+$purple: #a700ae !default;
+$brown: #a05000 !default;
+$teal: #7f49fa !default;
 
 $theme-colors: (
-    primary: $blue,
-    secondary: $gray-700,
-    success: $green,
-    info: $teal,
-    warning: $orange,
-    danger: $red,
-    dark: $gray-700,
-    inverse: $gray-100,
-    gray: $gray-300,
-    light: $gray-100,
-    default: #e9ecef,
-    primary-light: #dee4ee,
-    success-light: #ecfaec,
-    info-light: #f2fafa,
-    warning-light: #fdf7e6,
-    danger-light: #fff2ef,
+  primary: $blue,
+  secondary: $gray-700,
+  success: $green,
+  info: $teal,
+  warning: $orange,
+  danger: $red,
+  dark: $gray-700,
+  inverse: $gray-100,
+  gray: $gray-300,
+  light: $gray-100,
+  default: #e9ecef,
+  primary-light: #dee4ee,
+  success-light: #ecfaec,
+  info-light: #f2fafa,
+  warning-light: #fdf7e6,
+  danger-light: #fff2ef,
 );
+
+@function theme-color($key: "primary") {
+  @return map.get($theme-colors, $key);
+}
 
 $link-color: #62c9ff;
 
 $text-color: #ddd !default;
-$text-muted: rgba($text-color, .7) !default;
+$text-muted: rgba($text-color, 0.7) !default;
 
 $font-weight-bold: 700 !default;
 $font-weight-semi-bold: 600 !default;
@@ -84,7 +122,7 @@ $font-weight-normal: 400 !default;
 $font-weight-thin: 300 !default;
 $font-weight-base: $font-weight-thin !default;
 
-$addition-bg: rgba($white, .1) !default;
+$addition-bg: rgba($white, 0.1) !default;
 
 // $body-bg: #e1e5e8 !default;
 $body-bg: #2b6e80 !default;
@@ -92,7 +130,7 @@ $body-bg: #2b6e80 !default;
 $body-bg-gradient-start: $body-bg 6%;
 $body-bg-gradient-mid: #003863 63%;
 $body-bg-gradient-end: #23282d 100%;
-$body-bg-light: lighten($body-bg, 3%);
+$body-bg-light: color.adjust($body-bg, $lightness: 3%);
 
 $headings-font-weight: 300;
 
@@ -100,14 +138,21 @@ $headings-font-weight: 300;
 //
 
 $grid-gutter-width: 40px;
+$spacer: 1rem !default;
+$hr-border-color: rgba(0, 0, 0, 0.1) !default;
+$font-family-sans-serif: "Open Sans", sans-serif !default;
+$table-cell-padding: 0.75rem !default;
 
 $content-padding: 2.85rem;
 
 $nav-link-padding: 10px;
 
-$border-radius:          0.3rem !default;
-$border-radius-lg:       0.35rem !default;
-$border-radius-sm:       0.25rem !default;
+$border-radius: 0.3rem !default;
+$border-radius-lg: 0.35rem !default;
+$border-radius-sm: 0.25rem !default;
+
+// Transitions (previously from Bootstrap)
+$transition-base: all 0.2s ease-in-out !default;
 
 //== Sidebar
 //
@@ -120,20 +165,20 @@ $sidebar-color: $text-color !default;
 $sidebar-item-border-color: transparent !default;
 $sidebar-item-active-color: #fff !default;
 
-
 // Widgets
 // ------------------------
-$widget-bg: rgba(35,40,45,0.84);
+$widget-bg: rgba(35, 40, 45, 0.84);
 
 // $widget-bg: rgba(255,255,255,.13);
 $widget-title-color: $text-color;
-$widget-shadow: 0 23px 20px -20px rgba(darken($body-bg, 25%),0.1), 0 0 15px rgba(darken($body-bg, 25%),0.06);
-$widget-shadow-designated: -1px 0 8px rgba(0,0,0,.2);
-$widget-border-radius: .5rem;
+$widget-shadow: 0 23px 20px -20px rgba(color.adjust($body-bg, $lightness: -25%), 0.1),
+  0 0 15px rgba(color.adjust($body-bg, $lightness: -25%), 0.06);
+$widget-shadow-designated: -1px 0 8px rgba(0, 0, 0, 0.2);
+$widget-border-radius: 0.5rem;
 $widget-padding-vertical: 1rem !default;
 $widget-padding-horizontal: 1.5rem !default;
 
-$text-transparent: opacify($widget-bg, .07);
+$text-transparent: color.adjust($widget-bg, $alpha: 0.07);
 
 $input-btn-line-height: 1.5;
 
@@ -143,7 +188,7 @@ $input-btn-padding-x-sm: 0.8rem;
 //== Navbar
 //
 
-$navbar-height:  60px !default;
+$navbar-height: 60px !default;
 $navbar-padding-y: 0 !default;
 $navbar-padding-x: 0 !default;
 $navbar-light-hover-color: #fff;
@@ -170,6 +215,11 @@ $nav-tabs-active-link-hover-color: $gray-700 !default;
 
 //== Forms
 //
+$input-bg: $white !default;
+$input-disabled-bg: $gray-200 !default;
+$input-color: $gray-700 !default;
+$input-border-color: $gray-400 !default;
+
 $input-focus-border-color: #4d90fe !default; //webkit focus color
 
 //*  Popover  */
@@ -185,11 +235,11 @@ $badge-padding-x: 0.4em;
 
 // Breadcrumbs
 
-$breadcrumb-divider: '>';
+$breadcrumb-divider: ">";
 $breadcrumb-padding-y: 0;
 $breadcrumb-bg: transparent;
-$breadcrumb-divider-color:          $text-muted !default;
-$breadcrumb-active-color:           $text-color !default;
+$breadcrumb-divider-color: $text-muted !default;
+$breadcrumb-active-color: $text-color !default;
 
 // Progress bars
 $progress-height: 0.65rem !default;
@@ -199,8 +249,8 @@ $progress-box-shadow: none;
 $alert-transparent: 0.25;
 
 // Buttons
-$input-btn-padding-y:       0.375rem !default;
-$input-btn-padding-x:       1rem !default;
+$input-btn-padding-y: 0.375rem !default;
+$input-btn-padding-x: 1rem !default;
 
 $btn-default-bg: $addition-bg !default;
 $btn-default-border: $addition-bg !default;
@@ -209,27 +259,28 @@ $btn-default-border: $addition-bg !default;
 $table-border-width: 1px;
 
 // Pagination
-$pagination-color:                     $gray-700 !default;
-$pagination-bg:                        #fff !default;
-$pagination-border:                    transparent !default;
+$pagination-color: $gray-700 !default;
+$pagination-bg: #fff !default;
+$pagination-border: transparent !default;
 
-$pagination-hover-color:               $gray-700 !default;
-$pagination-hover-bg:                  transparent !default;
-$pagination-hover-border:              transparent !default;
-$pagination-hover-border-color:        transparent !default;
+$pagination-hover-color: $gray-700 !default;
+$pagination-hover-bg: transparent !default;
+$pagination-hover-border: transparent !default;
+$pagination-hover-border-color: transparent !default;
 
-$pagination-active-color:              $gray-700 !default;
-$pagination-active-bg:                 transparent !default;
-$pagination-active-border:             transparent !default;
-$pagination-active-border-color:       transparent !default;
+$pagination-active-color: $gray-700 !default;
+$pagination-active-bg: transparent !default;
+$pagination-active-border: transparent !default;
+$pagination-active-border-color: transparent !default;
 
-$pagination-disabled-color:            $gray-700 !default;
-$pagination-disabled-bg:               #fff !default;
-$pagination-disabled-border:           transparent !default;
+$pagination-disabled-color: $gray-700 !default;
+$pagination-disabled-bg: #fff !default;
+$pagination-disabled-border: transparent !default;
 
 // == Components
-$padding-small-vertical:    0.25rem !default;
-$padding-small-horizontal:  0.75rem !default;
+$pre-color: $gray-700 !default;
+$padding-small-vertical: 0.25rem !default;
+$padding-small-horizontal: 0.75rem !default;
 
 // Screens
 // -------------------------

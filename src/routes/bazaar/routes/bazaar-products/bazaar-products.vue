@@ -1,13 +1,9 @@
 <template>
-  <v-content
+  <v-main
     :id="$options.name"
     :class="$options.name"
   >
-    <v-app-bar
-      clipped-left
-      app
-      color="#DE3648"
-    >
+    <v-app-bar color="#DE3648">
       <v-app-bar-nav-icon @click="toggleAppNavDrawer" />
       <v-avatar>
         <v-icon>
@@ -19,91 +15,71 @@
       </v-toolbar-title>
       <v-spacer />
       <v-select
+        class="mx-2"
         v-model="category"
-        small
+        density="compact"
         hide-details
-        dense
         :items="categories"
         label="Select a Category"
-        @input="selectedFilter"
-        prepend-icon="fa-tags"
+        @update:model-value="selectedFilter"
+        prepend-inner-icon="fa-tags"
         single-line
-      >
-        <template
-          slot="selection"
-          slot-scope="data"
-        >
-          <span v-html="data.item.text" />
-        </template>
-        <template
-          slot="item"
-          slot-scope="data"
-        >
-          <span v-html="data.item.text" />
-        </template>
-      </v-select>
-        &nbsp;
+        item-title="text"
+        item-value="id"
+      />
+
       <v-select
+        class="mx-2"
         v-model="productType"
-        @input="selectedFilter"
-        small
+        @update:model-value="selectedFilter"
+        density="compact"
         :items="productTypes"
-        dense
         hide-details
         label="Filter by product type"
-        prepend-icon="fa-pallet"
+        prepend-inner-icon="fa-pallet"
         single-line
       />
-        &nbsp;
+
       <v-select
+        class="mx-2"
         v-model="stock"
-        @input="selectedFilter"
+        @update:model-value="selectedFilter"
         clearable
         :items="stockStatus"
-        small
+        density="compact"
         hide-details
         label="Filter by stock status"
-        prepend-icon="fa-inventory"
+        prepend-inner-icon="fa-inventory"
         single-line
       />
       <v-spacer />
-      <div class="md-toolbar-section-end">
-        <v-toolbar-items class="hidden-sm-and-down">
+      <div class="flex items-center">
+        <v-toolbar-items class="hidden sm:inline-flex">
           <v-btn
             icon
             @click="viewList = !viewList"
           >
-            <i
-              v-if="!viewList"
-              class="fa fa-list"
-            />
-            <i
-              v-else
-              class="fa fa-th-large"
-            />
+            <v-icon v-if="!viewList">fa fa-list</v-icon>
+            <v-icon v-else>fa fa-th-large</v-icon>
           </v-btn>
         </v-toolbar-items>
       </div>
     </v-app-bar>
-    <v-container
-      fluid
-      fill-height
-    >
-      <v-layout justify-center>
-        <v-flex>
+    <v-container fluid>
+      <v-row justify="center">
+        <v-col>
           <v-pagination
-            dark
+            v-if="total && limit"
+            theme="dark"
             v-model="page"
             :length="Math.ceil(total/limit)"
           />
           <router-view />
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
-    <!-- <v-footer> -->
-    <!-- </v-footer> -->
     <filter-dialog />
-  </v-content>
+  </v-main>
 </template>
-<script src="./bazaar-products.controller.js"></script>
+<script lang="ts" src="./bazaar-products.controller.ts"></script>
 <style lang="scss" src="./_bazaar-products.scss"></style>

@@ -71,5 +71,5 @@
     </v-flex>
   </v-layout>
 </template>
-<script src="./xp-my-accessories-grid.controller.js"></script>
+<script lang="ts" src="./xp-my-accessories-grid.controller.ts"></script>
 <style lang="scss" src="./_xp-my-accessories-grid.scss"></style>
