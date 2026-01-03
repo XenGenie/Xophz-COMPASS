@@ -10,4 +10,4 @@ export default {
   path: "/treasure-map",
   name: "Treasure Map",
   component: TreasureMap,
-} satisfies RouteRecordRaw;
+} as RouteRecordRaw;

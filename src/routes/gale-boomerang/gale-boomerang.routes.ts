@@ -1,3 +1,5 @@
+import type { RouteRecordRaw } from "vue-router";
+
 const galeBoomerang = () =>
   import(
     /* webpackChunkName: "galeBoomerang" */
@@ -11,4 +13,4 @@ export default {
   name: "Gale Boomerang",
   component: galeBoomerang,
   children: [],
-};
+} as RouteRecordRaw;

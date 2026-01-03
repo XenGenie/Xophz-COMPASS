@@ -36,4 +36,4 @@ export default {
       component: compassDashboard,
     },
   ],
-} satisfies RouteRecordRaw;
+} as RouteRecordRaw;

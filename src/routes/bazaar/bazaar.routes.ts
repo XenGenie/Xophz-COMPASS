@@ -143,4 +143,4 @@ export default {
     //   component : Dash
     // }
   ],
-} satisfies RouteRecordRaw;
+} as RouteRecordRaw;
