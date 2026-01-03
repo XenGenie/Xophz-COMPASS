@@ -9,7 +9,6 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     restart: always
-    # container_name: compass-mysql-service
     environment:
       MYSQL_ROOT_PASSWORD: docker
       MYSQL_DATABASE: wordpress
@@ -58,108 +57,9 @@ services:
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
     volumes:
-      # - wordpress:/var/www/html
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
       - ./wp-content:/var/www/html/wp-content
-      # - ./.htaccess:/var/www/html/.htaccess
 
 volumes:
-  # wordpress:
   db_data: {}
-  composer:
   node_modules:
-# networks:
-#   default:
-#     external:
-#       name: xophz-compass_default
-# version: '2'
-# services:
-# compass-node-service:
-#   container_name: compass-node-container
-#   image: compass-node-image
-#   build:
-#     context: .
-#     dockerfile: ./docker/compass-node/Dockerfile
-#   entrypoint: /var/www/docker/compass-node/start.sh
-#   depends_on:
-#     - compass-mysql-service
-#   environment:
-#     SOME_VARIABLE: some_variable_string
-#   volumes:
-#     - ./:/var/www/html
-#     - composer:/var/www/html/vendor
-#     - node_modules:/var/www/html/node_modules
-#   ports:
-#     - "3000:3000"
-#   networks:
-#     - default
-#
-# compass-wordpress-service:
-#   container_name: compass-wordpress-container
-#   depends_on:
-#     - compass-mysql-service
-#   image: wordpress:latest
-#   links:
-#     - compass-mysql-service:mysql
-#   ports:
-#     - "80:80"
-#   restart: always
-#   environment:
-#     WORDPRESS_DB_HOST: compass-mysql-service:3306
-#     WORDPRESS_DB_USER: wordpress
-#     WORDPRESS_DB_PASSWORD: wordpress
-#     WORDPRESS_DB_NAME: wordpress
-#   volumes:
-#     # - ./docker/compass-wordpress-service:/var/www/html
-#     - ./wordpress/wp-content:/var/www/html/wp-content
-#     # - ./wordpress/wp-config.php:/var/www/html/wp-config.php
-# compass-wordpress-service:
-#   container_name: compass-wordpress-container
-#   image: compass-wordpress-image
-#   depends_on:
-#     - compass-mysql-service
-#   links:
-#     - compass-mysql-service:mysql
-#   ports:
-#     - "80:80"
-#   entrypoint: /var/www/docker/compass-wordpress/start.sh
-#   build:
-#     context: .
-#     dockerfile: ./docker/compass-wordpress/Dockerfile
-#   environment:
-#     WORDPRESS_DB_HOST: compass-mysql-service:3306
-#     WORDPRESS_DB_USER: wordpress
-#     WORDPRESS_DB_PASSWORD: wordpress
-#     WORDPRESS_DB_NAME: wordpress
-#     WORDPRESS_TABLE_PREFIX: wp_
-#     WORDPRESS_DEBUG: 'true'
-#   restart: always
-#   volumes:
-#     - wordpress:/var/www/html
-#     - ./plugins:/var/www/html/wp-content/plugins
-#     - ./themes:/var/www/html/wp-content/themes
-#     - ./.htaccess:/var/www/html/.htaccess
-#   networks:
-# - default
-# compass-mysql-service:
-#   container_name: compass-mysql-container
-#   image: compass-mysql-image
-#   build:
-#     context: .
-#     dockerfile: ./docker/compass-mysql/Dockerfile
-#   environment:
-#     MYSQL_ROOT_PASSWORD: docker
-#     MYSQL_DATABASE: wordpress
-#     MYSQL_USER: wordpress
-#     MYSQL_PASSWORD: wordpress
-#   ports:
-#     - "3306:3306"
-#   networks:
-#     - default
-#
-# volumes:
-#   wordpress:
-#   composer:
-#   node_modules:
-# networks:
-#   default:
