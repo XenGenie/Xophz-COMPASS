@@ -1,5 +1,6 @@
 services:
-  compass-mysql-service:
+  mysql:
+    container_name: mysql
     build:
       context: .
       dockerfile: ./docker/compass-mysql/Dockerfile
@@ -15,13 +16,13 @@ services:
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
 
-  compass-node-service:
-    container_name: compass-node-service
+  compass:
+    container_name: compass
     build:
       context: .
       dockerfile: ./docker/compass-node/Dockerfile
     depends_on:
-      - compass-mysql-service
+      - mysql
     volumes:
       - ./:/var/www/html
       - node_modules:/var/www/html/node_modules
@@ -30,27 +31,29 @@ services:
     networks:
       - default
   phpmyadmin:
+    container_name: phpmyadmin
     depends_on:
-      - compass-mysql-service
+      - mysql
     image: phpmyadmin/phpmyadmin
     links:
-      - compass-mysql-service:mysql
+      - mysql:mysql
     ports:
       - 81:80
     environment:
-      PMA_HOST: compass-mysql-service
+      PMA_HOST: mysql
       PMA_ARBITRARY: 1
       MYSQL_ROOT_PASSWORD: docker
   wordpress:
+    container_name: wordpress
     depends_on:
-      - compass-node-service
-      - compass-mysql-service
+      - compass
+      - mysql
     image: wordpress:latest
     ports:
       - 80:80
     restart: always
     environment:
-      WORDPRESS_DB_HOST: compass-mysql-service:3306
+      WORDPRESS_DB_HOST: mysql:3306
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress

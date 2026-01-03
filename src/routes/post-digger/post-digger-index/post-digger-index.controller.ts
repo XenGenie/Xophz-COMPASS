@@ -69,7 +69,6 @@ export default {
   data,
   computed: {
     ...getComputed(),
-    ...mapStores(usePostDiggerStore),
   },
   methods: getMethods(),
   created,

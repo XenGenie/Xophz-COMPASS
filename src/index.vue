@@ -17,23 +17,18 @@
         <v-row
           justify="space-between"
           align="center"
-          class="h-full m-0"
-          no-gutters
         >
           <v-col
             cols="auto"
-            class="flex items-center"
+            justify="space-between"
           >
             <v-tooltip location="bottom">
               <template v-slot:activator="{ props }">
                 <v-btn
                   v-bind="props"
                   @click="wpmenu"
-                  class="ml-2"
                   size="small"
                   variant="tonal"
-                  rounded="pill"
-                  color="blue-grey-lighten-4"
                   :prepend-icon="isWpMenuOpen ? 'fad fa-toggle-on' : 'fad fa-toggle-off'"
                 >
                   <span class="d-none d-sm-inline">WP Menu {{ wpSwitchLabel }}</span>
@@ -46,11 +41,9 @@
                 <v-btn
                   size="small"
                   variant="tonal"
-                  rounded="pill"
                   v-bind="props"
                   @click="goHome"
                   v-if="blogInfo"
-                  color="blue-grey-lighten-4"
                   prepend-icon="fa fa-globe"
                 >
                   <span class="d-none d-sm-inline font-bold">
@@ -72,16 +65,14 @@
 
           <v-col
             cols="auto"
-            class="flex items-center gap-2"
+            class="flex items-center"
           >
             <v-tooltip location="bottom">
               <template v-slot:activator="{ props }">
                 <v-btn
                   v-bind="props"
                   size="small"
-                  variant="flat"
-                  rounded="pill"
-                  color="primary"
+                  variant="tonal"
                   prepend-icon="fad fa-compass"
                   @click="showBottomSheet"
                 >

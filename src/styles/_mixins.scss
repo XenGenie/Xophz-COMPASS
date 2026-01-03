@@ -2,6 +2,8 @@
  * Custom application mixins available through out the app
  */
 
+@use "sass:color";
+
 $cell-width: 640px;
 $tablet-width: 768px;
 $desktop-width: 1024px;
@@ -125,7 +127,7 @@ $fk-width: 2560px;
   a#{$parent},
   button#{$parent} {
     @include hover-focus {
-      background-color: darken($color, 10%) !important;
+      background-color: color.adjust($color, $lightness: -10%) !important;
     }
   }
 }
@@ -136,7 +138,7 @@ $fk-width: 2560px;
   }
   a#{$parent} {
     @include hover-focus {
-      color: darken($color, 10%) !important;
+      color: color.adjust($color, $lightness: -10%) !important;
     }
   }
 }
@@ -149,7 +151,7 @@ $fk-width: 2560px;
     @include hover-focus {
       color: #fff;
       text-decoration: none;
-      background-color: darken($bg, 10%);
+      background-color: color.adjust($bg, $lightness: -10%);
     }
   }
 }
@@ -157,10 +159,10 @@ $fk-width: 2560px;
 @mixin button-variant(
   $background,
   $border,
-  $hover-background: darken($background, 7.5%),
-  $hover-border: darken($border, 10%),
-  $active-background: darken($background, 10%),
-  $active-border: darken($border, 12.5%)
+  $hover-background: color.adjust($background, $lightness: -7.5%),
+  $hover-border: color.adjust($border, $lightness: -10%),
+  $active-background: color.adjust($background, $lightness: -10%),
+  $active-border: color.adjust($border, $lightness: -12.5%)
 ) {
   color: #fff;
   background-color: $background;
@@ -196,8 +198,8 @@ $fk-width: 2560px;
     &:focus,
     &.focus {
       color: #fff;
-      background-color: darken($background, 17%);
-      border-color: darken($border, 25%);
+      background-color: color.adjust($background, $lightness: -17%);
+      border-color: color.adjust($border, $lightness: -25%);
     }
   }
 

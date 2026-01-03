@@ -1,4 +1,6 @@
 /**            UTILS              **/
+@use "sass:math";
+@use "sass:color";
 @use "variables" as *;
 @use "mixins" as *;
 
@@ -95,7 +97,7 @@ $z-index-variants: (
 }
 
 .circle-o {
-  border: calc($line-height-base / 5) * 1em solid transparent;
+  border: math.div($line-height-base, 5) * 1em solid transparent;
 
   // stylelint-disable
   &.circle-o-danger {
@@ -440,11 +442,11 @@ $z-index-variants: (
 .input-transparent {
   color: $text-color;
   background: $widget-bg;
-  border-color: transparentize($widget-bg, 0.15);
+  border-color: color.adjust($widget-bg, $alpha: -0.15);
 
   &:focus {
     color: $text-color;
-    background-color: opacify($widget-bg, 0.05);
+    background-color: color.adjust($widget-bg, $alpha: 0.05);
     border-color: $widget-bg;
   }
 }
@@ -487,13 +489,13 @@ $z-index-variants: (
 
   .input-group-text {
     background-color: $widget-bg;
-    border-color: transparentize($widget-bg, 0.15);
+    border-color: color.adjust($widget-bg, $alpha: -0.15);
     border-right: none;
   }
 
   .input-transparent:focus {
     background-color: $widget-bg;
-    border-color: transparentize($widget-bg, 0.15);
+    border-color: color.adjust($widget-bg, $alpha: -0.15);
   }
 
   .input-group-prepend {
@@ -555,10 +557,10 @@ $z-index-variants: (
 
 $margin-vertical-variants: (
   xlg: 40px,
-  lg: $spacer * 3/2,
+  lg: math.div($spacer * 3, 2),
   md: $spacer,
-  sm: $spacer/2,
-  xs: $spacer/4,
+  sm: math.div($spacer, 2),
+  xs: math.div($spacer, 4),
   0: 0,
 );
 $margin-horizontal-variants: (
@@ -576,10 +578,10 @@ $margin-horizontal-variants: (
 
 $padding-vertical-variants: (
   xlg: 40px,
-  lg: $spacer * 3/2,
+  lg: math.div($spacer * 3, 2),
   md: $spacer,
-  sm: $spacer/2,
-  xs: $spacer/4,
+  sm: math.div($spacer, 2),
+  xs: math.div($spacer, 4),
   0: 0,
 );
 $padding-horizontal-variants: (
