@@ -8,27 +8,6 @@
             <nav-drawer v-model="isAppNavDrawerOpen" :app-bar-order="appBarOrder" @toggle-order="toggleAppBarOrder" />
         </template>
 
-        <template #app-bar>
-            <x-app-bar density="compact" flat :order="appBarOrder">
-                <x-btn icon variant="text" class="ml-2" @click="isAppNavDrawerOpen = !isAppNavDrawerOpen">
-                    <x-icon color="primary">fad fa-bars</x-icon>
-                </x-btn>
-
-                <x-avatar v-if="activePlugin && activePlugin.icon" size="28" class="mx-3">
-                    <v-img :src="activePlugin.icon" cover />
-                </x-avatar>
-
-                <v-toolbar-title>
-                    {{ $route.name }}
-                </v-toolbar-title>
-
-                <v-spacer />
-
-                <x-switch v-model="appBarOrder" class="me-2" :false-value="0" :true-value="-1" label="Toggle order"
-                    hide-details inset />
-            </x-app-bar>
-        </template>
-
         <template #default>
             <trinity-rings-spinner v-if="spinner" />
             <Billboard v-if="!isBillboardOff" fluid :plugin="activePlugin" id="v-main-billboard" />

@@ -40,7 +40,7 @@ function data() {
   };
 }
 
-function getComputed() {
+function getComputed(this: any) {
   return {
     blogInfo: {
       get() {
@@ -103,19 +103,27 @@ function getComputed() {
       },
     },
     isWpMenuOpen: {
-      get() {
-        return this.compassStore.isWpMenuOpen;
+      get(): boolean {
+        return (this as any).compassStore.isWpMenuOpen;
       },
-      set(isOpen) {
-        this.compassStore.setWpMenu(isOpen);
+      set(isOpen: boolean) {
+        (this as any).compassStore.setWpMenu(isOpen);
+      },
+    },
+    appBarOrder: {
+      get(): number {
+        return (this as any).compassStore.appBarOrder;
+      },
+      set() {
+        (this as any).compassStore.toggleAppBarOrder();
       },
     },
   };
 }
 
-function getWatched() {
+function getWatched(this: any) {
   return {
-    isWpMenuOpen(val) {
+    isWpMenuOpen(val: boolean) {
       if (this.wpwrap) this.wpwrap.classList.toggle(this.wpOpenClass, val);
     },
   };
@@ -125,7 +133,7 @@ function mounted() {
   this.loadWpMenu();
 }
 
-function getMethods() {
+function getMethods(this: any) {
   return {
     goHome() {
       window.location.href = "/";
@@ -137,7 +145,7 @@ function getMethods() {
       this.isWpMenuOpen = !this.isWpMenuOpen;
     },
     toggleAppBarOrder() {
-      this.appBarOrder = this.appBarOrder === 0 ? -1 : 0;
+      (this as any).compassStore.toggleAppBarOrder();
     },
     getTextDomainPath(textDomain) {
       if (!textDomain) return "/";

@@ -1,6 +1,6 @@
 import api from "@/plugins/api";
 
-export default (props) => {
+export default (props?: any) => {
   return {
     getPlugins,
     activatePlugin,

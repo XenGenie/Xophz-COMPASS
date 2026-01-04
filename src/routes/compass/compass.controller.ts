@@ -2,6 +2,7 @@ import { defineComponent } from "vue";
 import compassMixin from "./mixins/compass-mixin/compass-mixin.controller";
 import { mapStores } from "pinia";
 import { useCompassStore } from "@/routes/compass/store";
+import XCompassAppBar from "@/components/molecules/bars/x-compass-app-bar/x-compass-app-bar.vue";
 
 export default defineComponent({
   name: "xophz-compass",
@@ -9,7 +10,9 @@ export default defineComponent({
   props: {
     plugin: Object,
   },
-  components: {},
+  components: {
+    XCompassAppBar,
+  },
   created: onCreated,
   mounted,
   unmounted: onUnmounted,
@@ -35,42 +38,34 @@ function data() {
   };
 }
 
-function getComputed() {
+function getComputed(this: any) {
   return {
-    currentUser: {
-      get() {
-        return this.compassStore.currentUser;
-      },
+    currentUser() {
+      return this.compassStore.currentUser;
     },
-    plugins: {
-      get() {
-        return this.compassStore.pluginList;
-      },
+    plugins() {
+      return this.compassStore.pluginList;
     },
     billboard: {
       get() {
         return this.compassStore.billboard;
       },
-      set(billboard) {
+      set(billboard: any) {
         this.compassStore.setBillboard(billboard);
       },
     },
-    isBillboardOff: {
-      get() {
-        return this.compassStore.isBillboardOff;
-      },
+    isBillboardOff() {
+      return this.compassStore.isBillboardOff;
     },
-    isAppBarOff: {
-      get() {
-        return this.compassStore.isAppBarOff;
-      },
+    isAppBarOff() {
+      return this.compassStore.isAppBarOff;
     },
   };
 }
 
-function getWatched() {
+function getWatched(this: any) {
   return {
-    stepper(val, oldVal) {
+    stepper(val: any, oldVal: any) {
       const vm = this;
       const hash = vm.$options.name;
       const path = {
@@ -145,9 +140,9 @@ function onUnmounted(this: any) {
   this.compassStore.turnOffAppBar(false);
 }
 
-function getMethods() {
+function getMethods(this: any) {
   return {
-    mouseOver(plugin) {
+    mouseOver(plugin: any) {
       const vm = this;
       vm.showSnackbar = true;
       vm.snackbarPlugin = plugin;

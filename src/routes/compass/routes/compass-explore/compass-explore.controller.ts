@@ -1,15 +1,15 @@
-import { mapStores } from 'pinia'
-import { useCompassStore } from '../../store'
-import compassMixin from '../../mixins/compass-mixin/compass-mixin.controller'
+import { mapStores } from "pinia";
+import { useCompassStore } from "../../store";
+import compassMixin from "../../mixins/compass-mixin/compass-mixin.controller";
 
 export default {
-  name: 'compass-explore',
+  name: "compass-explore",
   // DATA
   data,
   props: [],
   computed: {
     ...getComputed(),
-    ...mapStores(useCompassStore)
+    ...mapStores(useCompassStore),
   },
   methods: getMethods(),
   watch: getWatched(),
@@ -28,129 +28,107 @@ export default {
   components: {},
   mixins: [compassMixin],
   transitions: {},
-  partials: {}
-}
+  partials: {},
+};
 
-function data () {
+function data() {
   return {
     dialog: true,
     welcomeDialog: true,
     snackbar: false,
     snack: {
       gray: false,
-      img: '',
-      text: ''
-    }
-  }
+      img: "",
+      text: "",
+    },
+  };
 }
 
-function getComputed () {
+function getComputed(this: any) {
   return {
     bottomSheet: {
-      get () {
-        return this.compassStore.bottomSheet
+      get() {
+        return this.compassStore.bottomSheet;
       },
-      set (isActive) {
-        this.compassStore.setBottomSheet(isActive)
-      }
+      set(isActive: boolean) {
+        this.compassStore.setBottomSheet(isActive);
+      },
     },
     plugins: {
-      get () {
-        return this.compassStore.pluginList
-      }
-    }
-  }
+      get() {
+        return this.compassStore.pluginList;
+      },
+    },
+  };
 }
 
-function getMethods () {
+function getMethods(this: any) {
   return {
-    goToPlugin (plugin) {
-      if (!plugin || !plugin.TextDomain) return
+    goToPlugin(plugin: any) {
+      if (!plugin || !plugin.TextDomain) return;
       this.$router.push({
-        path: plugin.TextDomain.replace('xophz-compass-', '/'),
-        hash: 'billboard',
-        offset: { y: 15 }
-      })
+        path: `/${plugin.TextDomain.replace("xophz-compass-", "")}`,
+        hash: "#v-main-billboard",
+      });
     },
-    getPluginRoute (plugin) {
-      if (!plugin || !plugin.TextDomain) return {}
+    getPluginRoute(plugin: any) {
+      if (!plugin || !plugin.TextDomain) return {};
       return {
-        path: plugin.TextDomain.replace('xophz-compass-', ''),
-        hash: 'billboard',
-        offset: { y: 15 }
-      }
+        path: `/${plugin.TextDomain.replace("xophz-compass-", "")}`,
+        hash: "#v-main-billboard",
+      };
     },
-    togglePlugin (e, plugin) {
-      const vm = this
-      const action = plugin.isActivated ? 'deactivate' : 'activate'
-      const toggle = `${action}Plugin`
+    togglePlugin(e: any, plugin: any) {
+      const vm = this;
+      const action = plugin.isActivated ? "deactivate" : "activate";
+      const toggle = `${action}Plugin`;
 
-      vm.snack.text = `${plugin.Name} has been ${action}d.`
-      vm.snack.gray = plugin.isActivated
-      vm.snack.img = plugin.icon
+      vm.snack.text = `${plugin.Name} has been ${action}d.`;
+      vm.snack.gray = plugin.isActivated;
+      vm.snack.img = plugin.icon;
 
-      vm[toggle](plugin)
-        .then(() => {
-          vm.loadPlugins()
-          vm.showSnackbar()
-        })
+      vm[toggle](plugin).then(() => {
+        vm.loadPlugins();
+        vm.showSnackbar();
+      });
     },
-    loadPlugins () {
-      return this.compassStore.loadPlugins()
+    loadPlugins() {
+      return this.compassStore.loadPlugins();
     },
-    activatePlugin (plugin) {
-      return this.compassStore.activatePlugin(plugin)
+    activatePlugin(plugin) {
+      return this.compassStore.activatePlugin(plugin);
     },
-    deactivatePlugin (plugin) {
-      return this.compassStore.deactivatePlugin(plugin)
+    deactivatePlugin(plugin) {
+      return this.compassStore.deactivatePlugin(plugin);
     },
-    showSnackbar () {
-      this.snackbar = true
-    }
-  }
+    showSnackbar() {
+      this.snackbar = true;
+    },
+  };
 }
 
-function getWatched () {
-  return {
-
-  }
+function getWatched() {
+  return {};
 }
 
-function onBeforeCreate () {
+function onBeforeCreate() {}
+
+function onCreated() {}
+
+function onBeforeMount() {}
+
+function onMounted() {
+  this.loading = false;
 }
 
-function onCreated () {
+function onBeforeUpdate() {}
 
-}
+function onUpdated() {}
 
-function onBeforeMount () {
+function onActivated() {}
 
-}
+function onDeactivated() {}
 
-function onMounted () {
-  this.loading = false
-}
+function onBeforeDestory() {}
 
-function onBeforeUpdate () {
-
-}
-
-function onUpdated () {
-
-}
-
-function onActivated () {
-
-}
-
-function onDeactivated () {
-
-}
-
-function onBeforeDestory () {
-
-}
-
-function onDestroyed () {
-
-}
+function onDestroyed() {}

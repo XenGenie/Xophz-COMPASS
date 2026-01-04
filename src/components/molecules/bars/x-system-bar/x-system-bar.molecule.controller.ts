@@ -10,26 +10,26 @@ export default defineComponent({
   mixins: [navigationMixin as any],
   computed: {
     ...mapStores(useCompassStore),
-    blogInfo() {
-      return this.compassStore.blogInfo;
+    blogInfo(): any {
+      return (this as any).compassStore.blogInfo;
     },
     isWpMenuOpen: {
-      get() {
-        return this.compassStore.isWpMenuOpen;
+      get(): boolean {
+        return (this as any).compassStore.isWpMenuOpen;
       },
-      set(isOpen) {
-        this.compassStore.setWpMenu(isOpen);
+      set(isOpen: boolean) {
+        (this as any).compassStore.setWpMenu(isOpen);
       },
     },
-    wpSwitchLabel() {
-      return this.isWpMenuOpen ? "On" : "Off";
+    wpSwitchLabel(): string {
+      return (this as any).isWpMenuOpen ? "On" : "Off";
     },
     bottomSheet: {
-      get() {
-        return this.compassStore.bottomSheet;
+      get(): boolean {
+        return (this as any).compassStore.bottomSheet;
       },
-      set(isActive) {
-        this.compassStore.setBottomSheet(isActive);
+      set(isActive: boolean) {
+        (this as any).compassStore.setBottomSheet(isActive);
       },
     },
   },

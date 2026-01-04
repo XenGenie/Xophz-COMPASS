@@ -1,5 +1,6 @@
 <template>
   <div :id="$options.name" :class="$options.name" class="pegasus-boots-content">
+    <XCompassAppBar />
     <v-container fluid class="p-6">
       <v-fade-transition mode="out-in">
         <router-view />

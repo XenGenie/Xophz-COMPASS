@@ -4,6 +4,7 @@
     :id="$options.name"
     :class="$options.name"
   >
+    <XCompassAppBar />
     <div class="d-flex justify-center mb-6">
       <v-btn-toggle
         v-model="stepper"
