@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "DEBUG='vite:hmr' vite",
+    "dev": "NODE_OPTIONS='--max-old-space-size=8192' DEBUG='vite:hmr' vite",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint .",

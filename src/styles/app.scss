@@ -1,7 +1,8 @@
 /**
  * Custom theme styles.
- * Variables and mixins are globally injected via Vite's additionalData.
  */
+@use "./variables" as *;
+@use "./mixins" as *;
 
 // Import partials
 @import "base";

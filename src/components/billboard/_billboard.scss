@@ -1,4 +1,5 @@
-// Variables and mixins are auto-injected by Vite
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
 
 .billboard {
   .v-card {

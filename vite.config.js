@@ -5,7 +5,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  plugins: [vue(), vuetify({ autoImport: false })],
+  plugins: [vue(), vuetify({ autoImport: true })],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -45,7 +45,8 @@ export default defineConfig(({ mode }) => ({
       port: 8080,
     },
     watch: {
-      ignored: ["**/node_modules/**", "**/.git/**", "**/dist/**"],
+      ignored: ["**/node_modules/**", "**/.git/**", "**/dist/**", "**/.pnpm-store/**"],
+      followSymlinks: false,
     },
     // Enable CORS so WordPress can load assets from the dev server
     cors: true,
