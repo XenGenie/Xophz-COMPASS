@@ -86,36 +86,23 @@ function getWatched(this: any) {
 
       if (vm.$route.path !== path) {
         vm.loading = true;
-        vm.$router.push({ path, hash }).then(() => {
+        vm.$router.push({ path }).then(() => {
           vm.loading = false;
         });
       }
     },
     $route(to) {
-      const pathMap = {
-        "/": 1,
-        "/compass": 1, // Handle base route
-        "/compass/explore": 2,
-        "/compass/dashboard": 3,
-      };
-      // Check if the current route matches one of our steps
-      // We check if the path *ends with* our expected paths to handle potential base URLs if needed,
-      // but strict matching is safer if we know the full structure.
-      // Based on the push above, it seems to be absolute paths.
-      // However, to be safe with sub-routes or query params, exact match usually best for this stepper.
+      const compassPaths = ["/", "/compass", "/compass/explore", "/compass/dashboard"];
+      const isCompassRoute = compassPaths.some(
+        (p) => to.path === p || to.path.startsWith("/compass/")
+      );
 
-      // Let's iterate to find match
-      let step = 1;
-      for (const [path, s] of Object.entries(pathMap)) {
-        if (to.path === path || to.path.endsWith(path)) {
-          // Simple check
-          step = s;
-          if (to.path === "/" && path === "/compass") continue; // Prefer / over /compass if both match? No, they map to same.
-          break;
-        }
+      if (!isCompassRoute && to.path !== "/") {
+        // Not a compass route, don't let the stepper interfere
+        return;
       }
 
-      // More specific check based on the 'path' object in stepper watcher
+      let step = 1;
       if (to.path === "/" || to.path === "/compass") step = 1;
       else if (to.path.includes("/explore")) step = 2;
       else if (to.path.includes("/dashboard")) step = 3;

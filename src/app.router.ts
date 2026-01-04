@@ -41,24 +41,34 @@ const lazyRouteConfigs = [
 
 // Create placeholder routes that load the real config on first access
 const createLazyRoutes = (): RouteRecordRaw[] => {
-  return lazyRouteConfigs.map(({ loader, path }) => ({
-    path,
-    component: () =>
-      import("@/components/organisms/layouts/x-compass-layout/x-compass-layout.organism.vue"),
-    beforeEnter: async (_to, _from, next) => {
-      try {
-        const routeModule = await loader();
-        const routeConfig = routeModule.default;
-        // Add the full route to the router
-        router.addRoute("app-root", routeConfig);
-        // Retry navigation with the now-registered route
-        next({ path: _to.fullPath, replace: true });
-      } catch (e) {
-        console.error(`Failed to load route ${path}:`, e);
-        next("/");
-      }
-    },
-  }));
+  return lazyRouteConfigs.map(({ loader, path }) => {
+    const name = `lazy-${path}`;
+    return {
+      path,
+      name,
+      component: () =>
+        import("@/components/organisms/layouts/x-compass-layout/x-compass-layout.organism.vue"),
+      beforeEnter: async (_to, _from, next) => {
+        try {
+          console.log(`[Router] Loading lazy route for ${path}...`);
+          const routeModule = await loader();
+          const routeConfig = routeModule.default;
+
+          // Remove this lazy placeholder before adding the real route
+          router.removeRoute(name);
+
+          // Add the full route to the router
+          router.addRoute("app-root", routeConfig);
+
+          // Retry navigation with the now-registered route
+          next({ ..._to, replace: true });
+        } catch (e) {
+          console.error(`Failed to load route ${path}:`, e);
+          next("/");
+        }
+      },
+    };
+  });
 };
 
 const router = createRouter({
@@ -80,12 +90,14 @@ const router = createRouter({
     },
   ],
   scrollBehavior(to: any) {
-    return to.hash
-      ? {
-          el: to.hash,
-          top: 98,
-        }
-      : { top: 0 };
+    if (to.hash) {
+      return {
+        el: to.hash,
+        top: 98,
+        behavior: "smooth",
+      };
+    }
+    return { top: 0, behavior: "smooth" };
   },
 });
 

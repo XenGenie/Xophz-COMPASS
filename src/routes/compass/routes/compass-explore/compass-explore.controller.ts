@@ -66,19 +66,19 @@ function getMethods(this: any) {
   return {
     goToPlugin(plugin: any) {
       if (!plugin || !plugin.TextDomain) return;
+      console.log(`[CompassExplore] Navigating to plugin: ${plugin.Name}`, plugin);
+      this.compassStore.setActivePlugin(plugin);
       this.$router.push({
         path: `/${plugin.TextDomain.replace("xophz-compass-", "")}`,
-        hash: "#v-main-billboard",
       });
     },
     getPluginRoute(plugin: any) {
       if (!plugin || !plugin.TextDomain) return {};
       return {
         path: `/${plugin.TextDomain.replace("xophz-compass-", "")}`,
-        hash: "#v-main-billboard",
       };
     },
-    togglePlugin(e: any, plugin: any) {
+    togglePlugin(plugin: any) {
       const vm = this;
       const action = plugin.isActivated ? "deactivate" : "activate";
       const toggle = `${action}Plugin`;
@@ -87,9 +87,9 @@ function getMethods(this: any) {
       vm.snack.gray = plugin.isActivated;
       vm.snack.img = plugin.icon;
 
-      vm[toggle](plugin).then(() => {
-        vm.loadPlugins();
-        vm.showSnackbar();
+      (vm as any)[toggle](plugin).then(() => {
+        (vm as any).loadPlugins();
+        (vm as any).showSnackbar();
       });
     },
     loadPlugins() {

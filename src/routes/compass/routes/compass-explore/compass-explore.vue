@@ -50,7 +50,7 @@
               size="small"
               :color="plugin.isActivated ? 'green' : ''"
               class="activate-btn"
-              @click="togglePlugin(this,plugin)"
+              @click="togglePlugin(plugin)"
             >
               <span v-if="plugin.isActivated">
                 Disable
@@ -100,11 +100,13 @@
                     fad fa-traffic-light-go
                   </v-icon>
                 </v-btn>
-                <h3 class="text-2xl mb-0">
-                  <router-link :to="getPluginRoute(plugin)" />
-                  <div class="text-xl font-bold">
+                <h3 class="text-xl mb-0">
+                  <router-link
+                    :to="getPluginRoute(plugin)"
+                    class="text-decoration-none text-white font-weight-bold"
+                  >
                     {{ plugin.Name }}
-                  </div>
+                  </router-link>
                 </h3>
                 <v-list-subheader class="justify-end">
                   {{ plugin.Version }}

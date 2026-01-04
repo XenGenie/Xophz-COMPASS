@@ -27,7 +27,7 @@
                 :prepend-icon="isWpMenuOpen ? 'fad fa-toggle-on' : 'fad fa-toggle-off'"
                 @click="wpmenu"
               >
-                <span class="d-none d-sm-inline">WP Menuss {{ wpSwitchLabel }}</span>
+                <span class="d-none d-sm-inline">WP Menu {{ wpSwitchLabel }}</span>
               </x-btn>
             </template>
             <span>Toggle Wordpress Menu</span>
