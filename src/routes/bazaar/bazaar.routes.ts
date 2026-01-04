@@ -1,17 +1,5 @@
 import type { RouteRecordRaw } from "vue-router";
 
-// const Sales = () => import(
-//   #<{(| webpackChunkName : "bazaar-sales" |)}>#
-//   './routes/bazaar-sales/bazaar-sales'
-// );
-
-import Sales from "./routes/bazaar-sales/bazaar-sales.vue";
-import MonthlySales from "./routes/bazaar-sales/bazaar-sales-monthly/bazaar-sales-monthly.vue";
-// const MonthlySales = () => import(
-//   #<{(| webpackChunkName : "bazaar-sales-monthly" |)}>#
-//   './routes/bazaar-sales/bazaar-sales-monthly/bazaar-sales-monthly'
-// );
-
 const Bazaar = () =>
   import(
     /* webpackChunkName: "bazaar" */
@@ -32,28 +20,44 @@ const Products = () =>
 
 const ProductsIndex = () =>
   import(
-    /* webpackChunkName : "bazaar-products-index" */
+    /* webpackChunkName: "bazaar-products-index" */
     "./routes/bazaar-products/index/index"
   );
+
 const ProductsGrid = () =>
   import(
-    /* webpackChunkName : "bazaar-products-grid" */
+    /* webpackChunkName: "bazaar-products-grid" */
     "./routes/bazaar-products/grid/grid"
   );
+
 const ProductsStats = () =>
   import(
-    /* webpackChunkName : "bazaar-products-stats" */
+    /* webpackChunkName: "bazaar-products-stats" */
     "./routes/bazaar-products/stats/stats"
   );
+
 const Orders = () =>
   import(
-    /* webpackChunkName : "bazaar-orders" */
+    /* webpackChunkName: "bazaar-orders" */
     "./routes/bazaar-orders/orders"
   );
+
 const OrdersIndex = () =>
   import(
-    /* webpackChunkName : "bazaar-orders-index" */
+    /* webpackChunkName: "bazaar-orders-index" */
     "./routes/bazaar-orders/index/index"
+  );
+
+const Sales = () =>
+  import(
+    /* webpackChunkName: "bazaar-sales" */
+    "./routes/bazaar-sales/bazaar-sales.vue"
+  );
+
+const MonthlySales = () =>
+  import(
+    /* webpackChunkName: "bazaar-sales-monthly" */
+    "./routes/bazaar-sales/bazaar-sales-monthly/bazaar-sales-monthly.vue"
   );
 
 export default {
@@ -106,11 +110,6 @@ export default {
           path: "/bazaar/orders/grid",
           component: ProductsGrid,
         },
-        // {
-        //   name : 'Sales Report',
-        //   path : '/bazaar/inventory/stats',
-        //   component : ProductsStats
-        // }
       ],
     },
     {
@@ -137,10 +136,5 @@ export default {
         },
       ],
     },
-    // {
-    //   name : 'Reporting Tools',
-    //   path : '/bazaar',
-    //   component : Dash
-    // }
   ],
 } as RouteRecordRaw;

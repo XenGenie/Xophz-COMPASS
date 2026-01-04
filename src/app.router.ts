@@ -1,78 +1,83 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHashHistory, type RouteRecordRaw } from "vue-router";
 
-// ADD ALL THE POSSIBLE routes HERE...
+// Helper to create lazy route loader
+const lazyRoute =
+  (path: string): (() => Promise<{ default: RouteRecordRaw }>) =>
+  () =>
+    import(`./routes/${path}/${path}.routes.ts`);
+
+// Only compass is loaded immediately since it's the default route
 import compass from "./routes/compass/compass.routes";
-import arrow from "./routes/silver-arrow/silver-arrow.routes";
-import bazaar from "./routes/bazaar/bazaar.routes";
-import bombBag from "./routes/bomb-bag/bomb-bag.routes";
-import boomerang from "./routes/gale-boomerang/gale-boomerang.routes";
-import boots from "./routes/pegasus-boots/pegasus-boots.routes";
-import bugnet from "./routes/bugnet/bugnet.routes";
-import castle from "./routes/moving-castle/moving-castle.routes";
-import cloak from "./routes/magic-cloak/magic-cloak.routes";
-import enchiridion from "./routes/enchiridion/enchiridion.routes";
-import eventHorizon from "./routes/event-horizon/event-horizon.routes";
-import hammer from "./routes/thors-hammer/thors-hammer.routes";
-import keys from "./routes/golden-keys/golden-keys.routes";
-import lamp from "./routes/lit-lamp/lit-lamp.routes";
-import magnet from "./routes/lead-magnet/lead-magnet.routes";
-import map from "./routes/treasure-map/treasure-map.routes";
-import mirror from "./routes/enchanted-mirror/enchanted-mirror.routes";
-import mitt from "./routes/titans-mitt/titans-mitt.routes";
-import nerd from "./routes/midnight-nerd/midnight-nerd.routes";
-import quests from "./routes/quests/quests.routes";
-import phantomZone from "./routes/phantom-zone/phantom-zone.routes";
-import pixieDust from "./routes/pixie-dust/pixie-dust.routes";
-import posts from "./routes/post-digger/post-digger.routes";
-import shield from "./routes/mirror-shield/mirror-shield.routes";
-import trove from "./routes/treasure-trove/treasure-trove.routes";
-import wand from "./routes/magic-wand/magic-wand.routes";
-import xp from "./routes/xp/xp.routes";
+
+// All other routes are dynamically imported when first accessed
+const lazyRouteConfigs = [
+  { loader: lazyRoute("silver-arrow"), path: "/silver-arrow" },
+  { loader: lazyRoute("bazaar"), path: "/bazaar" },
+  { loader: lazyRoute("bomb-bag"), path: "/bomb-bag" },
+  { loader: lazyRoute("gale-boomerang"), path: "/gale-boomerang" },
+  { loader: lazyRoute("pegasus-boots"), path: "/pegasus-boots" },
+  { loader: lazyRoute("bugnet"), path: "/bugnet" },
+  { loader: lazyRoute("moving-castle"), path: "/moving-castle" },
+  { loader: lazyRoute("magic-cloak"), path: "/magic-cloak" },
+  { loader: lazyRoute("enchiridion"), path: "/enchiridion" },
+  { loader: lazyRoute("event-horizon"), path: "/event-horizon" },
+  { loader: lazyRoute("thors-hammer"), path: "/thors-hammer" },
+  { loader: lazyRoute("golden-keys"), path: "/golden-keys" },
+  { loader: lazyRoute("lit-lamp"), path: "/lit-lamp" },
+  { loader: lazyRoute("lead-magnet"), path: "/lead-magnet" },
+  { loader: lazyRoute("treasure-map"), path: "/treasure-map" },
+  { loader: lazyRoute("enchanted-mirror"), path: "/enchanted-mirror" },
+  { loader: lazyRoute("titans-mitt"), path: "/titans-mitt" },
+  { loader: lazyRoute("midnight-nerd"), path: "/midnight-nerd" },
+  { loader: lazyRoute("quests"), path: "/quests" },
+  { loader: lazyRoute("phantom-zone"), path: "/phantom-zone" },
+  { loader: lazyRoute("pixie-dust"), path: "/pixie-dust" },
+  { loader: lazyRoute("post-digger"), path: "/post-digger" },
+  { loader: lazyRoute("mirror-shield"), path: "/mirror-shield" },
+  { loader: lazyRoute("treasure-trove"), path: "/treasure-trove" },
+  { loader: lazyRoute("magic-wand"), path: "/magic-wand" },
+  { loader: lazyRoute("xp"), path: "/xp" },
+];
+
+// Create placeholder routes that load the real config on first access
+const createLazyRoutes = (): RouteRecordRaw[] => {
+  return lazyRouteConfigs.map(({ loader, path }) => ({
+    path,
+    component: () =>
+      import("@/components/organisms/layouts/x-compass-layout/x-compass-layout.organism.vue"),
+    beforeEnter: async (_to, _from, next) => {
+      try {
+        const routeModule = await loader();
+        const routeConfig = routeModule.default;
+        // Add the full route to the router
+        router.addRoute("app-root", routeConfig);
+        // Retry navigation with the now-registered route
+        next({ path: _to.fullPath, replace: true });
+      } catch (e) {
+        console.error(`Failed to load route ${path}:`, e);
+        next("/");
+      }
+    },
+  }));
+};
 
 const router = createRouter({
   history: createWebHashHistory(),
-  // mode: 'history',
-  // base is not directly supported in the same way in v4 hash history, handled by browser usually.
-  // if base is needed for hash history, it's passed to createWebHashHistory(base)
-  // Assuming standard hash behavior for now.
   routes: [
     {
       path: "/",
-      component: () => import("@/components/templates/layouts/DefaultLayout.vue"),
+      name: "app-root",
+      component: () =>
+        import("@/components/organisms/layouts/x-compass-layout/x-compass-layout.organism.vue"),
       children: [
         compass,
-        arrow,
-        bazaar,
-        bombBag,
-        boomerang,
-        boots,
-        bugnet,
-        castle,
-        cloak,
-        enchiridion,
-        eventHorizon,
-        hammer,
-        keys,
-        lamp,
-        magnet,
-        mirror,
-        mitt,
-        nerd,
-        quests,
-        phantomZone,
-        pixieDust,
-        posts,
-        shield,
-        trove,
-        wand,
-        xp,
+        ...createLazyRoutes(),
         {
           path: "/xophz-compass",
           redirect: "/",
         },
       ],
     },
-    map,
   ],
   scrollBehavior(to: any) {
     return to.hash

@@ -4,53 +4,46 @@
     :id="$options.name"
     :class="$options.name"
   >
-    <v-sheet
-      class="mb-6 bg-transparent flex justify-center items-center py-4 rounded-xl border border-gray-800 bg-gray-900/50 backdrop-blur-sm"
-    >
-      <v-btn
-        :variant="stepper === 1 ? 'elevated' : 'text'"
-        color="primary"
-        class="mx-1 px-4"
-        rounded="lg"
-        size="small"
-        @click="stepper = 1"
+    <div class="d-flex justify-center mb-6">
+      <v-btn-toggle
+        v-model="stepper"
+        mandatory
+        rounded="xl"
+        class="bg-gray-900/50 backdrop-blur-sm border border-gray-800"
+        divided
+        data-test="compass-stepper"
       >
-        <span class="mr-2 opacity-50 font-bold">1</span>
-        Welcome
-      </v-btn>
-      <v-divider
-        vertical
-        inset
-        class="mx-4 border-gray-700"
-      />
-      <v-btn
-        :variant="stepper === 2 ? 'elevated' : 'text'"
-        color="primary"
-        class="mx-1 px-4"
-        rounded="lg"
-        size="small"
-        @click="stepper = 2"
-      >
-        <span class="mr-2 opacity-50 font-bold">2</span>
-        Navigate
-      </v-btn>
-      <v-divider
-        vertical
-        inset
-        class="mx-4 border-gray-700"
-      />
-      <v-btn
-        :variant="stepper === 3 ? 'elevated' : 'text'"
-        color="primary"
-        class="mx-1 px-4"
-        rounded="lg"
-        size="small"
-        @click="stepper = 3"
-      >
-        <span class="mr-2 opacity-50 font-bold">3</span>
-        Explore
-      </v-btn>
-    </v-sheet>
+        <v-btn
+          :value="1"
+          class="px-6"
+          :variant="stepper === 1 ? 'elevated' : 'text'"
+          color="primary"
+        >
+          <span class="mr-2 opacity-50 font-bold">1</span>
+          Welcome
+        </v-btn>
+
+        <v-btn
+          :value="2"
+          class="px-6"
+          :variant="stepper === 2 ? 'elevated' : 'text'"
+          color="primary"
+        >
+          <span class="mr-2 opacity-50 font-bold">2</span>
+          Navigate
+        </v-btn>
+
+        <v-btn
+          :value="3"
+          class="px-6"
+          :variant="stepper === 3 ? 'elevated' : 'text'"
+          color="primary"
+        >
+          <span class="mr-2 opacity-50 font-bold">3</span>
+          Explore
+        </v-btn>
+      </v-btn-toggle>
+    </div>
 
     <router-view v-slot="{ Component }">
       <transition

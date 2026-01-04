@@ -1,5 +1,4 @@
-@use "../../styles/mixins";
-@use "../../styles/variables" as *;
+// Variables and mixins are auto-injected by Vite
 
 body.wp-responsive-open {
   .v-navigation-drawer--close {
@@ -16,18 +15,11 @@ body.wp-responsive-open {
   }
   z-index: 1;
   transition-property: transform, width, -webkit-transform, opacity !important ;
-  // top: $toolbar-height;
   opacity: 1;
   .v-list {
-    position: -webkit-sticky; /* Safari */
+    position: -webkit-sticky;
     position: sticky;
   }
-  // .v-footer{
-  //   position: -webkit-sticky;
-  //   position: sticky;
-  //   z-index: 999;
-  //   top: 96vh;
-  // }
   .mini-avatar {
     justify-content: center !important;
   }
@@ -44,7 +36,7 @@ body.wp-responsive-open {
 .main-nav {
   top: $sm-toolbar-height + $breadcrumb-height !important;
   z-index: 6 !important;
-  @include mixins.desktop {
+  @include desktop {
     top: $toolbar-height + $breadcrumb-height !important;
   }
 }

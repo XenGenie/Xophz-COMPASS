@@ -1,4 +1,4 @@
-@use "../../styles/mixins";
+// Variables and mixins are auto-injected by Vite
 
 .billboard {
   .v-card {
@@ -15,7 +15,7 @@
     .mini-billboard {
       width: 100%;
       text-align: center;
-      @include mixins.phone {
+      @include phone {
         opacity: 0;
       }
     }
@@ -28,33 +28,26 @@
     .user-avatar {
       max-width: 100%;
       overflow: hidden;
-      @include mixins.phone {
+      @include phone {
         height: 100%;
         max-height: 25vh;
         margin-left: -100%;
         margin-right: 5rem;
         max-width: none;
       }
-      @include mixins.tablet {
-        // margin-left: -50px;
-        // margin-top: -25px;
-        // margin: 2%;
+      @include tablet {
         max-width: 80%;
-        // width: 100%;
         margin-left: -80%;
         max-height: 22vh;
       }
-      @include mixins.desktop {
-        // margin-left: -50px;
-        // margin-top: -25px;
-        // margin: 2%;
+      @include desktop {
         max-width: 80%;
         max-height: none;
         max-height: none;
         position: absolute;
         width: 200px;
       }
-      @include mixins.fk {
+      @include fk {
         height: 35vh;
         left: -3rem;
         position: absolute;
@@ -66,26 +59,19 @@
       overflow: hidden;
     }
     .billboard-img {
-      @include mixins.phone {
+      @include phone {
         height: 100%;
         max-height: 25vh;
         margin-left: -100%;
         margin-right: 5rem;
         max-width: none;
       }
-      @include mixins.tablet {
-        // margin-left: -50px;
-        // margin-top: -25px;
-        // margin: 2%;
+      @include tablet {
         max-width: 80%;
-        // width: 100%;
         margin-left: -80%;
         max-height: 22vh;
       }
-      @include mixins.desktop {
-        // margin-left: -50px;
-        // margin-top: -25px;
-        // margin: 2%;
+      @include desktop {
         max-width: 80%;
         max-height: none;
         max-width: 100%;
@@ -96,7 +82,7 @@
         top: 5%;
         left: -7vh;
       }
-      @include mixins.fk {
+      @include fk {
         height: 35vh;
         left: -3rem;
         position: absolute;
@@ -104,13 +90,10 @@
       }
     }
     .breadcrumb {
-      // margin-left: calc(1rem + 1px);
-      // margin-bottom: 0;
       li {
         margin: 0;
       }
     }
-    // max-height: 215px;
   }
   .routes {
     z-index: 1;
@@ -119,13 +102,6 @@
       width: 20px;
     }
   }
-
-  // .bg-addition {
-  //   bottom: 15px;
-  //   width: 100%;
-  //   position: absolute;
-  //   background-color: hsla(0,0%,20%,.21)!important;
-  // }
 }
 
 .breadcrumbs {

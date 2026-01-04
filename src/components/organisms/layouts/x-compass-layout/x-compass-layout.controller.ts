@@ -1,5 +1,4 @@
 import { defineComponent } from "vue";
-import navDrawer from "@/components/routes-navigation-drawer/routes-navigation-drawer.vue";
 import userAvatarBtn from "@/components/user-avatar-btn/user-avatar-btn.vue";
 import xSystemBarMolecule from "@/components/molecules/bars/x-system-bar/x-system-bar.molecule.vue";
 import xAppBarMolecule from "@/components/molecules/bars/x-app-bar/x-app-bar.molecule.vue";
@@ -21,7 +20,13 @@ export default defineComponent({
   },
   methods: getMethods(),
   mixins: [navigationMixin as any],
-  components: { navDrawer, userAvatarBtn, xSystemBarMolecule, xAppBarMolecule, xApplicationLayoutTemplate, trinityRingsSpinner },
+  components: {
+    userAvatarBtn,
+    xSystemBarMolecule,
+    xAppBarMolecule,
+    xApplicationLayoutTemplate,
+    trinityRingsSpinner,
+  },
 });
 
 function data() {

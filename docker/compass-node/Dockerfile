@@ -19,9 +19,8 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 # Install dependencies using pnpm with frozen lockfile for reproducibility
 RUN pnpm install --frozen-lockfile
 
-# Copy start script
-COPY ./docker/compass-node/start.sh /usr/local/bin/start.sh
-RUN chmod +x /usr/local/bin/start.sh
+# Copy start script and make it executable
+COPY --chmod=0755 ./docker/compass-node/start.sh /usr/local/bin/start.sh
 
 # The entrypoint will be the start script
 ENTRYPOINT ["/usr/local/bin/start.sh"]
