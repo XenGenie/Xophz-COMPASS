@@ -8,5 +8,4 @@
   </v-app>
 </template>
 <script lang="ts" src="./index.controller.ts"></script>
-<style src="./styles/theme.scss" lang="scss" />
-<style lang="scss" src="./_index.scss" />
+<style lang="scss" src="./styles/app.scss"></style>

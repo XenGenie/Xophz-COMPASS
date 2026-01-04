@@ -1,8 +1,24 @@
 import type { RouteRecordRaw } from "vue-router";
-import compass from "./compass.vue";
-import compassWelcome from "./routes/compass-welcome/compass-welcome.vue";
-import compassExplore from "./routes/compass-explore/compass-explore.vue";
-import compassDashboard from "./routes/compass-dashboard/compass-dashboard.vue";
+
+const compass = () => import(/* webpackChunkName: "compass" */ "./compass.vue");
+
+const compassWelcome = () =>
+  import(
+    /* webpackChunkName: "compass-welcome" */
+    "./routes/compass-welcome/compass-welcome.vue"
+  );
+
+const compassExplore = () =>
+  import(
+    /* webpackChunkName: "compass-explore" */
+    "./routes/compass-explore/compass-explore.vue"
+  );
+
+const compassDashboard = () =>
+  import(
+    /* webpackChunkName: "compass-dashboard" */
+    "./routes/compass-dashboard/compass-dashboard.vue"
+  );
 
 export default {
   path: "/",

@@ -5,7 +5,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  plugins: [vue(), vuetify()],
+  plugins: [vue(), vuetify({ autoImport: true })],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -40,10 +40,13 @@ export default defineConfig(({ mode }) => ({
     host: "0.0.0.0",
     strictPort: true,
     hmr: {
-      clientPort: 8080,
+      host: "localhost",
+      protocol: "ws",
+      port: 8080,
     },
     watch: {
-      usePolling: true,
+      ignored: ["**/node_modules/**", "**/.git/**", "**/dist/**", "**/.pnpm-store/**"],
+      followSymlinks: false,
     },
     // Enable CORS so WordPress can load assets from the dev server
     cors: true,
@@ -52,12 +55,38 @@ export default defineConfig(({ mode }) => ({
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Private-Network": "true",
     },
-    // No proxy needed - WordPress loads assets from this server directly
-    // Access WordPress at http://localhost/ (port 80)
-    // Vite serves assets at http://localhost:8080/
+    warmup: {
+      clientFiles: [
+        "./src/app.ts",
+        "./src/index.vue",
+        "./src/plugins/vuetify.ts",
+        "./src/plugins/api.ts",
+        "./src/app.router.ts",
+        "./src/routes/compass/store/index.ts",
+      ],
+    },
+  },
+  optimizeDeps: {
+    include: [
+      "vue",
+      "vue-router",
+      "pinia",
+      "vuetify",
+      "vuetify/components/VApp",
+      "vuetify/iconsets/fa",
+      "lodash",
+      "axios",
+      "nprogress",
+    ],
   },
   css: {
-    devSourcemap: true,
+    devSourcemap: false,
+    preprocessorOptions: {
+      scss: {
+        api: "modern-compiler",
+        silenceDeprecations: ["import"],
+      },
+    },
   },
   define: {
     __VUE_OPTIONS_API__: true,

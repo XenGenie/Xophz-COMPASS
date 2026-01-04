@@ -1,5 +1,5 @@
-@use "mixins" as *;
-@use "variables" as *;
+@use "./variables" as *;
+@use "./mixins" as *;
 
 .page-title {
   margin: 0 0 calc(1rem + 6px);

@@ -23,8 +23,15 @@ services:
     depends_on:
       - mysql
     volumes:
-      - ./:/var/www/html
-      - node_modules:/var/www/html/node_modules
+      # Use `:delegated` for improved performance on macOS and Windows.
+      # The container's view of the filesystem is authoritative.
+      - ./:/var/www/html:delegated
+      # Optional: Cache pnpm store for much faster installs
+      - ~/.pnpm-store:/root/.local/share/pnpm/store
+      - /var/www/html/node_modules
+    environment:
+      # Increase memory limit to 4GB to prevent container stuttering
+      - NODE_OPTIONS=--max-old-space-size=4096
     ports:
       - "8080:8080"
     networks:
@@ -62,4 +69,3 @@ services:
 
 volumes:
   db_data: {}
-  node_modules:
